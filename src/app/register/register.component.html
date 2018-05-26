@@ -1,0 +1,67 @@
+<app-nav-home></app-nav-home>
+<div class="inner_page_about">
+</div>
+<section class="contact py-5" id="contact">
+	<div class="container py-3 py-md-3">
+			<div class="w3-head-all text-center mb-3">
+			<h3>CREATE NEW ACCOUNT</h3>
+		   </div>
+		<div class="contact-grids row">
+			<div class=" col-lg-6 contact-form">
+				<div>
+						<input type="text" placeholder="FULL NAME" [(ngModel)]="name" required=""/>
+						<input type="text" placeholder="SURNAME"  [(ngModel)]="surname" required=""/>
+						<input type="email" placeholder="EMAIL ADDRESS"  [(ngModel)]="email" required=""/>
+						<input type="text" placeholder="CONTACT NUMBER"  [(ngModel)]="cell" required=""/>
+						<select name="" id=""  [(ngModel)]="country">
+								<option>Select County</option>
+
+							<option selected="selected">SOUTH AFRICA</option>
+							<option > AFRICA</option>
+						</select>
+						<input type="text" placeholder="ADDRESS"   [(ngModel)]="address"  required=""/>
+						
+					</div>
+			</div>
+			<div class=" col-lg-6 contact-form">
+					<div >
+						<select name=""  [(ngModel)]="bankname" id="">
+								<option >Select Bank</option>
+								<option >Capitec Bank</option>
+								<option >First National Bank</option>
+								<option >Nedbank Limited</option>
+							<option >Absa</option>
+							<option > African Bank Limited</option>
+							<option >Bidvest Bank Limited</option>
+							<option >Imperial Bank South Africa</option>
+							<option >Investec Bank Limited</option>
+							<option >Sasfin Bank Limited</option>
+
+						</select>
+							<input type="text" placeholder="ACCOUNT NUMBER"  [(ngModel)]="accountnumber" required=""/>
+							<input type="text" placeholder="BRANCH CODE"  [(ngModel)]="branch" required=""/>
+
+							<select name=""  [(ngModel)]="accountType" id="">
+								<option >Select Account type</option>
+								<option >Savings</option>
+								<option >Cheque</option>
+							
+						</select>
+
+							<input type="password" placeholder="PASSWORD"  [(ngModel)]="passwordConfirm" required=""/>
+							<input type="password" placeholder="CONFIRM PASSWORD"  [(ngModel)]="password" required=""/>
+						
+							<div class="submit1">
+								<input type="submit" (click)="Join()" value="REGISTER">
+							</div>
+
+							<div>
+								<h4 class="message"> {{message}}</h4>
+							</div>
+						</div>
+				</div>
+		</div>
+	</div>
+</section>
+
+

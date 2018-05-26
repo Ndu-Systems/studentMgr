@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My Collage</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script type="application/x-javascript">
+	addEventListener("load", function () {
+		setTimeout(hideURLbar, 0);
+	}, false);
+
+	function hideURLbar() {
+		window.scrollTo(0, 1);
+	}
+</script>
+<link rel="stylesheet" href="assets/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+<link href="assets/css/style.css" rel='stylesheet' type='text/css' />
+<!-- FlexSlider css -->
+	<link rel="stylesheet" href="assets/css/flexslider.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="assets/css/side/style.css" type="text/css" media="screen" />
+<!-- //FlexSlider css -->
+
+<link href="assets/css/fontawesome-all.css" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+  <footer>
+<!-- Flex slider-script -->
+<script type="text/javascript" src="assets/js/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.js"></script> 
+<script defer src="assets/js/jquery.flexslider.js"></script>
+<script type="text/javascript">
+
+$(window).load(function(){
+  $('.flexslider').flexslider({
+  animation: "slide",
+  start: function(slider){
+    $('body').removeClass('loading');
+  }
+  });
+});
+</script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+<!-- //Flex slider-script -->
+  </footer>
+</body>
+</html>
