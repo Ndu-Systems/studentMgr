@@ -1,0 +1,8 @@
+.panel-default{
+    
+    height: 410px;
+    overflow-y: scroll;
+    width: 100%;
+    /* background-color: white; */
+
+}

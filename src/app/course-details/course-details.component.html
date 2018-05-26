@@ -1,61 +1,80 @@
-
 <div class="wrapper">
-    <!-- Sidebar Holder -->
-    <nav id="sidebar">
-        <app-nav-user></app-nav-user>
-  
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-nav-user></app-nav-user>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+    <nav class="navbar navbar-default" style="background: #CCAC00;">
+      <div class="container-fluid">
+
+        <div class="navbar-header" style="background: #CCAC00;">
+          <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+            <i class="glyphicon glyphicon-align-left"></i>
+            <span>
+              <i class="fa fa-bars"></i>
+            </span>
+          </button>
+        </div>
+      </div>
     </nav>
-  
-    <!-- Page Content Holder -->
-    <div id="content">
-  
-        <nav class="navbar navbar-default"  style="background: #CCAC00;">
-            <div class="container-fluid">
-  
-                <div class="navbar-header" style="background: #CCAC00;">
-                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                        <i class="glyphicon glyphicon-align-left"></i>
-                        <span>
-                          <i class="fa fa-bars"></i>
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </nav>
-  
-        <h2>All Courses</h2> <br>
-          <div class="row">
-           
-            <div class="col-sm-12">
-              <table class="table table-condensed">
-                <thead>
-                  <tr>
-                    <th>TITTLE</th>
-                    <th>DESCRIPTION</th>
-                    <th>DEPARTMENT</th>
-                    <th>CREDITS</th>
-                    <th>STATUS</th>
-                    <th>ACTIONS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let course of courses">
-                    <td>{{course.tittle}}</td>
-                    <td>{{course.description}}</td>
-                    <td>{{course.department}}</td>
-                    <td>{{course.credits}}</td>
-                    <td>{{course.status}}</td>
-                    <td>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <h2>{{courseObject.tittle}} </h2>
+        <br> Tittle: {{courseObject.tittle}}
+        <br>
+        <br> Description:{{courseObject.description}}
+        <br>
+        <br> Department:{{courseObject.department}}
+        <br>
+        <br> Credits:{{courseObject.credits}}
+        <br>
+        <br> Status:{{courseObject.status}}
+        <br>
+        <br>
+      </div>
+      <div class="col-md-8">
+        <h2>{{courseObject.tittle}} - Subjects </h2>
+        <br>    
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>TITTLE</th>
+                      <th>CODE</th>
+                      <th>DESCRIPTION</th>
+                      <th>CREDITS</th>
+                      <th>STATUS</th>
+                      <th>ACTIONS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let subject of subjects">
+                      <td>{{subject.tittle}}</td>
+                      <td>{{subject.code}}</td>
+                      <td>{{subject.description}}</td>
+                      <td>{{subject.credits}}</td>
+                      <td>{{subject.status}}</td>
+                      <td>
                         <button type="button" (click)="Details(course)" class="btn btn-info">More</button>
+                      </td>
 
-                    </td>
-                  
-                  </tr>
-                  
-                </tbody>
-              </table>
-          </div>
-       </div>
-  </div>
+                    </tr>
 
-  
+                  </tbody>
+                </table>
+              </div>        
+
+        </div>
+        <div class="row">
+          <app-course-subject></app-course-subject>
+        </div>
+
+      </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="row">
+ 
+     <br>
+         <div class="form-group">
+          <h2 for="email"><b> Add Subject to Course</b>:</h2>
+          <select type="text" [(ngModel)]="subject"   class="form-control" style="width: 100%;">
+              <option *ngFor="let subject of subjects" [value]="subject.id">{{subject.tittle}}</option>
+            </select>
+        </div>         
+        <div class="form-group">
+          <button type="button" (click)="Save(subject)" class="btn btn-info">SAVE</button>
+        </div>
+        <div>
+          <p class="error">{{error}}</p>       
+       
+  </div>
+</div>

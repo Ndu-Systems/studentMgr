@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { SelectService } from "../shared/select.service";
 import { Router } from "@angular/router";
+import { CourseDetailsService } from "../course-details/course-details.service";
 
 @Component({
   selector: "app-all-courses",
@@ -8,7 +9,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./all-courses.component.css"]
 })
 export class AllCoursesComponent implements OnInit {
-  constructor(private selectService: SelectService, private router:Router) {}
+  constructor(private selectService: SelectService, private router:Router, private courseDetailsService:CourseDetailsService) {}
   courses: any[];
   ngOnInit() {
     this.getDepartments();
@@ -19,7 +20,9 @@ export class AllCoursesComponent implements OnInit {
     });
   }
   Details(course) {
-    this.router.navigate(['/course', course.id]);
+    this.courseDetailsService.saveCourse(course);
+
+  this.router.navigate(['/course', course.id]);
 
   }
 }
