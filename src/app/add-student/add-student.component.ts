@@ -41,16 +41,16 @@ export class AddStudentComponent implements OnInit {
     this.addService.add(data, 'student/add')
       .subscribe((response) => {
         this.studentId = response;
-        if (this.studentId>0) {          
-          let data2 =
-          {
-            courseId: data.courseId,
-            studentId : this.studentId
-          };
-          this.addService.add(data2,'student_course/add').subscribe((response)=>{
-               alert(response);
-          });
-        }
+          if (this.studentId>0) {          
+            let data2 =
+            {
+              courseId: data.courseId,
+              studentId : this.studentId
+            };
+            this.addService.add(data2,'student_course/add').subscribe((response)=>{
+                alert(response);
+            });
+          }
       });
   }
   getCourses(){

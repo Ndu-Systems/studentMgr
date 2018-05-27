@@ -1,5 +1,8 @@
+import { SelectService } from './../shared/select.service';
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student-list/student.service';
+import { ActivatedRoute } from '@angular/router';
+import { StudentCourseSubjectService } from './student-course-subject.service';
 
 @Component({
   selector: 'app-student-course-subject',
@@ -9,10 +12,32 @@ import { StudentService } from '../student-list/student.service';
 export class StudentCourseSubjectComponent implements OnInit {
   courseObject:any;
   student:any;
-  constructor( private studentService:StudentService) { }
+  studentID: number;
+  subjects: any[];
+  subject: any
+  constructor( 
+    private studentService:StudentService,
+    private selectService: SelectService,
+    private studentCourseSubjectService: StudentCourseSubjectService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-this.student= this.studentService.getStudent();
+    this.studentID = parseInt(this.route.snapshot.paramMap.get("id"));
+    debugger  
+    this.student= this.studentService.getStudent();
+     this.getCourse(this.studentID);
+     this.getSubjects(this.studentID);
   }
-
+  getCourse(studentId: number){   
+    this.studentCourseSubjectService.select(studentId).subscribe(response => {   
+        this.courseObject = response[0];   
+    });
+  }
+  getSubjects(studentId: number){
+    debugger
+    this.studentCourseSubjectService.selectSubject(studentId).subscribe(response => {       
+    debugger
+      this.subjects = response;   
+    });
+  }
 }

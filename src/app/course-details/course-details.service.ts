@@ -10,7 +10,7 @@ export class CourseDetailsService {
     courseObject:any;
     constructor(private http:HttpClient) { }
     select(courseID):Observable<any>{
-    return this.http.get<any>(`${this.url}/course_subject/select.php?courseID=${courseID}`);
+        return this.http.get<any>(`${this.url}/course_subject/select.php?courseID=${courseID}`);
     }
 saveCourse(course){
     this.courseObject = course;

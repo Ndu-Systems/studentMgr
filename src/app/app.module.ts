@@ -17,6 +17,7 @@ import { AddService } from './shared/services/add.service';
 import { StudentListComponent } from './student-list/student-list.component';
 import { SelectService } from './shared/select.service';
 import { StudentService } from './student-list/student.service';
+import { StudentCourseSubjectService } from './student-course-subject/student-course-subject.service';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { StudentService } from './student-list/student.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService,LoginService,EmailService, UserDataService,ResetUserService,AddService,SelectService,StudentService,CourseDetailsService],
+  providers: [RegisterService,LoginService,EmailService, UserDataService,ResetUserService,AddService,SelectService,StudentService,CourseDetailsService,StudentCourseSubjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
