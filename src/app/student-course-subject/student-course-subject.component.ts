@@ -31,13 +31,15 @@ export class StudentCourseSubjectComponent implements OnInit {
   getCourse(studentId: number){   
     this.studentCourseSubjectService.select(studentId).subscribe(response => {   
         this.courseObject = response[0];   
+        if(!this.courseObject){
+          this.courseObject = false;
+        }
     });
   }
   getSubjects(studentId: number){
     debugger
     this.studentCourseSubjectService.selectSubject(studentId).subscribe(response => {       
-    debugger
-      this.subjects = response;   
+      this.subjects = response;      
     });
   }
 }

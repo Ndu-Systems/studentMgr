@@ -53,7 +53,7 @@
           </div>
           <div class="col-sm-6">
             <h2>Course Information</h2>
-            <table>
+            <table  *ngIf="(courseObject)">
                 <tr>
                   <td><b>Course:</b></td>
                   <td>{{courseObject.tittle}}</td>
@@ -71,6 +71,9 @@
                         <td>{{courseObject.status}}</td>
                        </tr>
             </table>
+            <div  *ngIf="(!courseObject)">
+                <h3>No Course allocated</h3>
+            </div>
           </div>
         </div>
     <div class="row">     
@@ -79,7 +82,7 @@
         <br>    
             <div class="panel panel-default">
               <div class="panel-heading">
-                <table class="table">
+                <table class="table" *ngIf="(subjects.length > 0)">
                   <thead>
                     <tr>
                       <th>TITLE</th>
@@ -99,6 +102,9 @@
                     </tr>
                   </tbody>
                 </table>
+                <div *ngIf="(!subjects.length > 0)">
+                  <h3>No Subjects allocated</h3>
+                </div>
             </div>    
         </div> 
       </div>
