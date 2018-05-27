@@ -1,4 +1,3 @@
-import { CourseSubjectService } from './course-subject/course-subject.service';
 import { CourseDetailsService } from './course-details/course-details.service';
 import { UserDataService } from './shared/services/user-data.service';
 import { EmailService } from './shared/services/email.service';
@@ -17,7 +16,6 @@ import { NavUserComponent } from './nav-user/nav-user.component';
 import { AddService } from './shared/services/add.service';
 import { StudentListComponent } from './student-list/student-list.component';
 import { SelectService } from './shared/select.service';
-import { CourseSubjectComponent } from './course-subject/course-subject.component';
 
 
 @NgModule({
@@ -25,7 +23,6 @@ import { CourseSubjectComponent } from './course-subject/course-subject.componen
     AppComponent,routingComponents,
     NavUserComponent,
     StudentListComponent,
-    CourseSubjectComponent
 ],
   imports: [
     BrowserModule,
@@ -33,7 +30,7 @@ import { CourseSubjectComponent } from './course-subject/course-subject.componen
     FormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService,LoginService,EmailService, UserDataService,ResetUserService,AddService,SelectService,CourseDetailsService,CourseSubjectService],
+  providers: [RegisterService,LoginService,EmailService, UserDataService,ResetUserService,AddService,SelectService,CourseDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

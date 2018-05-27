@@ -1,3 +1,58 @@
-<p>
-  student-list works!
-</p>
+
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <app-nav-user></app-nav-user>
+  
+    </nav>
+  
+    <!-- Page Content Holder -->
+    <div id="content">
+  
+        <nav class="navbar navbar-default"  style="background: #CCAC00;">
+            <div class="container-fluid">
+  
+                <div class="navbar-header" style="background: #CCAC00;">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                        <i class="glyphicon glyphicon-align-left"></i>
+                        <span>
+                          <i class="fa fa-bars"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+  
+        <h2>All Stdents</h2> <br>
+          <div class="row">
+           
+            <div class="col-sm-12">
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                    <th>NAME</th>
+                    <th>SURNAME</th>
+                    <th>STUDENT NUMBER</th>
+                  
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let student of students">
+                    <td>{{student.name}}</td>
+                    <td>{{student.surname}}</td>
+                    <td>{{student.studentNo}}</td>
+                    <td>
+                        <button type="button" (click)="Details(course)" class="btn btn-info">More</button>
+
+                    </td>
+                  
+                  </tr>
+                  
+                </tbody>
+              </table>
+          </div>
+       </div>
+  </div>
+
+  
