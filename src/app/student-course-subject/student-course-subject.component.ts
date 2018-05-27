@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseDetailsService } from '../course-details/course-details.service';
+import { StudentService } from '../student-list/student.service';
 
 @Component({
   selector: 'app-student-course-subject',
@@ -8,11 +8,11 @@ import { CourseDetailsService } from '../course-details/course-details.service';
 })
 export class StudentCourseSubjectComponent implements OnInit {
   courseObject:any;
-  constructor(private courseDetailsService:CourseDetailsService) { }
+  student:any;
+  constructor( private studentService:StudentService) { }
 
   ngOnInit() {
-    this.courseObject=this.courseDetailsService.getCourse();
-
+this.student= this.studentService.getStudent();
   }
 
 }

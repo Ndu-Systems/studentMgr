@@ -16,6 +16,7 @@ import { NavUserComponent } from './nav-user/nav-user.component';
 import { AddService } from './shared/services/add.service';
 import { StudentListComponent } from './student-list/student-list.component';
 import { SelectService } from './shared/select.service';
+import { StudentService } from './student-list/student.service';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { SelectService } from './shared/select.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService,LoginService,EmailService, UserDataService,ResetUserService,AddService,SelectService,CourseDetailsService],
+  providers: [RegisterService,LoginService,EmailService, UserDataService,ResetUserService,AddService,SelectService,StudentService,CourseDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
