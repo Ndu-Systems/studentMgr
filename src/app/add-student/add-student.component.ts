@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AddService } from '../shared/services/add.service';
 import { SelectService } from '../shared/select.service';
+import { StudentService } from '../student-list/student.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-student',
@@ -21,7 +23,7 @@ export class AddStudentComponent implements OnInit {
   courses : any [];
   studentId : number;
   course: any;
-  constructor(private addService:AddService, private selectService:SelectService) { }
+  constructor(private addService:AddService, private selectService:SelectService, private studentService:StudentService, private router:Router) { }
 
   ngOnInit() {
     this.getCourses();
@@ -48,7 +50,11 @@ export class AddStudentComponent implements OnInit {
             studentId : this.studentId
           };
           this.addService.add(data2,'student_course/add').subscribe((response)=>{
-               alert(response);
+            let userData = data;
+            userData["studentId"] = data2.studentId;
+              this.studentService.saveStudent(userData);
+              this.router.navigate(['/add-subject-for-student']);
+
           });
         }
       });

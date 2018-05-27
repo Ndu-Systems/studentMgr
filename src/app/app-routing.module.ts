@@ -1,3 +1,4 @@
+import { AddSubjectForStudentComponent } from './add-subject-for-student/add-subject-for-student.component';
 import { StudentCourseSubjectComponent } from './student-course-subject/student-course-subject.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { AllSubjectsComponent } from "./all-subjects/all-subjects.component";
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: "all-courses", component: AllCoursesComponent },
   { path: "all-subjects", component: AllSubjectsComponent },
   { path: "student-course-subject", component: StudentCourseSubjectComponent },
+  { path: "add-subject-for-student", component: AddSubjectForStudentComponent },
   { path: "course/:id", component: CourseDetailsComponent },
 
   { path: "**", component: HomePageComponent }
@@ -54,7 +56,8 @@ export const routingComponents = [
   AddStudentComponent,
   AddDepartmentComponent,
   CourseDetailsComponent,
-  StudentCourseSubjectComponent
+  StudentCourseSubjectComponent,
+  AddSubjectForStudentComponent
 ];
 
 @NgModule({

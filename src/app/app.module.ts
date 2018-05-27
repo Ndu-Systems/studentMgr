@@ -17,13 +17,14 @@ import { AddService } from './shared/services/add.service';
 import { StudentListComponent } from './student-list/student-list.component';
 import { SelectService } from './shared/select.service';
 import { StudentService } from './student-list/student.service';
+import { AddSubjectForStudentService } from './add-subject-for-student/add-subject-for-student.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,routingComponents,
     NavUserComponent,
-    StudentListComponent,
+    StudentListComponent
 ],
   imports: [
     BrowserModule,
@@ -31,7 +32,7 @@ import { StudentService } from './student-list/student.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService,LoginService,EmailService, UserDataService,ResetUserService,AddService,SelectService,StudentService,CourseDetailsService],
+  providers: [RegisterService,LoginService,EmailService,AddSubjectForStudentService, UserDataService,ResetUserService,AddService,SelectService,StudentService,CourseDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
