@@ -18,6 +18,7 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { SelectService } from './shared/select.service';
 import { StudentService } from './student-list/student.service';
 import { AddSubjectForStudentService } from './add-subject-for-student/add-subject-for-student.service';
+import { StudentCourseSubjectService } from './student-course-subject/student-course-subject.service';
 
 
 @NgModule({

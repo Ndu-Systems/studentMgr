@@ -22,65 +22,74 @@
       </div>
     </nav>
     <div class="row student-details">
-      <div class="col-sm-12">
-          <h2>{{student.name}} Details</h2>
-          <table>
-            <tr>
+        <div class="col-sm-6">
+            <h2>{{student.name}} Details</h2>
+            <table>
+              <tr>
+                  <td>
+                  <b>Name:</b>
+                    </td>
                 <td>
-                 <b>Name:</b>
-                  </td>
-              <td>
-             {{  student.name}}
-              </td>
-            </tr>
-            <tr>
+              {{  student.name}}
+                </td>
+              </tr>
+              <tr>
+                  <td>
+                  <b>Surname:</b>
+                    </td>
                 <td>
-                 <b>Surname:</b>
-                  </td>
-              <td>
-              {{ student.surname}}
-              </td>
-            </tr>
-            <tr>
+                {{ student.surname}}
+                </td>
+              </tr>
+              <!-- <tr>
+                  <td>
+                  <b>Student No:</b>
+                    </td>
                 <td>
-                 <b>Student No:</b>
-                  </td>
-              <td>
-             {{  student.studentNo}}
-              </td>
-            </tr>
-          </table>
+              {{student.studentNo}}
+                </td>
+              </tr> -->
+            </table>
+          </div>
+          <div class="col-sm-6">
+            <h2>Course Information</h2>
+            <table  *ngIf="(courseObject)">
+                <tr>
+                  <td><b>Course:</b></td>
+                  <td>{{courseObject.tittle}}</td>
+                </tr>
+                <tr>
+                   <td><b>Department:</b></td>
+                   <td>{{courseObject.department}}</td>
+                  </tr>
+                  <tr>
+                      <td><b>Credits:</b></td>
+                      <td>{{courseObject.credits}}</td>
+                     </tr>
+                     <tr>
+                        <td><b>Status:</b></td>
+                        <td>{{courseObject.status}}</td>
+                       </tr>
+            </table>
+            <div  *ngIf="(!courseObject)">
+                <h3>No Course allocated</h3>
+            </div>
+          </div>
         </div>
-        </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <h2>{{courseObject.tittle}} </h2>
-        <br> Tittle: {{courseObject.tittle}}
-        <br>
-        <br> Description:{{courseObject.description}}
-        <br>
-        <br> Department:{{courseObject.department}}
-        <br>
-        <br> Credits:{{courseObject.credits}}
-        <br>
-        <br> Status:{{courseObject.status}}
-        <br>
-        <br>
-      </div>
-      <div class="col-md-8">
+    <div class="row">     
+    <div class="col-md-12">
         <h2>{{courseObject.tittle}} - Subjects </h2>
         <br>    
             <div class="panel panel-default">
               <div class="panel-heading">
-                <table class="table">
+                <table class="table" *ngIf="(subjects.length > 0)">
                   <thead>
                     <tr>
-                      <th>TITTLE</th>
+                      <th>TITLE</th>
                       <th>CODE</th>
                       <th>DESCRIPTION</th>
                       <th>CREDITS</th>
-                      <th>STATUS</th>
-                      <th>ACTIONS</th>
+                      <th>STATUS</th>              
                     </tr>
                   </thead>
                   <tbody>
@@ -89,34 +98,15 @@
                       <td>{{subject.code}}</td>
                       <td>{{subject.description}}</td>
                       <td>{{subject.credits}}</td>
-                      <td>{{subject.status}}</td>
-                      <td>
-                        <button type="button" (click)="Details(course)" class="btn btn-info">More</button>
-                      </td>
-
+                      <td>{{subject.status}}</td>               
                     </tr>
-
                   </tbody>
                 </table>
-              </div>        
-
-        </div>
-        <div class="row">
-          <br>
-          <div class="form-group">
-           <h2 for="email"><b> Add Subject to Course</b>:</h2>
-           <select type="text" [(ngModel)]="sub"   class="form-control" style="width: 100%;">
-               <option *ngFor="let sub of Allsubjects" [value]="sub.id">{{sub.tittle}}</option>
-             </select>
-         </div>         
-         <div class="form-group">
-           <button type="button" (click)="addSubjectToAList(sub)" class="btn btn-info">SAVE</button>
-         </div>
-         <div>
-           <p class="error">{{error}}</p>       
-        
-   </div>        </div>
-
+                <div *ngIf="(!subjects.length > 0)">
+                  <h3>No Subjects allocated</h3>
+                </div>
+            </div>    
+        </div> 
       </div>
     </div>
 </div>

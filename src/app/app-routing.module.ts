@@ -34,8 +34,7 @@ const routes: Routes = [
   { path: "all-departement", component: AllDepartementComponent },
   { path: "all-courses", component: AllCoursesComponent },
   { path: "all-subjects", component: AllSubjectsComponent },
-  { path: "student-course-subject", component: StudentCourseSubjectComponent },
-  { path: "add-subject-for-student", component: AddSubjectForStudentComponent },
+  { path: "student-course-subject/:id", component: StudentCourseSubjectComponent },
   { path: "course/:id", component: CourseDetailsComponent },
 
   { path: "**", component: HomePageComponent }
