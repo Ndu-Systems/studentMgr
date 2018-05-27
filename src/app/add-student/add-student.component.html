@@ -4,13 +4,10 @@
       <app-nav-user></app-nav-user>
 
   </nav>
-
   <!-- Page Content Holder -->
   <div id="content">
-
       <nav class="navbar navbar-default"  style="background: #CCAC00;">
           <div class="container-fluid">
-
               <div class="navbar-header" style="background: #CCAC00;">
                   <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                       <i class="glyphicon glyphicon-align-left"></i>
@@ -22,10 +19,8 @@
           </div>
       </nav>
 
-      <h2>Add Student</h2> <br>
-        <div class="row">
-         
-          <div class="col-sm-12">
+      <h2>Add Student</h2> <hr/>      
+          <div class="col-sm-12 offset-3">
             <br>
            <br>
             <div>
@@ -33,7 +28,6 @@
                 <label for="email"><b>NAME</b>:</label>
                 <input type="text"  [(ngModel)]="name"     class="form-control" id="email">
               </div>
-
               <div class="form-group">
                 <label for="email"><b>SURNAME</b>:</label>
                 <input type="text"  [(ngModel)]="surname"     class="form-control" id="email">
@@ -58,10 +52,14 @@
                 <label for="email"><b>CITY</b>:</label>
                 <input type="text"  [(ngModel)]="city"     class="form-control" id="email">
               </div>
-
               <div class="form-group">
-                <button type="button" (click)="AddStudent()" class="btn btn-info">Add Student</button>
-
+                <label for="email"><b>Select Course</b>:</label>
+                <select type="text" [(ngModel)]="course"   class="form-control">
+                  <option *ngFor="let course of courses" [value]="course.id">{{course.tittle}}</option>
+                </select>
+              </div>  
+              <div class="form-group">
+                <button type="button" (click)="AddStudent(course)" class="btn btn-info">Add Student</button>
               </div>
 
              

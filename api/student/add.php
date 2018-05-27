@@ -5,32 +5,41 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 require "../conn.php";
 $data = json_decode(file_get_contents("php://input"));
 
-if (isset($data->tittle) ){  
- $tittle 		=$data->tittle;
- $description 	=$data->description;
- $credits 	=$data->credits;
- $status 	=$data->status;
- $code 	=$data->code;
+if (isset($data->name) ){  
+ $name 		=$data->name;
+ $surname 	=$data->surname;
+ $cell 	=$data->cell;
+ $password 	=$data->surname;
+ $address 	= $data->address;
+ $role 	= $data->role;
+ $city 	= $data->city;
+ $idnumber 	= $data->idnumber;
+ $email 	= $data->email;
+ $courseId = $data->courseId;
 
-$result = $conn->prepare("SELECT * FROM user WHERE tittle = ?"); 
-$result->execute(array($tittle));
+$result = $conn->prepare("SELECT * FROM user WHERE email = ?"); 
+$result->execute(array($email));
 if ($result->rowCount() ==0) {
 
-$result = $conn->prepare("INSERT INTO subject (tittle ,code,  description ,  credits  ,  status,createdate)
-                VALUES (?,?,?,?,?,now())"); 
-if($result->execute(array($tittle,$code, $description,$credits,$status))){
-	echo json_encode("subject created successfully!");
+$result = $conn->prepare("INSERT INTO user (name,email, surname, password,createdate,cell,address, role,city,idnumber)
+                VALUES (?,?,?, now(),?,?,?,?,?,?)"); 
+if($result->execute(array($name,$email, $surname,$password, $cell,$address,$role,$city,$idnumber))){		
+	echo $conn->lastInsertId();	  
 }else{
-	echo json_encode("error while trying to add subject");
-}		
-	
-}else{
-	
-	echo json_encode("subject already exists");
+	echo json_encode("error while trying to register client step 1 of 3");
 }
-  
+
+}else{
+	
+	echo json_encode("Your account already exists, please go to login");
+}
+ 
+ 
+        
+ 
 }
  else {
+
 	echo json_encode( "500");
 }
 ?>
