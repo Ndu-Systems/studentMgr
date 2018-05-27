@@ -1,3 +1,4 @@
+import { StudentCourseSubjectComponent } from './student-course-subject/student-course-subject.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { AllSubjectsComponent } from "./all-subjects/all-subjects.component";
 import { AllCoursesComponent } from "./all-courses/all-courses.component";
@@ -18,7 +19,7 @@ import { UserDashboardComponent } from "./user-dashboard/user-dashboard.componen
 import { AddDepartmentComponent } from "./add-department/add-department.component";
 
 const routes: Routes = [
-  { path: "", component: HomePageComponent },
+  { path: "", component: LoginComponent },
   { path: "home", component: HomePageComponent },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: "all-departement", component: AllDepartementComponent },
   { path: "all-courses", component: AllCoursesComponent },
   { path: "all-subjects", component: AllSubjectsComponent },
+  { path: "student-course-subject/:id", component: StudentCourseSubjectComponent },
   { path: "course/:id", component: CourseDetailsComponent },
 
   { path: "**", component: HomePageComponent }
@@ -51,7 +53,8 @@ export const routingComponents = [
   UserDashboardComponent,
   AddStudentComponent,
   AddDepartmentComponent,
-  CourseDetailsComponent
+  CourseDetailsComponent,
+  StudentCourseSubjectComponent
 ];
 
 @NgModule({

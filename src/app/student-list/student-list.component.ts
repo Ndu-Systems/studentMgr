@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SelectService } from '../shared/select.service';
+import { Router } from '@angular/router';
+import { StudentService } from './student.service';
 
 @Component({
   selector: 'app-student-list',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-
-  constructor() { }
-
+  students:any[];
+  constructor(private selectService: SelectService, private router:Router, private studentService:StudentService) {}
   ngOnInit() {
+    this.getDepartments();
   }
+  getDepartments() {
+    this.selectService.select("user WHERE role = 'student'").subscribe(response => {
+      this.students = response;
+    });
+  }
+  Details(student) {
+  this.studentService.saveStudent(student);
+  this.router.navigate(['/student-course-subject', student.id]);
 
+  }
 }
