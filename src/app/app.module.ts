@@ -33,7 +33,7 @@ import { StudentCourseSubjectService } from './student-course-subject/student-co
     FormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService,LoginService,EmailService,AddSubjectForStudentService, UserDataService,ResetUserService,AddService,SelectService,StudentService,CourseDetailsService],
+  providers: [RegisterService,StudentCourseSubjectService,LoginService,EmailService,AddSubjectForStudentService, UserDataService,ResetUserService,AddService,SelectService,StudentService,CourseDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
