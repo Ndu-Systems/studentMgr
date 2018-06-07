@@ -4,25 +4,21 @@
 
 <ul class="list-unstyled components">
   <li>
-      <a routerLink="/user-dashboard">Home View</a>
+      <a routerLink="/lecture-dashboard">Home View</a>
   </li>
     <li class="active">
         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">My Account</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
-            <li><a href="#">My Profile</a></li>
-            <li><a href="#">Change Your Password</a></li>
+            <li><a routerLink="/lecture-dashboard">My Profile</a></li>
+            <li><a routerLink="/lecture-dashboard">Change Your Password</a></li>
         </ul>
     </li>
   
-    <li>
-        <a routerLink="/student-list">My Students</a>
-    </li>
-  
      <li>
-        <a routerLink="/all-subjects">My Subjects</a>
+        <a (click)="mySubjects()">My Subjects</a>
     </li>
-     <li>
+     <!-- <li>
         <a routerLink="/all-lectures">Tests</a>
-    </li>
+    </li> -->
   
 </ul>

@@ -16,6 +16,7 @@ $result->execute(array(
 if ($result->rowCount() > 0) {
     while ($row = $result->fetch(PDO::FETCH_OBJ)) {
      $user = new User();
+     $user->id = $row->id;
      $user->name = $row->name;
      $user->surname = $row->surname;
      $user->email = $row->email;
@@ -26,6 +27,7 @@ if ($result->rowCount() > 0) {
 echo json_encode($userData);
 
 class User{
+  public $id;
   public $name;
   public $surname;
   public $email;

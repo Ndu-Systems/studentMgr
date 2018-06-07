@@ -26,6 +26,8 @@ import { AddSubjectForStudentComponent } from "./admin/add-subject-for-student/a
 import { CourseDetailsComponent } from "./admin/course-details/course-details.component";
 import { ToggleUserMenuComponent } from "./toggle-user-menu/toggle-user-menu.component";
 import { LectureDashboardComponent } from './lecture/lecture-dashboard/lecture-dashboard.component';
+import { LectureSubjectsComponent } from './lecture/lecture-subjects/lecture-subjects.component';
+import { SubjectStudentsComponent } from './lecture/subject-students/subject-students.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -49,12 +51,9 @@ const routes: Routes = [
   { path: "add-subject-for-student", component: AddSubjectForStudentComponent },
   { path: "add-subject-for-lecture", component: AddSubjectForLectureComponent },
   { path: "course/:id", component: CourseDetailsComponent },
-
-  // Lecture
- 
+  { path: "lecture-subjects/:id", component: LectureSubjectsComponent}, 
+  { path: "subject-students/:id", component: SubjectStudentsComponent},
   { path: "lecture-dashboard", component: LectureDashboardComponent },
-
-
   { path: "**", component: HomePageComponent }
 ];
 export const routingComponents = [
@@ -81,7 +80,9 @@ export const routingComponents = [
   AddSubjectForLectureComponent,
   LectureCourseSubjectComponent,
   LectureDashboardComponent,
-  LectureNavComponent
+  LectureNavComponent,
+  LectureSubjectsComponent,
+  SubjectStudentsComponent
 ];
 
 @NgModule({

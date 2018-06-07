@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2018 at 02:20 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Jun 07, 2018 at 11:32 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,8 +43,7 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`id`, `tittle`, `description`, `credits`, `department`, `createdate`, `status`) VALUES
-(1, 'Cumputer Science  N1', 'introduction to computer science', '120', 'Information technology', '2018-05-02 00:00:00', 'active'),
-(6, 'artificial intelligence', 'artificial intelligence', '260', 'Information technology', '2018-05-26 10:16:30', 'active');
+(1, 'Human Management N1', 'Human Management Fundimentals', '150', 'Human Resources', '2018-05-27 18:34:16', 'active');
 
 -- --------------------------------------------------------
 
@@ -64,13 +63,9 @@ CREATE TABLE `course_subject` (
 --
 
 INSERT INTO `course_subject` (`id`, `courseID`, `subjectID`, `createdate`) VALUES
-(1, 6, 1, '2018-05-26 00:00:00'),
-(2, 6, 3, '2018-05-26 00:00:00'),
-(3, 6, 5, '2018-05-02 00:00:00'),
-(5, 6, 4, '2018-05-26 17:02:15'),
-(6, 1, 4, '2018-05-26 17:09:26'),
-(7, 1, 3, '2018-05-26 17:11:18'),
-(8, 1, 5, '2018-05-26 17:11:27');
+(1, 1, 1, '2018-05-27 18:39:39'),
+(2, 1, 2, '2018-05-27 18:39:43'),
+(3, 1, 3, '2018-06-07 21:00:25');
 
 -- --------------------------------------------------------
 
@@ -90,11 +85,30 @@ CREATE TABLE `department` (
 --
 
 INSERT INTO `department` (`id`, `name`, `startdate`, `status`) VALUES
-(1, 'Information technology', '2018-05-02 00:00:00', 'active'),
-(2, 'Economics', '2018-05-17 19:31:09', 'active'),
-(3, 'Economics Post grad', '2018-05-26 09:23:40', 'active'),
-(4, 'Health Science ', '2018-05-26 09:27:49', 'active'),
-(5, 'Medicine', '2018-05-26 09:47:55', 'active');
+(1, 'Human Resources', '2018-05-27 18:33:37', 'active');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lecture_course_subject`
+--
+
+CREATE TABLE `lecture_course_subject` (
+  `id` int(11) NOT NULL,
+  `lectureId` int(11) NOT NULL,
+  `CourseId` int(11) NOT NULL,
+  `Subject` int(11) DEFAULT NULL,
+  `Year` date DEFAULT NULL,
+  `Status` varchar(225) NOT NULL DEFAULT 'In Progress'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lecture_course_subject`
+--
+
+INSERT INTO `lecture_course_subject` (`id`, `lectureId`, `CourseId`, `Subject`, `Year`, `Status`) VALUES
+(1, 4, 1, 1, '2018-06-07', 'In Progress'),
+(2, 5, 1, 2, '2018-06-07', 'In Progress');
 
 -- --------------------------------------------------------
 
@@ -109,6 +123,33 @@ CREATE TABLE `module_lecture` (
   `lectureID` int(10) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_course_subject`
+--
+
+CREATE TABLE `student_course_subject` (
+  `id` int(11) NOT NULL,
+  `StudentId` int(11) NOT NULL,
+  `CourseId` int(11) NOT NULL,
+  `Subject` int(11) DEFAULT NULL,
+  `Year` date DEFAULT NULL,
+  `Status` varchar(225) NOT NULL DEFAULT 'In Progress'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student_course_subject`
+--
+
+INSERT INTO `student_course_subject` (`id`, `StudentId`, `CourseId`, `Subject`, `Year`, `Status`) VALUES
+(1, 2, 1, 3, '2018-05-27', 'In Progress'),
+(2, 2, 1, 2, '2018-05-27', 'In Progress'),
+(3, 2, 1, 1, '2018-05-27', 'In Progress'),
+(4, 3, 1, 3, '2018-05-27', 'In Progress'),
+(5, 3, 1, 1, '2018-05-27', 'In Progress'),
+(6, 3, 1, 2, '2018-05-27', 'In Progress');
 
 -- --------------------------------------------------------
 
@@ -145,10 +186,9 @@ CREATE TABLE `subject` (
 --
 
 INSERT INTO `subject` (`id`, `tittle`, `createdate`, `credits`, `description`, `code`, `status`) VALUES
-(1, 'Introduction to programming', '2018-05-26 00:00:00', '16', 'Introduction to programming', 'COMP100', 'active'),
-(3, 'Introduction to calculus', '2018-05-26 11:05:46', '16', 'Introduction to calculus', 'Math130', 'active'),
-(4, 'Economics', '2018-05-26 12:43:28', '16', 'Economics', 'Eco101', 'active'),
-(5, 'Comic Books', '2018-05-26 15:41:55', '50', 'Marvel vs DC', 'BMOP', 'active');
+(1, 'Learning Human Behaviour', '2018-05-27 18:36:38', '20', 'Human Behaviour Behaviour', 'LHB100', 'active'),
+(2, 'Religion & Work', '2018-05-27 18:37:14', '20', 'Religion & Work Fundementals', 'RW100', 'active'),
+(3, 'Work life Balance', '2018-06-07 21:00:04', '100', 'Finding the perfect balance between work place and personal life', 'WLB18', 'active');
 
 -- --------------------------------------------------------
 
@@ -169,13 +209,6 @@ CREATE TABLE `test` (
   `score` varchar(10) NOT NULL,
   `moduleID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `test`
---
-
-INSERT INTO `test` (`id`, `type`, `date`, `duration`, `location`, `time`, `marks`, `status`, `tittle`, `score`, `moduleID`) VALUES
-(1, 'test', '2018-05-02 00:00:00', '2hr', '', '10:30', '100', 'upcomimg', 'Test 1', '', 1);
 
 -- --------------------------------------------------------
 
@@ -205,16 +238,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `surname`, `email`, `cell`, `address`, `password`, `createdate`, `role`, `country`, `city`, `userstatus`, `idnumber`, `user_nmuber`) VALUES
-(2, 'Admin', 'Mthembu', 'admin@mail.com', '', '', 'pass', '', 'admin', 'sa', '1', 'active', '', ''),
-(3, 'sASa', 'dsd', 'sASa.dsd@btc.edu.za', 'W321214', 'DASD', 'sASa123', '2018-05-17 19:07:42', 'Admin', 'South Africa', '3WEQE', 'active', '', ''),
-(4, 'John', 'Smith', 'John.Smith@btc.edu.za', '0787875141', 'Eyethu house', 'John123', '2018-05-17 19:08:54', 'Student', 'South Africa', 'Johanesburg', 'active', '', ''),
-(5, 'saS', 'SAsA', '', 'sw2321', 'swqwq', '2018-05-26 12:54:19', 'SAsA', 'student', '', 'ewqewqe', 'active', 'SSAs', ''),
-(6, 'saS', 'SAs', '', 'aSAs', 'saS', '2018-05-26 12:56:44', 'SAs', 'student', '', 'SASA', 'active', 'saSA', ''),
-(7, 'saS', 'SAs', '', 'aSAs', 'saS', '2018-05-26 12:57:51', 'SAs', 'student', '', 'SASA', 'active', 'saSA', ''),
-(8, 'saS', 'SAs', '', 'aSAs', 'saS', '2018-05-26 12:57:58', 'SAs', 'student', '', 'SASA', 'active', 'saSA', ''),
-(9, 'saS', 'SAs', '', 'aSAs', 'saS', '2018-05-26 12:58:10', 'SAs', 'student', '', 'SASA', 'active', 'saSA', ''),
-(10, 'saS', 'SAs', 'student@mail.com', 'aSAs', 'saS', '2018-05-26 12:59:25', 'SAs', 'student', '', 'SASA', 'active', 'saSA', ''),
-(11, 'saSAsdsa', 'dsadsad', 'saSAsdsa.dsadsad@mail.com', 'dsaD', 'DSAd', '2018-05-26 13:02:48', 'dsadsad', 'student', '', 'dsADSA', 'active', 'sadsad', '');
+(1, 'John', 'Smith', 'John.Smith@btc.edu.za', '0787875141', 'Eyethu house', 'John123', '2018-05-17 19:08:54', 'admin', 'South Africa', 'Johanesburg', 'active', '', ''),
+(2, 'Freedom', 'Khanyile', 'Freedom.Khanyile@mail.com', '0746958064', 'Boksruin', 'John123', 'Khanyile', 'student', '', 'Randburg', 'active', '01254585478564', ''),
+(3, 'Ndumiso', 'Ndlovu', 'Ndumiso.Ndlovu@mail.com', '0769580644', 'Drum - Bos', 'John123', 'Ndlovu', 'student', '', 'Bisho', 'active', '2422588466887', ''),
+(4, 'Simo', 'Ngqulunga', 'Simo.Ngqulunga@teaching.com', '0746969969', 'Boksruin 999', 'John123', 'Ngqulunga', 'lecture', '', 'Randburg', 'active', '92082558466858', ''),
+(5, 'Zinhle', 'Mbele', 'Zinhle.Mbele@teaching.com', '0762258468', 'Kaya Sands', 'Mbele', '2018-06-07 20:34:40', 'lecture', '', 'Cosmo City', 'active', '92075512668468', '');
 
 --
 -- Indexes for dumped tables
@@ -236,6 +264,18 @@ ALTER TABLE `course_subject`
 -- Indexes for table `department`
 --
 ALTER TABLE `department`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `lecture_course_subject`
+--
+ALTER TABLE `lecture_course_subject`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `student_course_subject`
+--
+ALTER TABLE `student_course_subject`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -265,37 +305,49 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `course_subject`
 --
 ALTER TABLE `course_subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `lecture_course_subject`
+--
+ALTER TABLE `lecture_course_subject`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `student_course_subject`
+--
+ALTER TABLE `student_course_subject`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `test`
 --
 ALTER TABLE `test`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

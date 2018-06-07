@@ -23,19 +23,18 @@
                   <tr>
                     <th>NAME</th>
                     <th>SURNAME</th>
-                    <th>STUDENT NUMBER</th>
+                    <th>STAFF NUMBER</th>
                   
                     <th>ACTIONS</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let student of lectures">
-                    <td>{{student.name}}</td>
-                    <td>{{student.surname}}</td>
-                    <td>{{student.studentNo}}</td>
+                  <tr *ngFor="let lecture of lectures">
+                    <td>{{lecture.name}}</td>
+                    <td>{{lecture.surname}}</td>
+                    <td>{{lecture.id}}</td>
                     <td>
-                        <button type="button" (click)="Details(student)" class="btn btn-info">More</button>
-
+                        <button type="button" (click)="Details(lecture)" class="btn btn-info">More</button>
                     </td>
                   
                   </tr>

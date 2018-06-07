@@ -22,7 +22,7 @@ $result->execute(array($email));
 if ($result->rowCount() ==0) {
 
 $result = $conn->prepare("INSERT INTO user (name,email, surname, password,createdate,cell,address, role,city,idnumber)
-                VALUES (?,?,?, now(),?,?,?,?,?,?)"); 
+                VALUES (?,?,?,?, now(),?,?,?,?,?)"); 
 if($result->execute(array($name,$email, $surname,$password, $cell,$address,$role,$city,$idnumber))){		
 	echo $conn->lastInsertId();	  
 }else{

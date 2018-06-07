@@ -12,8 +12,8 @@ export class LectureService {
     add(data):Observable<any>{
     return this.http.post(`${this.url}/lecture_course/add_subject_for_lecture.php`,data);
     }
-    saveLecture(student){
-        this.lecture = student;
+    saveLecture(lecture){
+        this.lecture = lecture;
     }
     geLecture(){
         return this.lecture;

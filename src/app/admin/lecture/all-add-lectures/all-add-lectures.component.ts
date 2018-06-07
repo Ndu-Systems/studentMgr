@@ -21,9 +21,9 @@ export class AllAddLecturesComponent implements OnInit {
       console.log("this.lectures",this.lectures)
     });
   }
-  Details(student) {
-  this.lectureService.saveLecture(student);
-  this.router.navigate(['/lecture-course-subject', student.id]);
+  Details(lecture) {
+  this.lectureService.saveLecture(lecture);
+  this.router.navigate(['/lecture-course-subject', lecture.id]);
 
   }
 }

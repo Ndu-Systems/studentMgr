@@ -1,0 +1,68 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-lecture-nav></app-lecture-nav>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+      <app-toggle-user-menu></app-toggle-user-menu>
+
+    <div class="row student-details">
+        <div class="col-sm-6">
+            <h2>Subject Information</h2>
+          <table  *ngIf="(subjectObject)">
+            <tr>
+              <td><b>Title:</b></td>
+              <td>{{subjectObject.tittle}}</td>
+            </tr>
+            <tr>
+               <td><b>Description:</b></td>
+               <td>{{subjectObject.description}}</td>
+              </tr>
+              <tr>
+                  <td><b>Credits:</b></td>
+                  <td>{{subjectObject.credits}}</td>
+                 </tr>
+                 <tr>
+                    <td><b>Status:</b></td>
+                    <td>{{subjectObject.status}}</td>
+                   </tr>
+            </table>
+          </div>
+          <div class="col-sm-6">           
+            <div>
+                <h3>No CAS Data Implementation Yet</h3>
+            </div>
+          </div>
+        </div>
+    <div class="row">     
+    <div class="col-md-12">
+        <h2>{{subjectObject.tittle}} - Enrollment </h2>
+        <br>    
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <th>NAME</th>
+                      <th>SURNAME</th>                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let student of students">
+                      <td>{{student.name}}</td>
+                      <td>{{student.surname}}</td>                                
+                    </tr>                    
+                  </tbody>
+                </table>
+                <div *ngIf="(!students.length > 0)">
+                  <h3>No Students Enrolled For {{subjectObject.tittle}}</h3>
+                </div>
+            </div>    
+        </div> 
+      </div>
+    </div>
+</div>
