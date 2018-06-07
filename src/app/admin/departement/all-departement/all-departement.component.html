@@ -1,0 +1,46 @@
+
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+      <app-nav-user></app-nav-user>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+      <app-toggle-user-menu></app-toggle-user-menu>
+
+
+      <h2>All Departements
+
+          <a routerLink="/add-department">
+            <button type="button"  class="btn btn-info">Add Departement</button>
+         </a>
+      </h2> <br>
+        <div class="row">
+         
+          <div class="col-sm-12">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th>Departement Name</th>
+                  <th>Date Created</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let departement of departements">
+                  <td>{{departement.name}}</td>
+                  <td>{{departement.startdate}}</td>
+                  <td>{{departement.status}}</td>
+                
+                </tr>
+                
+              </tbody>
+            </table>
+        </div>
+     </div>
+</div>
+
+

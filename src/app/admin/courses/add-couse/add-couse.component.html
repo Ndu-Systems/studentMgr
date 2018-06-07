@@ -1,0 +1,63 @@
+
+
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+      <app-nav-user></app-nav-user>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+
+      <app-toggle-user-menu></app-toggle-user-menu>
+
+
+      <h2>Add course
+
+          <a routerLink="/all-courses">
+            <button type="button"  class="btn btn-info">All Courses</button>
+         </a>
+      </h2> 
+        <div class="row">
+         
+          <div class="col-sm-12">
+            <br>
+           <br>
+              <div class="form-group">
+                <label for="email"><b> TITTLE</b>:</label>
+                <input type="text"  [(ngModel)]="tittle"     class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label for="email"><b> DESCRIPTION</b>:</label>
+                <textarea [(ngModel)]="description"     class="form-control"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="email"><b> CREDITS</b>:</label>
+                <input type="number"  [(ngModel)]="credits"     class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label for="email"><b> DEPARTMENT</b>:</label>
+                <select type="text"  [(ngModel)]="department"     class="form-control">
+                    <option *ngFor="let department of departements" [value]="department.name">{{department.name}}</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                <button type="button" (click)="Save()" class="btn btn-info">SAVE</button>
+
+              </div>
+              <div>
+                <p class="error">{{error}}</p>
+              </div>
+            
+             
+        </div>
+     </div>
+</div>
+
+

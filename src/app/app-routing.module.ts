@@ -1,13 +1,4 @@
-import { AddSubjectForStudentComponent } from './add-subject-for-student/add-subject-for-student.component';
-import { StudentCourseSubjectComponent } from './student-course-subject/student-course-subject.component';
-import { CourseDetailsComponent } from './course-details/course-details.component';
-import { AllSubjectsComponent } from "./all-subjects/all-subjects.component";
-import { AllCoursesComponent } from "./all-courses/all-courses.component";
-import { AllDepartementComponent } from "./all-departement/all-departement.component";
-import { StudentListComponent } from "./student-list/student-list.component";
-import { AddSubjectComponent } from "./add-subject/add-subject.component";
-import { AddCouseComponent } from "./add-couse/add-couse.component";
-import { AddStudentComponent } from "./add-student/add-student.component";
+
 import { LoginComponent } from "./login/login.component";
 import { ContactComponent } from "./contact/contact.component";
 import { NgModule } from "@angular/core";
@@ -16,8 +7,19 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { RegisterComponent } from "./register/register.component";
 import { NavHomeComponent } from "./nav-home/nav-home.component";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { UserDashboardComponent } from "./user-dashboard/user-dashboard.component";
-import { AddDepartmentComponent } from "./add-department/add-department.component";
+import { UserDashboardComponent } from "./admin/user-dashboard/user-dashboard.component";
+import { AddStudentComponent } from "./admin/students/add-student/add-student.component";
+import { AddCouseComponent } from "./admin/courses/add-couse/add-couse.component";
+import { AddDepartmentComponent } from "./admin/departement/add-department/add-department.component";
+import { AddSubjectComponent } from "./admin/subjects/add-subject/add-subject.component";
+import { StudentListComponent } from "./admin/students/student-list/student-list.component";
+import { AllDepartementComponent } from "./admin/departement/all-departement/all-departement.component";
+import { AllCoursesComponent } from "./admin/courses/all-courses/all-courses.component";
+import { AllSubjectsComponent } from "./admin/subjects/all-subjects/all-subjects.component";
+import { StudentCourseSubjectComponent } from "./admin/student-course-subject/student-course-subject.component";
+import { AddSubjectForStudentComponent } from "./admin/add-subject-for-student/add-subject-for-student.component";
+import { CourseDetailsComponent } from "./admin/course-details/course-details.component";
+import { ToggleUserMenuComponent } from "./toggle-user-menu/toggle-user-menu.component";
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -57,7 +59,8 @@ export const routingComponents = [
   AddDepartmentComponent,
   CourseDetailsComponent,
   StudentCourseSubjectComponent,
-  AddSubjectForStudentComponent
+  AddSubjectForStudentComponent,
+  ToggleUserMenuComponent
 ];
 
 @NgModule({

@@ -1,0 +1,61 @@
+
+
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <app-nav-user></app-nav-user>
+  
+    </nav>
+  
+    <!-- Page Content Holder -->
+    <div id="content">
+  
+        <app-toggle-user-menu></app-toggle-user-menu>
+        <h2>Add subject
+  
+            <a routerLink="/all-subjects">
+              <button type="button"  class="btn btn-info">View subjects</button>
+           </a>
+        </h2> <br> <br>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <br>
+             <br>
+                <div class="form-group">
+                  <label for="email"><b> TITTLE</b>:</label>
+                  <input type="text"  [(ngModel)]="tittle"     class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="email"><b> CODE</b>:</label>
+                    <input type="text"  [(ngModel)]="code"     class="form-control">
+                  </div>
+  
+                <div class="form-group">
+                  <label for="email"><b> DESCRIPTION</b>:</label>
+                  <textarea [(ngModel)]="description"     class="form-control"></textarea>
+                </div>
+  
+                <div class="form-group">
+                  <label for="email"><b> CREDITS</b>:</label>
+                  <input type="number"  [(ngModel)]="credits"     class="form-control">
+                </div>
+  
+             
+  
+                <div class="form-group">
+                  <button type="button" (click)="Save()" class="btn btn-info">SAVE</button>
+  
+                </div>
+                <div>
+                  <p class="error">{{error}}</p>
+                </div>
+              
+               
+          </div>
+       </div>
+  </div>
+  
+  
+  

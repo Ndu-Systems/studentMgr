@@ -1,0 +1,50 @@
+
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <app-nav-user></app-nav-user>
+  
+    </nav>
+  
+    <!-- Page Content Holder -->
+    <div id="content">
+  
+   
+        <app-toggle-user-menu></app-toggle-user-menu>
+        <h2>All Subjects
+  
+            <a routerLink="/add-subject">
+              <button type="button"  class="btn btn-info">Add subject</button>
+           </a>
+        </h2> <br> <br>
+  
+          <div class="row">
+           
+            <div class="col-sm-12">
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                    <th>TITTLE</th>
+                    <th>DESCRIPTION</th>
+                    <th>CREDITS</th>
+                    <th>CODE</th>
+                    <th>STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let subject of subjects">
+                    <td>{{subject.tittle}}</td>
+                    <td>{{subject.description}}</td>
+                    <td>{{subject.credits}}</td>
+                    <td>{{subject.code}}</td>
+                    <td>{{subject.status}}</td>
+                  
+                  </tr>
+                  
+                </tbody>
+              </table>
+          </div>
+       </div>
+  </div>
+
+  

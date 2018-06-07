@@ -1,0 +1,45 @@
+
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+      <app-nav-user></app-nav-user>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+      <app-toggle-user-menu></app-toggle-user-menu>
+
+
+      <h2>Add Departement
+
+          <a routerLink="/all-departement">
+            <button type="button"  class="btn btn-info">All  Departements</button>
+         </a>
+      </h2> <br>
+        <div class="row">
+         
+          <div class="col-sm-12">
+            <br>
+           <br>
+              <div class="form-group">
+                <label for="email"><b>DEPARTMENT NAME</b>:</label>
+                <input type="text"  [(ngModel)]="name"     class="form-control">
+              </div>
+
+             
+
+              <div class="form-group">
+                <button type="button" (click)="Save()" class="btn btn-info">SAVE</button>
+
+              </div>
+              <div>
+                <p class="error">{{error}}</p>
+              </div>
+
+             
+        </div>
+     </div>
+</div>
+
+
