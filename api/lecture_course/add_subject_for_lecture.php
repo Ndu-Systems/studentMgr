@@ -11,10 +11,10 @@ if (isset($data->courseId) ){
 $subjects = $data->subjects;
 
 foreach($subjects as $subject) {
-    $result = $conn->prepare("INSERT INTO `student_course_subject`(`StudentId`, `CourseId`,`Subject`,`Year`,`Status`) 
+    $result = $conn->prepare("INSERT INTO `lecture_course_subject`(`lectureId`, `CourseId`,`Subject`,`Year`,`Status`) 
     VALUES (?,?,?,now(),'In Progress')");
 if($result->execute(array($studentId,$courseId,$subject->id))){			
-        echo $subject->tittle, '<br>';
+        echo 1;
 }else{
 	echo json_encode("error while trying to register client step 1 of 3");
 }

@@ -27,7 +27,7 @@ if(!buy){
 if(!this.duration){
   return 0;
 }
-debugger
+
 let sum = buy;
 for(let i =1; i<= months; i++){
 sum *=1.65;

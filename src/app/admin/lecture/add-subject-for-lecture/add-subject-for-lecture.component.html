@@ -1,3 +1,131 @@
-<p>
-  add-subject-for-lecture works!
-</p>
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+      <app-nav-user></app-nav-user>
+  
+    </nav>
+  
+    <!-- Page Content Holder -->
+    <div id="content">
+  
+        <app-toggle-user-menu></app-toggle-user-menu>
+  
+      <div class="row lecture-details">
+        <div class="col-sm-4">
+          <h3>Lecture</h3>
+          <table>
+            <tr>
+              <td>
+                <b>Name:</b>
+              </td>
+              <td>
+                {{ lecture.name}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Surname:</b>
+              </td>
+              <td>
+                {{ lecture.surname}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>lecture No:</b>
+              </td>
+              <td>
+                515454545
+              </td>
+            </tr>
+          </table>
+  
+          <br>
+          <br>
+          <h3>Course</h3>
+  
+          <table *ngIf="courseObject">
+            <tr>
+              <td>
+                <b>Tittle:</b>
+              </td>
+              <td>
+                {{courseObject.tittle}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Description:</b>
+              </td>
+              <td>
+                {{courseObject.description}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Department:</b>
+              </td>
+              <td>
+                {{courseObject.department}} </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Credits:</b>
+              </td>
+              <td>
+                {{courseObject.credits}} </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Status:</b>
+              </td>
+              <td>
+                {{courseObject.status}} </td>
+            </tr>
+          </table>
+          <button class="btn btn-info" (click)="SaveAll()">Save All</button><br>
+        </div>
+        <div class="col-sm-8">
+           
+               <div  *ngIf="selectService">
+                      <select type="text" [(ngModel)]="sub"   class="form-control" style="width: 60%;float: left">
+                              <option *ngFor="let sub of Allsubjects" [value]="sub.id">{{sub.tittle}}</option>
+                            </select>                 <button type="button" (click)="AddSubject(sub)" class="btn btn-info">+</button>
+               </div>
+        <br>
+          <br>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>TITTLE</th>
+                    <th>CODE</th>
+                    <th>DESCRIPTION</th>
+                    <th>CREDITS</th>
+                    <th>STATUS</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let subject of courseSubjects">
+                    <td>{{subject.tittle}}</td>
+                    <td>{{subject.code}}</td>
+                    <td>{{subject.description}}</td>
+                    <td>{{subject.credits}}</td>
+                    <td>{{subject.status}}</td>
+                    <td>
+                      <button type="button" (click)="Remove(subject)" class="btn btn-danger">X</button>
+                    </td>
+                  </tr>
+  
+                </tbody>
+              </table>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  

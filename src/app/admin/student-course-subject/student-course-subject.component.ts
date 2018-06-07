@@ -23,7 +23,7 @@ export class StudentCourseSubjectComponent implements OnInit {
 
   ngOnInit() {
     this.studentID = parseInt(this.route.snapshot.paramMap.get("id"));
-    debugger  
+      
     this.student= this.studentService.getStudent();
      this.getCourse(this.studentID);
      this.getSubjects(this.studentID);
@@ -37,7 +37,7 @@ export class StudentCourseSubjectComponent implements OnInit {
     });
   }
   getSubjects(studentId: number){
-    debugger
+    
     this.studentCourseSubjectService.selectSubject(studentId).subscribe(response => {       
       this.subjects = response;      
     });

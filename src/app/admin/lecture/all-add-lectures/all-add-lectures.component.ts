@@ -1,4 +1,7 @@
+import { LectureService } from './../lecture.service';
 import { Component, OnInit } from '@angular/core';
+import { SelectService } from '../../../shared/select.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-add-lectures',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllAddLecturesComponent implements OnInit {
 
-  constructor() { }
-
+  lectures:any[];
+  constructor(private selectService: SelectService, private router:Router, private lectureService:LectureService) {}
   ngOnInit() {
+    this.getLectures();
   }
+  getLectures() {
+    this.selectService.select("user WHERE role = 'lecture'").subscribe(response => {
+      this.lectures = response;
+      console.log("this.lectures",this.lectures)
+    });
+  }
+  Details(student) {
+  this.lectureService.saveLecture(student);
+  this.router.navigate(['/lecture-course-subject', student.id]);
 
+  }
 }
