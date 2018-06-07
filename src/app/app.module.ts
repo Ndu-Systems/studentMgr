@@ -20,6 +20,7 @@ import { AddSubjectForStudentService } from "./admin/add-subject-for-student/add
 import { CourseDetailsService } from "./admin/course-details/course-details.service";
 import { StudentService } from "./admin/students/student-list/student.service";
 import { SelectService } from "./shared/select.service";
+import { LectureService } from "./admin/lecture/lecture.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SelectService } from "./shared/select.service";
     AddService,
     SelectService,
     StudentService,
-    CourseDetailsService
+    CourseDetailsService,
+    LectureService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,3 +1,6 @@
+import { AddSubjectForLectureComponent } from './admin/lecture/add-subject-for-lecture/add-subject-for-lecture.component';
+import { AllAddLecturesComponent } from './admin/lecture/all-add-lectures/all-add-lectures.component';
+import { AddLectureComponent } from './admin/lecture/add-lecture/add-lecture.component';
 
 import { LoginComponent } from "./login/login.component";
 import { ContactComponent } from "./contact/contact.component";
@@ -34,10 +37,13 @@ const routes: Routes = [
   { path: "add-subject", component: AddSubjectComponent },
   { path: "student-list", component: StudentListComponent },
   { path: "all-departement", component: AllDepartementComponent },
+  { path: "all-lectures", component: AllAddLecturesComponent },
   { path: "all-courses", component: AllCoursesComponent },
+  { path: "add-lecture", component: AddLectureComponent },
   { path: "all-subjects", component: AllSubjectsComponent },
   { path: "student-course-subject/:id", component: StudentCourseSubjectComponent },
   { path: "add-subject-for-student", component: AddSubjectForStudentComponent },
+  { path: "add-subject-for-lecture", component: AddSubjectForLectureComponent },
   { path: "course/:id", component: CourseDetailsComponent },
 
   { path: "**", component: HomePageComponent }
@@ -60,7 +66,10 @@ export const routingComponents = [
   CourseDetailsComponent,
   StudentCourseSubjectComponent,
   AddSubjectForStudentComponent,
-  ToggleUserMenuComponent
+  ToggleUserMenuComponent,
+  AddLectureComponent,
+  AllAddLecturesComponent,
+  AddSubjectForLectureComponent
 ];
 
 @NgModule({
