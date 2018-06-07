@@ -10,7 +10,7 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
 
-  email = 'John.Smith@btc.edu.za';
+  email = 'John.Smth@teaching.com';
   password ='John123';
   message='';
   constructor(private loginServiceService:LoginService, private router:Router,private userDataService:UserDataService) { }
@@ -23,7 +23,12 @@ export class LoginComponent implements OnInit {
   .subscribe((data)=>{
     if(data.name){
       this.userDataService.saveUser(data);
-      this.router.navigate(['user-dashboard']);
+      if(data.role=="admin"){
+        this.router.navigate(['user-dashboard']);
+      }
+      if(data.role=="lecture"){
+        this.router.navigate(['lecture-dashboard']);
+      }
 
     }else{
       this.message = "Oops! Your user name or password is incorrect please CHECK and try again.";
