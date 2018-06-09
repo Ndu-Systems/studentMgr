@@ -1,3 +1,4 @@
+import { LectureAccountComponent } from './lecture/lecture-account/lecture-account.component';
 import { LectureNavComponent } from './lecture/lecture-nav/lecture-nav.component';
 import { LectureCourseSubjectComponent } from './admin/lecture/lecture-course-subject/lecture-course-subject.component';
 import { AddSubjectForLectureComponent } from './admin/lecture/add-subject-for-lecture/add-subject-for-lecture.component';
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: "lecture-subjects/:id", component: LectureSubjectsComponent}, 
   { path: "subject-students/:id", component: SubjectStudentsComponent},
   { path: "lecture-dashboard", component: LectureDashboardComponent },
+  { path: "lecture-account", component: LectureAccountComponent },
   { path: "**", component: HomePageComponent }
 ];
 export const routingComponents = [
@@ -82,7 +84,8 @@ export const routingComponents = [
   LectureDashboardComponent,
   LectureNavComponent,
   LectureSubjectsComponent,
-  SubjectStudentsComponent
+  SubjectStudentsComponent,
+  LectureAccountComponent
 ];
 
 @NgModule({

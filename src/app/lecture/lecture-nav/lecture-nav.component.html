@@ -4,18 +4,21 @@
 
 <ul class="list-unstyled components">
   <li>
-      <a routerLink="/lecture-dashboard">Home View</a>
+      <a routerLink="/lecture-dashboard"><li class="fa fa-home"></li> Home View</a>
   </li>
     <li class="active">
-        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">My Account</a>
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"><li class="fa fa-user"></li> My Account</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
-            <li><a routerLink="/lecture-dashboard">My Profile</a></li>
-            <li><a routerLink="/lecture-dashboard">Change Your Password</a></li>
+            <li><a routerLink="/lecture-account"><li class="fa fa-id-badge"></li> My Account</a></li>
+            <li><a routerLink="/lecture-dashboard"><li class="fa fa-sync"></li> Change Your Password</a></li>
         </ul>
     </li>
   
      <li>
-        <a (click)="mySubjects()">My Subjects</a>
+        <a (click)="mySubjects()"><li class="fa fa-book"></li> My Subjects</a>
+    </li>
+    <li>
+        <app-logout></app-logout>
     </li>
      <!-- <li>
         <a routerLink="/all-lectures">Tests</a>

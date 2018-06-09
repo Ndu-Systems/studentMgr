@@ -23,6 +23,7 @@ import { SelectService } from "./shared/select.service";
 import { LectureService } from "./admin/lecture/lecture.service";
 import { LectureSubjectsService } from "./lecture/lecture-subjects/lecture-subjects.service";
 import { SubjectStudentsService } from "./lecture/subject-students/subject-students.service";
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,9 @@ import { SubjectStudentsService } from "./lecture/subject-students/subject-stude
     routingComponents,
     NavUserComponent,
     StudentListComponent,
-    ToggleUserMenuComponent
-  ],
+    ToggleUserMenuComponent,
+    LogoutComponent
+],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
     RegisterService,

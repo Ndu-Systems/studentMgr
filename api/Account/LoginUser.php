@@ -21,6 +21,10 @@ if ($result->rowCount() > 0) {
      $user->surname = $row->surname;
      $user->email = $row->email;
      $user->role = $row->role;
+     $user->cell = $row->cell;
+     $user->address = $row->address;
+     $user->city = $row->city;
+     $user->idnumber = $row->idnumber;
      $userData = $user;
     }
 }
