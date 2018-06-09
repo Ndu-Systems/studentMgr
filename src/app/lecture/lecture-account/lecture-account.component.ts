@@ -29,7 +29,6 @@ export class LectureAccountComponent implements OnInit {
     this.lecture = this.userService.getUser();
     if(this.lecture){
       this.user = new User();
-
       this.user.id = this.lecture.id;
       this.user.name = this.lecture.name;
       this.user.surname = this.lecture.surname;
@@ -53,32 +52,32 @@ export class LectureAccountComponent implements OnInit {
     this.isValid = true;
 
     if(user.name == null || user.name == ""){
-      this.isValid = true;
+      this.isValid = false;
       this.message = "fields to be updated cannot be empty";
       return;
     }
     if(user.surname == null || user.surname == ""){
-      this.isValid = true;
+      this.isValid = false;
       this.message = "fields to be updated cannot be empty";
       return;
     }
     if(user.cell == null || user.cell == ""){
-      this.isValid = true;
+      this.isValid = false;
       this.message = "fields to be updated cannot be empty";
       return;
     }
     if(user.cell.length > 13){
-      this.isValid = true;
+      this.isValid = false;
       this.message = "Invalid Cell Number Provided";
       return;
     }
     if(user.city == null || user.city == ""){
-      this.isValid = true;
+      this.isValid = false;
       this.message = "fields to be updated cannot be empty";
       return;
     }
     if(user.address == null || user.address == "" ){
-      this.isValid = true;
+      this.isValid = false;
       this.message = "fields to be updated cannot be empty";
       return;
     }

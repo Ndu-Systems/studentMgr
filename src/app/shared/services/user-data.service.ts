@@ -1,3 +1,4 @@
+ 
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
@@ -17,7 +18,10 @@ saveUser(user:any):Observable<any>{
   }
 
   updateUser(data) : Observable<any>{
-    return this.httpClient.post(`${this.url}/Account/UpdateUser.php`,data);
-  
+    return this.httpClient.post(`${this.url}/Account/UpdateUser.php`,data);  
+  }
+
+  updatePassword(data): Observable<any>{
+    return this.httpClient.post(`${this.url}/Account/UpdatePassword.php`,data); 
   }
 }

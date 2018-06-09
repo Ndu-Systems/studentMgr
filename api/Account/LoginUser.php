@@ -25,6 +25,7 @@ if ($result->rowCount() > 0) {
      $user->address = $row->address;
      $user->city = $row->city;
      $user->idnumber = $row->idnumber;
+     $user->password = $row->password;
      $userData = $user;
     }
 }

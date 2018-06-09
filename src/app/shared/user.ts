@@ -7,4 +7,5 @@ export class User {
     public address: string;
     public city: string;
     public email: string;
+    public password: string;
 }

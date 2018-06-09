@@ -1,0 +1,60 @@
+
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-nav-user></app-nav-user>
+  </nav>
+  <!-- Page Content Holder -->
+  <div id="content">
+    <app-toggle-user-menu></app-toggle-user-menu>
+      <h2>Admin - Account</h2> <br>
+          <div class="row">
+            <div class="col-sm-12 offset-3">
+              <br>
+             <br>
+              <div>
+                <div class="form-group">
+                  <label for="email"><b>NAME</b>:</label>
+                  <input type="text"  [(ngModel)]="user.name"     class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                  <label for="email"><b>SURNAME</b>:</label>
+                  <input type="text"  [(ngModel)]="user.surname"     class="form-control" id="email">
+                </div>
+  
+                <div class="form-group">
+                  <label for="email"><b>ID NUMBER</b>:</label>
+                  <input type="text"  [(ngModel)]="user.idnumber" disabled    class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                  <label for="email"><b>EMAIL</b>:</label>
+                  <input type="text"  [(ngModel)]="user.email" disabled    class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                  <label for="email"><b>CELL</b>:</label>
+                  <input type="text"  [(ngModel)]="user.cell"     class="form-control" id="email">
+                </div>
+  
+                <div class="form-group">
+                  <label for="email"><b>ADDRESS</b>:</label>
+                  <input type="text"  [(ngModel)]="user.address"     class="form-control" id="email">
+                </div>
+  
+                <div class="form-group">
+                  <label for="email"><b>CITY</b>:</label>
+                  <input type="text"  [(ngModel)]="user.city"     class="form-control" id="email">
+                </div>
+            
+                <div class="form-group">
+                  <button type="button" (click)="Save(user)" class="btn btn-info">Save</button>
+                  <button type="button" (click)="Abort()" class="btn btn-warning" style="color:white">Cancel</button>
+                </div>               
+            </div> 
+            <div class="row">
+              <h4 class="errorMessage">{{message}}</h4>
+            </div>
+          </div>
+          </div>
+     </div>
+</div>
+
