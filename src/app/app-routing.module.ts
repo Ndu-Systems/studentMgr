@@ -35,7 +35,7 @@ import { LectureChangePasswordComponent } from './lecture/lecture-change-passwor
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
-  { path: "home", component: HomePageComponent },
+  { path: "home", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
   { path: "contact-us", component: ContactComponent },
