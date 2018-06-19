@@ -10,7 +10,7 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
 
-  email = 'John.Smith@btc.edu.za';
+  email = 'freedom.khanyile@mail.com';
   password ='John123';
   message='';
   constructor(private loginServiceService:LoginService, private router:Router,private userDataService:UserDataService) { }
@@ -26,8 +26,11 @@ export class LoginComponent implements OnInit {
       if(data.role=="admin"){
         this.router.navigate(['user-dashboard']);
       }
-      if(data.role=="lecture"){
+      else if(data.role=="lecture"){
         this.router.navigate(['lecture-dashboard']);
+      }
+      else if(data.role == "student"){
+        this.router.navigate(['student-dashboard'])
       }
 
     }else{
