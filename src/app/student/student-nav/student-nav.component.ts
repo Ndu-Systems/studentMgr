@@ -16,7 +16,12 @@ export class StudentNavComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    debugger
     this.student = this.userDataService.getUser();
   }
-
+  mySubjects(){
+    debugger
+    this.userDataService.saveUser(this.student);    
+    this.router.navigate(['/student-subjects', this.student.id]);
+  }
 }

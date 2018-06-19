@@ -1,3 +1,5 @@
+import { StudentSubjectMarksComponent } from './student/student-subject-marks/student-subject-marks.component';
+import { StudentSubjectsComponent } from './student/student-subjects/student-subjects.component';
 import { StudentNavComponent } from './student/student-nav/student-nav.component';
 import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
@@ -65,7 +67,9 @@ const routes: Routes = [
   { path: "admin-account", component: AdminAccountComponent },
   { path: "admin-change-password", component: AdminChangePasswordComponent },
   { path: "student-dashboard", component:StudentDashboardComponent },
-  { path: "**", component: HomePageComponent }
+  { path: "student-subjects/:id", component: StudentSubjectsComponent},
+  { path: "student-subject-marks", component: StudentSubjectMarksComponent },
+  { path: "**", component: LoginComponent }
 ];
 export const routingComponents = [
   HomePageComponent,
@@ -99,7 +103,9 @@ export const routingComponents = [
   AdminAccountComponent,
   AdminChangePasswordComponent,
   StudentDashboardComponent,
-  StudentNavComponent
+  StudentNavComponent,
+  StudentSubjectsComponent,
+  StudentSubjectMarksComponent
 ];
 
 @NgModule({
