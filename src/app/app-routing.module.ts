@@ -1,3 +1,4 @@
+import { StudentChangePasswordComponent } from './student/student-change-password/student-change-password.component';
 import { StudentSubjectMarksComponent } from './student/student-subject-marks/student-subject-marks.component';
 import { StudentSubjectsComponent } from './student/student-subjects/student-subjects.component';
 import { StudentNavComponent } from './student/student-nav/student-nav.component';
@@ -36,6 +37,7 @@ import { LectureDashboardComponent } from './lecture/lecture-dashboard/lecture-d
 import { LectureSubjectsComponent } from './lecture/lecture-subjects/lecture-subjects.component';
 import { SubjectStudentsComponent } from './lecture/subject-students/subject-students.component';
 import { LectureChangePasswordComponent } from './lecture/lecture-change-password/lecture-change-password.component';
+import { StudentAccountComponent } from './student/student-account/student-account.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -69,6 +71,8 @@ const routes: Routes = [
   { path: "student-dashboard", component:StudentDashboardComponent },
   { path: "student-subjects/:id", component: StudentSubjectsComponent},
   { path: "student-subject-marks", component: StudentSubjectMarksComponent },
+  { path: "student-account", component: StudentAccountComponent},
+  { path: "student-change-password", component: StudentChangePasswordComponent },
   { path: "**", component: LoginComponent }
 ];
 export const routingComponents = [
@@ -105,7 +109,9 @@ export const routingComponents = [
   StudentDashboardComponent,
   StudentNavComponent,
   StudentSubjectsComponent,
-  StudentSubjectMarksComponent
+  StudentSubjectMarksComponent,
+  StudentAccountComponent,
+  StudentChangePasswordComponent
 ];
 
 @NgModule({
