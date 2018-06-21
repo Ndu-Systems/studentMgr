@@ -1,0 +1,102 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-lecture-nav></app-lecture-nav>
+
+  </nav>
+  <!-- Page Content Holder -->
+  <div id="content">
+    <app-toggle-user-menu></app-toggle-user-menu>
+
+    <h2>Add Test
+
+      <a routerLink="/test-centre">
+
+        <button type="button" class="btn btn-info">View Tests</button>
+      </a>
+
+    </h2>
+    <hr/>
+    <div class="col-sm-12 offset-3">
+      <br>
+      <br>
+      <div>
+        <div class="form-group">
+          <label for="email">
+            <b>TYPE</b>:</label>
+          <select type="text" [(ngModel)]="type" class="form-control">
+            <option *ngFor="let type of types"> {{type}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">
+            <b>DESCRIPTION</b>:</label>
+          <textarea [(ngModel)]="tittle" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="email">
+            <b>DATE</b>:</label>
+          <input type="date" [(ngModel)]="date" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="email">
+            <b>MAXIMUM MARKS</b>:</label>
+          <input type="text" [(ngModel)]="score" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="email">
+            <b>DURATION</b>:</label>
+          <input type="text" [(ngModel)]="duration" placeholder="e.g. 2h" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="email">
+            <b>VENUE</b>:</label>
+          <input type="text" [(ngModel)]="location" class="form-control">
+        </div>
+
+        DURATION
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+
+              <label for="email">
+                <b>TIME FROM</b>:</label>
+              <select type="text" [(ngModel)]="from" class="form-control">
+                <option *ngFor="let from of times"> {{from}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+
+              <label for="email">
+                <b>TIME TO</b>:</label>
+              <select type="text" [(ngModel)]="to" class="form-control">
+                <option *ngFor="let to of times"> {{to}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="email">
+            <b>SELECT SUBJECT</b>:</label>
+          <select type="text" [(ngModel)]="subjectID" class="form-control">
+            <option *ngFor="let subject of subjects" [value]="subject.id">{{subject.tittle}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="button" (click)="AddTest()" class="btn btn-info">Add Test</button>
+        </div>
+        <div class="form-group">
+          <h4 class="error">{{error}}</h4>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

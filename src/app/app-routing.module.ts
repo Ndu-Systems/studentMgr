@@ -1,8 +1,7 @@
-import { StudentChangePasswordComponent } from './student/student-change-password/student-change-password.component';
-import { StudentSubjectMarksComponent } from './student/student-subject-marks/student-subject-marks.component';
-import { StudentSubjectsComponent } from './student/student-subjects/student-subjects.component';
-import { StudentNavComponent } from './student/student-nav/student-nav.component';
-import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
+import { ForgotPasswordEmailComponent } from './forgot-password/forgot-password-email/forgot-password-email.component';
+ 
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { EditTestComponent } from './lecture/test-section/edit-test/edit-test.component';
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
 import { AdminAccountComponent } from './admin/admin-account/admin-account.component';
 import { LectureAccountComponent } from './lecture/lecture-account/lecture-account.component';
@@ -38,6 +37,14 @@ import { LectureSubjectsComponent } from './lecture/lecture-subjects/lecture-sub
 import { SubjectStudentsComponent } from './lecture/subject-students/subject-students.component';
 import { LectureChangePasswordComponent } from './lecture/lecture-change-password/lecture-change-password.component';
 import { StudentAccountComponent } from './student/student-account/student-account.component';
+import { StudentChangePasswordComponent } from './student/student-change-password/student-change-password.component';
+import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
+import { StudentNavComponent } from './student/student-nav/student-nav.component';
+import { StudentSubjectsComponent } from './student/student-subjects/student-subjects.component';
+import { StudentSubjectMarksComponent } from './student/student-subject-marks/student-subject-marks.component';
+import { TestCentreComponent } from './lecture/test-section/test-list/test-centre.component';
+import { AddTestComponent } from './lecture/test-section/add-test/add-test.component';
+import { ForgotPasswordSuccessComponent } from './forgot-password/forgot-password-success/forgot-password-success.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -66,6 +73,8 @@ const routes: Routes = [
   { path: "lecture-dashboard", component: LectureDashboardComponent },
   { path: "lecture-account", component: LectureAccountComponent },
   { path: "lecture-change-password", component: LectureChangePasswordComponent },
+  { path: "test-centre", component: TestCentreComponent },
+  { path: "add-test", component: AddTestComponent },
   { path: "admin-account", component: AdminAccountComponent },
   { path: "admin-change-password", component: AdminChangePasswordComponent },
   { path: "student-dashboard", component:StudentDashboardComponent },
@@ -73,6 +82,8 @@ const routes: Routes = [
   { path: "student-subject-marks", component: StudentSubjectMarksComponent },
   { path: "student-account", component: StudentAccountComponent},
   { path: "student-change-password", component: StudentChangePasswordComponent },
+  { path: "edit-test/:id", component: EditTestComponent },
+  { path: "forgot-password",component: ForgotPasswordComponent },
   { path: "**", component: LoginComponent }
 ];
 export const routingComponents = [
@@ -106,12 +117,18 @@ export const routingComponents = [
   LectureChangePasswordComponent,
   AdminAccountComponent,
   AdminChangePasswordComponent,
+  TestCentreComponent,
+  AddTestComponent,
   StudentDashboardComponent,
   StudentNavComponent,
   StudentSubjectsComponent,
   StudentSubjectMarksComponent,
   StudentAccountComponent,
-  StudentChangePasswordComponent
+  StudentChangePasswordComponent,
+  EditTestComponent,
+  ForgotPasswordComponent,
+  ForgotPasswordEmailComponent,
+  ForgotPasswordSuccessComponent
 ];
 
 @NgModule({

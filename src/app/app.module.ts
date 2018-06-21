@@ -25,7 +25,8 @@ import { LectureSubjectsService } from "./lecture/lecture-subjects/lecture-subje
 import { SubjectStudentsService } from "./lecture/subject-students/subject-students.service";
 import { LogoutComponent } from './logout/logout.component';
 import { SutdentSubjectsService } from "./student/student-subjects/sutdent-subjects.service";
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { GetSubjectPipe } from './lecture/test-section/test-list/get-subject.pipe';
+import { TestCentreService } from "./lecture/test-section/add-test/test-centre.service";
 
 @NgModule({
   declarations: [
@@ -33,10 +34,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     routingComponents,
     NavUserComponent,
     StudentListComponent,
-    ToggleUserMenuComponent
-,
-    LogoutComponent,
-    ForgotPasswordComponent
+    ToggleUserMenuComponent,
+    GetSubjectPipe,
+    LogoutComponent
 ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
@@ -54,7 +54,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     LectureService,
     LectureSubjectsService,
     SubjectStudentsService,
-    SutdentSubjectsService
+    SutdentSubjectsService,TestCentreService
   ],
   bootstrap: [AppComponent]
 })

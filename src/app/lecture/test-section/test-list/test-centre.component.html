@@ -1,0 +1,67 @@
+
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-lecture-nav></app-lecture-nav>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content" *ngIf= "allSubjects as subs">
+    <app-toggle-user-menu></app-toggle-user-menu>
+
+      <h2>All Test  
+          <a routerLink="/add-test">
+            <button type="button"  class="btn btn-info">Add test</button>
+         </a>
+        </h2> <br>
+        <div class="row">
+         
+          <div class="col-sm-12">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th>TYPE</th>
+                  <th>DISCRIPTION</th>
+                  <th>DATE</th>
+                 <th>DURATION</th>
+                 <th>VENUE</th>
+                 <th>TIME</th>
+                 <th>STATUS</th>
+                 <th>SCORE</th>
+                 <th>SUBJECT</th>
+                 <th>CREATEDATE</th>
+                
+                  <th>ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let test of tests">
+                  <td>{{test.type}}</td>
+                  <td>{{test.tittle}}</td>
+
+                  <td>{{test.date}}</td>
+                  <td>{{test.duration}}</td>
+                  <td>{{test.location}}</td>
+                  <td>{{test.time}}</td>
+                  <td>{{test.status}}</td>
+                  <td>{{test.score}}</td>
+                  <td>{{test.subjectID | getsubject:subs}}</td>
+                  <td>{{test.createdate}}</td>
+                  <td>
+                    
+
+                      <div class="btn-group">
+                        <button type="button" (click)="Edit(test)" class="btn btn-info">Edit</button>
+                        <button type="button" (click)="Details(test)" class="btn btn-info">More</button>
+                      </div>
+                  </td>
+                
+                </tr>
+                
+              </tbody>
+            </table>
+        </div>
+     </div>
+</div>
+
