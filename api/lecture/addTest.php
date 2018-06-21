@@ -15,13 +15,15 @@ if (isset($data->type)) {
     $status   = $data->status;
     $tittle   = $data->tittle;
     $score    = $data->score;
-    $moduleID = $data->moduleID;
+    $subjectID = $data->subjectID;
+    $lectureID = $data->lectureID;
     
     
     
     
-    $result = $conn->prepare("INSERT INTO 'test'('type', 'date', 'duration', 'location', 'time', 'status', 'tittle', 'score', 'moduleID','createdate') VALUES (?,?,?,?,?,?,?,?,?,now())");
+    $result = $conn->prepare("INSERT INTO test(lectureID,type, date, duration, location, time, status, tittle, score, subjectID,createdate) VALUES (?,?,?,?,?,?,?,?,?,?,now())");
     if ($result->execute(array(
+        $lectureID,
         $type,
         $date,
         $duration,
@@ -30,7 +32,7 @@ if (isset($data->type)) {
         $status,
         $tittle,
         $score,
-        $moduleID
+        $subjectID
     ))) {
         echo json_encode($conn->lastInsertId());
     } else {
