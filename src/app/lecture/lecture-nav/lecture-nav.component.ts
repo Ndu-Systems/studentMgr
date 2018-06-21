@@ -14,7 +14,7 @@ export class LectureNavComponent implements OnInit {
   constructor(
    private userDataService: UserDataService
     ,private router: Router
-    ,private selectService: SelectService
+ 
   ) { }
 
   ngOnInit() {

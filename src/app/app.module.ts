@@ -24,6 +24,7 @@ import { LectureService } from "./admin/lecture/lecture.service";
 import { LectureSubjectsService } from "./lecture/lecture-subjects/lecture-subjects.service";
 import { SubjectStudentsService } from "./lecture/subject-students/subject-students.service";
 import { LogoutComponent } from './logout/logout.component';
+import { SutdentSubjectsService } from "./student/student-subjects/sutdent-subjects.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LogoutComponent } from './logout/logout.component';
     routingComponents,
     NavUserComponent,
     StudentListComponent,
-    ToggleUserMenuComponent,
+    ToggleUserMenuComponent
+,
     LogoutComponent
 ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
@@ -49,7 +51,8 @@ import { LogoutComponent } from './logout/logout.component';
     CourseDetailsService,
     LectureService,
     LectureSubjectsService,
-    SubjectStudentsService
+    SubjectStudentsService,
+    SutdentSubjectsService
   ],
   bootstrap: [AppComponent]
 })

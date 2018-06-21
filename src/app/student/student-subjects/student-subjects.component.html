@@ -1,0 +1,48 @@
+
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+      <app-student-nav></app-student-nav>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content"> 
+      <app-toggle-user-menu></app-toggle-user-menu>
+      <h2>My Subjects
+      </h2> <br> <br>
+        <div class="row">         
+          <div class="col-sm-12">
+            <table class="table table-condensed" *ngIf="(subjects)">
+              <thead>
+                <tr>
+                  <th>TITTLE</th>
+                  <th>DESCRIPTION</th>                 
+                  <th>CODE</th>
+                  <th>STATUS</th>
+                  <th>ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let subject of subjects">
+                  <td>{{subject.tittle}}</td>
+                  <td>{{subject.description}}</td>               
+                  <td>{{subject.code}}</td>
+                  <td>{{subject.status}}</td>
+                  <td>
+                      <button type="button" (click)="StudentSubjectMarks(subject)" class="btn btn-info">More</button>
+                </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          
+        </div>
+        <div *ngIf="(!subjects)">  
+        <h3 class="msg">
+            {{message}}
+        </h3>
+      </div>
+     </div>
+</div>
+
