@@ -30,6 +30,11 @@ export class TestCentreComponent implements OnInit {
       console.log("this.tests",this.tests)
     });
   }
+  Edit(lecture) {
+  this.lectureService.saveLecture(lecture);
+  this.router.navigate(['/edit-test', lecture.id]);
+
+  }
   Details(lecture) {
   this.lectureService.saveLecture(lecture);
   this.router.navigate(['/edit-test', lecture.id]);
