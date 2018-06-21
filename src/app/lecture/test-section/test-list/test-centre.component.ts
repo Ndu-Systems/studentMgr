@@ -1,8 +1,8 @@
-import { UserDataService } from './../../shared/services/user-data.service';
 import { Component, OnInit } from '@angular/core';
-import { SelectService } from '../../shared/select.service';
 import { Router } from '@angular/router';
-import { LectureService } from '../../admin/lecture/lecture.service';
+import { SelectService } from '../../../shared/select.service';
+import { LectureService } from '../../../admin/lecture/lecture.service';
+import { UserDataService } from '../../../shared/services/user-data.service';
 
 @Component({
   selector: 'app-test-centre',
@@ -32,7 +32,7 @@ export class TestCentreComponent implements OnInit {
   }
   Details(lecture) {
   this.lectureService.saveLecture(lecture);
-  this.router.navigate(['/lecture-course-subject', lecture.id]);
+  this.router.navigate(['/edit-test', lecture.id]);
 
   }
   GetSubjects(){

@@ -1,4 +1,4 @@
-import { AddTestComponent } from './lecture/add-test/add-test.component';
+import { EditTestComponent } from './lecture/test-section/edit-test/edit-test.component';
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
 import { AdminAccountComponent } from './admin/admin-account/admin-account.component';
 import { LectureAccountComponent } from './lecture/lecture-account/lecture-account.component';
@@ -33,13 +33,14 @@ import { LectureDashboardComponent } from './lecture/lecture-dashboard/lecture-d
 import { LectureSubjectsComponent } from './lecture/lecture-subjects/lecture-subjects.component';
 import { SubjectStudentsComponent } from './lecture/subject-students/subject-students.component';
 import { LectureChangePasswordComponent } from './lecture/lecture-change-password/lecture-change-password.component';
-import { TestCentreComponent } from './lecture/test-centre/test-centre.component';
 import { StudentAccountComponent } from './student/student-account/student-account.component';
 import { StudentChangePasswordComponent } from './student/student-change-password/student-change-password.component';
 import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
 import { StudentNavComponent } from './student/student-nav/student-nav.component';
 import { StudentSubjectsComponent } from './student/student-subjects/student-subjects.component';
 import { StudentSubjectMarksComponent } from './student/student-subject-marks/student-subject-marks.component';
+import { TestCentreComponent } from './lecture/test-section/test-list/test-centre.component';
+import { AddTestComponent } from './lecture/test-section/add-test/add-test.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -77,6 +78,8 @@ const routes: Routes = [
   { path: "student-subject-marks", component: StudentSubjectMarksComponent },
   { path: "student-account", component: StudentAccountComponent},
   { path: "student-change-password", component: StudentChangePasswordComponent },
+  { path: "edit-test/:id", component: EditTestComponent },
+
   { path: "**", component: LoginComponent }
 ];
 export const routingComponents = [
@@ -117,7 +120,8 @@ export const routingComponents = [
   StudentSubjectsComponent,
   StudentSubjectMarksComponent,
   StudentAccountComponent,
-  StudentChangePasswordComponent
+  StudentChangePasswordComponent,
+  EditTestComponent
 ];
 
 @NgModule({

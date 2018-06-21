@@ -1,8 +1,9 @@
-import { UserDataService } from "./../../shared/services/user-data.service";
-import { LectureService } from "./../../admin/lecture/lecture.service";
+
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { TestCentreService } from "./test-centre.service";
+import { LectureService } from "../../../admin/lecture/lecture.service";
+import { UserDataService } from "../../../shared/services/user-data.service";
 
 @Component({
   selector: "app-add-test",
@@ -44,7 +45,7 @@ export class AddTestComponent implements OnInit {
   }
 
   getSubjects() {
-    this.lectureService.selectSubject(4).subscribe(response => {
+    this.lectureService.selectSubject(this.user.id).subscribe(response => {
       if (response) {
         this.subjects = response;
       } else {
