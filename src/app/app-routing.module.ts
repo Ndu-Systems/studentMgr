@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 import { AddTestComponent } from './lecture/add-test/add-test.component';
-=======
-import { StudentChangePasswordComponent } from './student/student-change-password/student-change-password.component';
-import { StudentSubjectMarksComponent } from './student/student-subject-marks/student-subject-marks.component';
-import { StudentSubjectsComponent } from './student/student-subjects/student-subjects.component';
-import { StudentNavComponent } from './student/student-nav/student-nav.component';
-import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
->>>>>>> 02e1286a62aa0f515d5832a9703a2f5b000f5332
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
 import { AdminAccountComponent } from './admin/admin-account/admin-account.component';
 import { LectureAccountComponent } from './lecture/lecture-account/lecture-account.component';
@@ -43,6 +35,11 @@ import { SubjectStudentsComponent } from './lecture/subject-students/subject-stu
 import { LectureChangePasswordComponent } from './lecture/lecture-change-password/lecture-change-password.component';
 import { TestCentreComponent } from './lecture/test-centre/test-centre.component';
 import { StudentAccountComponent } from './student/student-account/student-account.component';
+import { StudentChangePasswordComponent } from './student/student-change-password/student-change-password.component';
+import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
+import { StudentNavComponent } from './student/student-nav/student-nav.component';
+import { StudentSubjectsComponent } from './student/student-subjects/student-subjects.component';
+import { StudentSubjectMarksComponent } from './student/student-subject-marks/student-subject-marks.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -113,17 +110,14 @@ export const routingComponents = [
   LectureChangePasswordComponent,
   AdminAccountComponent,
   AdminChangePasswordComponent,
-<<<<<<< HEAD
   TestCentreComponent,
-  AddTestComponent
-=======
+  AddTestComponent,
   StudentDashboardComponent,
   StudentNavComponent,
   StudentSubjectsComponent,
   StudentSubjectMarksComponent,
   StudentAccountComponent,
   StudentChangePasswordComponent
->>>>>>> 02e1286a62aa0f515d5832a9703a2f5b000f5332
 ];
 
 @NgModule({
