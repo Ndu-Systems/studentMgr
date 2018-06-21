@@ -25,6 +25,7 @@ import { LectureSubjectsService } from "./lecture/lecture-subjects/lecture-subje
 import { SubjectStudentsService } from "./lecture/subject-students/subject-students.service";
 import { LogoutComponent } from './logout/logout.component';
 import { SutdentSubjectsService } from "./student/student-subjects/sutdent-subjects.service";
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SutdentSubjectsService } from "./student/student-subjects/sutdent-subje
     StudentListComponent,
     ToggleUserMenuComponent
 ,
-    LogoutComponent
+    LogoutComponent,
+    ForgotPasswordComponent
 ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
