@@ -84,6 +84,7 @@ const routes: Routes = [
   { path: "student-change-password", component: StudentChangePasswordComponent },
   { path: "edit-test/:id", component: EditTestComponent },
   { path: "forgot-password",component: ForgotPasswordComponent },
+  { path: "forgot-my-password", component: ForgotPasswordEmailComponent },
   { path: "**", component: LoginComponent }
 ];
 export const routingComponents = [
