@@ -1,0 +1,47 @@
+
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-lecture-nav></app-lecture-nav>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+    <app-toggle-user-menu></app-toggle-user-menu>
+
+      <h2>All Test  
+          <a routerLink="/add-test">
+            <button type="button"  class="btn btn-info">Add test</button>
+         </a>
+        </h2> <br>
+        <div class="row">
+         
+          <div class="col-sm-12">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th>NAME</th>
+                  <th>SURNAME</th>
+                  <th>STAFF NUMBER</th>
+                
+                  <th>ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let lecture of lectures">
+                  <td>{{lecture.name}}</td>
+                  <td>{{lecture.surname}}</td>
+                  <td>{{lecture.id}}</td>
+                  <td>
+                      <button type="button" (click)="Details(lecture)" class="btn btn-info">More</button>
+                  </td>
+                
+                </tr>
+                
+              </tbody>
+            </table>
+        </div>
+     </div>
+</div>
+

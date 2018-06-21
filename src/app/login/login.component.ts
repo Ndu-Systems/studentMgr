@@ -10,7 +10,7 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
 
-  email = 'John.Smith@btc.edu.za';
+  email = 'Simo.Ngqulunga@teaching.com';
   password ='John123';
   message='';
   constructor(private loginServiceService:LoginService, private router:Router,private userDataService:UserDataService) { }

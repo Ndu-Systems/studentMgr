@@ -1,3 +1,4 @@
+import { AddTestComponent } from './lecture/add-test/add-test.component';
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
 import { AdminAccountComponent } from './admin/admin-account/admin-account.component';
 import { LectureAccountComponent } from './lecture/lecture-account/lecture-account.component';
@@ -32,6 +33,7 @@ import { LectureDashboardComponent } from './lecture/lecture-dashboard/lecture-d
 import { LectureSubjectsComponent } from './lecture/lecture-subjects/lecture-subjects.component';
 import { SubjectStudentsComponent } from './lecture/subject-students/subject-students.component';
 import { LectureChangePasswordComponent } from './lecture/lecture-change-password/lecture-change-password.component';
+import { TestCentreComponent } from './lecture/test-centre/test-centre.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -60,6 +62,8 @@ const routes: Routes = [
   { path: "lecture-dashboard", component: LectureDashboardComponent },
   { path: "lecture-account", component: LectureAccountComponent },
   { path: "lecture-change-password", component: LectureChangePasswordComponent },
+  { path: "test-centre", component: TestCentreComponent },
+  { path: "add-test", component: AddTestComponent },
   { path: "admin-account", component: AdminAccountComponent },
   { path: "admin-change-password", component: AdminChangePasswordComponent },
   { path: "**", component: HomePageComponent }
@@ -94,7 +98,9 @@ export const routingComponents = [
   LectureAccountComponent,
   LectureChangePasswordComponent,
   AdminAccountComponent,
-  AdminChangePasswordComponent
+  AdminChangePasswordComponent,
+  TestCentreComponent,
+  AddTestComponent
 ];
 
 @NgModule({
