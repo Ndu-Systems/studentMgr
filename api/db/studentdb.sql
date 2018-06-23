@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2018 at 10:04 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Jun 23, 2018 at 10:33 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -199,16 +199,24 @@ INSERT INTO `subject` (`id`, `tittle`, `createdate`, `credits`, `description`, `
 CREATE TABLE `test` (
   `id` int(10) NOT NULL,
   `type` varchar(50) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` varchar(50) NOT NULL,
   `duration` varchar(50) NOT NULL,
   `location` text NOT NULL,
-  `time` varchar(10) NOT NULL,
-  `marks` varchar(10) NOT NULL,
+  `time` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL,
   `tittle` varchar(150) NOT NULL,
   `score` varchar(10) NOT NULL,
-  `moduleID` int(10) NOT NULL
+  `subjectID` int(10) NOT NULL,
+  `lectureID` int(10) NOT NULL,
+  `createdate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `test`
+--
+
+INSERT INTO `test` (`id`, `type`, `date`, `duration`, `location`, `time`, `status`, `tittle`, `score`, `subjectID`, `lectureID`, `createdate`) VALUES
+(1, 'Test', '2018-06-15', '2h', 'main hall', '8:00 to 10:00', 'new', 'test 1', '150', 1, 4, '2018-06-23 10:28:06');
 
 -- --------------------------------------------------------
 
@@ -342,7 +350,7 @@ ALTER TABLE `subject`
 -- AUTO_INCREMENT for table `test`
 --
 ALTER TABLE `test`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`

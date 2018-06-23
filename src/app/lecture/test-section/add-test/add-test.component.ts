@@ -109,7 +109,7 @@ export class AddTestComponent implements OnInit {
         alert(
           "Test was created successfully, now you can add/remove student to write this test"
         );
-        this.router.navigate(["/add-student-to-test"]);
+      //  this.router.navigate(["/add-student-to-test"]);
       }
     });
   }

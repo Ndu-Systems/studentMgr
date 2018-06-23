@@ -21,7 +21,8 @@ if (isset($data->type)) {
     
     
     
-    $result = $conn->prepare("INSERT INTO test(lectureID,type, date, duration, location, time, status, tittle, score, subjectID,createdate) VALUES (?,?,?,?,?,?,?,?,?,?,now())");
+    $result = $conn->prepare("INSERT INTO test(lectureID,type, date, duration, location, time, status, tittle, score, subjectID,createdate)
+     VALUES (?,?,?,?,?,?,?,?,?,?,now())");
     if ($result->execute(array(
         $lectureID,
         $type,
