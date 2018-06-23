@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2018 at 11:32 PM
+-- Generation Time: Jun 23, 2018 at 10:04 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -230,19 +230,20 @@ CREATE TABLE `user` (
   `city` varchar(100) NOT NULL,
   `userstatus` varchar(20) NOT NULL DEFAULT 'active',
   `idnumber` varchar(20) NOT NULL,
-  `user_nmuber` varchar(20) NOT NULL
+  `user_nmuber` varchar(20) NOT NULL,
+  `token` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `surname`, `email`, `cell`, `address`, `password`, `createdate`, `role`, `country`, `city`, `userstatus`, `idnumber`, `user_nmuber`) VALUES
-(1, 'John', 'Smith', 'John.Smith@btc.edu.za', '0787875141', 'Eyethu house', 'John123', '2018-05-17 19:08:54', 'admin', 'South Africa', 'Johanesburg', 'active', '', ''),
-(2, 'Freedom', 'Khanyile', 'Freedom.Khanyile@mail.com', '0746958064', 'Boksruin', 'John123', 'Khanyile', 'student', '', 'Randburg', 'active', '01254585478564', ''),
-(3, 'Ndumiso', 'Ndlovu', 'Ndumiso.Ndlovu@mail.com', '0769580644', 'Drum - Bos', 'John123', 'Ndlovu', 'student', '', 'Bisho', 'active', '2422588466887', ''),
-(4, 'Simo', 'Ngqulunga', 'Simo.Ngqulunga@teaching.com', '0746969969', 'Boksruin 999', 'John123', 'Ngqulunga', 'lecture', '', 'Randburg', 'active', '92082558466858', ''),
-(5, 'Zinhle', 'Mbele', 'Zinhle.Mbele@teaching.com', '0762258468', 'Kaya Sands', 'Mbele', '2018-06-07 20:34:40', 'lecture', '', 'Cosmo City', 'active', '92075512668468', '');
+INSERT INTO `user` (`id`, `name`, `surname`, `email`, `cell`, `address`, `password`, `createdate`, `role`, `country`, `city`, `userstatus`, `idnumber`, `user_nmuber`, `token`) VALUES
+(1, 'John', 'Smith', 'John.Smith@btc.edu.za', '0787875141', 'Jacaranda Lane, Panther Road', 'John123', '2018-05-17 19:08:54', 'admin', 'South Africa', 'Johanesburg', 'active', '90888378745363', '', ''),
+(2, 'Freedom', 'Khanyile', 'Freedom.Khanyile@ndu-systems.net', '0746958064', 'WestVille', 'John123', 'Khanyile', 'student', '', 'Randburg', 'active', '01254585478564', '', 'ef4ff09bfa3b235a0d0ab85018638dea'),
+(3, 'Ndumiso', 'Ndlovu', 'Ndumiso.Ndlovu@mail.com', '0769580644', 'Drum - Bos', 'John123', 'Ndlovu', 'student', '', 'Bisho', 'active', '2422588466887', '', ''),
+(4, 'Smiso', 'Mokoena', 'Simo.Ngqulunga@teaching.com', '0746969969', 'Boksruin 999', 'John123', 'Ngqulunga', 'lecture', '', 'Randburg', 'active', '92082558466858', '', ''),
+(5, 'Zinhle', 'Mbele', 'Zinhle.Mbele@teaching.com', '0762258468', 'Kaya Sands', 'Mbele', '2018-06-07 20:34:40', 'lecture', '', 'Cosmo City', 'active', '92075512668468', '', '');
 
 --
 -- Indexes for dumped tables
