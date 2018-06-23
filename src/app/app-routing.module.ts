@@ -1,3 +1,4 @@
+import { AddStudentToTestComponent } from './lecture/test-section/add-student-to-test/add-student-to-test.component';
 import { ForgotPasswordEmailComponent } from './forgot-password/forgot-password-email/forgot-password-email.component';
  
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -73,6 +74,7 @@ const routes: Routes = [
   { path: "lecture-dashboard", component: LectureDashboardComponent },
   { path: "lecture-account", component: LectureAccountComponent },
   { path: "lecture-change-password", component: LectureChangePasswordComponent },
+  { path: "add-student-to-test", component: AddStudentToTestComponent },
   { path: "test-centre", component: TestCentreComponent },
   { path: "add-test", component: AddTestComponent },
   { path: "admin-account", component: AdminAccountComponent },
@@ -127,6 +129,7 @@ export const routingComponents = [
   StudentAccountComponent,
   StudentChangePasswordComponent,
   EditTestComponent,
+  AddStudentToTestComponent,
   ForgotPasswordComponent,
   ForgotPasswordEmailComponent,
   ForgotPasswordSuccessComponent

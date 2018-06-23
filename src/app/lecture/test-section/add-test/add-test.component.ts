@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { TestCentreService } from "./test-centre.service";
@@ -101,12 +100,17 @@ export class AddTestComponent implements OnInit {
       tittle: this.tittle,
       score: this.score,
       subjectID: parseInt(this.subjectID),
-      lectureID:parseInt(this.user.id)
+      lectureID: parseInt(this.user.id)
     };
     this.testCentreService.AddTest(data).subscribe(r => {
-     if(r){
-       alert(r);
-     }
+      if (r) {
+        data["id"]=r;
+        this.testCentreService.saveTest(data);
+        alert(
+          "Test was created successfully, now you can add/remove student to write this test"
+        );
+        this.router.navigate(["/add-student-to-test"]);
+      }
     });
   }
 }

@@ -1,3 +1,4 @@
+import { TestCentreService } from './../add-test/test-centre.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SelectService } from '../../../shared/select.service';
@@ -15,7 +16,7 @@ export class TestCentreComponent implements OnInit {
   allSubjects: any;
   tests:any[];
   user:any;
-  constructor(private selectService: SelectService, private router:Router, private lectureService:LectureService, private userDataService:UserDataService) {}
+  constructor(private selectService: SelectService, private router:Router, private testCentreService:TestCentreService, private userDataService:UserDataService) {}
   ngOnInit() {
     this.user = this.userDataService.getUser();
     if (this.user == null) {
@@ -30,14 +31,13 @@ export class TestCentreComponent implements OnInit {
       console.log("this.tests",this.tests)
     });
   }
-  Edit(lecture) {
-  this.lectureService.saveLecture(lecture);
-  this.router.navigate(['/edit-test', lecture.id]);
+  Edit(test) {
+  this.router.navigate(['/edit-test', test.id]);
 
   }
-  Details(lecture) {
-  this.lectureService.saveLecture(lecture);
-  this.router.navigate(['/edit-test', lecture.id]);
+  More(test) {
+  this.testCentreService.saveTest(test);
+  this.router.navigate(["/add-student-to-test"]);
 
   }
   GetSubjects(){
