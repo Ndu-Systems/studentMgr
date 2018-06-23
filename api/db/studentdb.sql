@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2018 at 10:33 AM
+-- Generation Time: Jun 23, 2018 at 10:42 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -168,6 +168,29 @@ CREATE TABLE `student_lecture` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `student_test`
+--
+
+CREATE TABLE `student_test` (
+  `id` int(10) NOT NULL,
+  `studentID` int(10) NOT NULL,
+  `testID` int(10) NOT NULL,
+  `createdate` datetime NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `marks` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student_test`
+--
+
+INSERT INTO `student_test` (`id`, `studentID`, `testID`, `createdate`, `status`, `marks`) VALUES
+(1, 2, 1, '2018-06-23 10:39:26', 'pending', ''),
+(2, 3, 1, '2018-06-23 10:39:26', 'pending', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subject`
 --
 
@@ -288,6 +311,12 @@ ALTER TABLE `student_course_subject`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `student_test`
+--
+ALTER TABLE `student_test`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `subject`
 --
 ALTER TABLE `subject`
@@ -339,6 +368,12 @@ ALTER TABLE `lecture_course_subject`
 --
 ALTER TABLE `student_course_subject`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `student_test`
+--
+ALTER TABLE `student_test`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `subject`
