@@ -12,6 +12,7 @@ export   const API_URL=api;
 export const  WEB_HOST = web;
 
 export const EMAIL= "http://demo.ndu-systems.net/api/emailClient2.php";
+export const emailbeta = "http://demo.ndu-systems.net/api/email"
 
 
 export function GetImagePath(imageUrl){

@@ -11,9 +11,12 @@
 			<div class=" col-lg-4 contact-form">
 				<div>
 
-						<input type="text" placeholder="EMAIL ADDRESS"  [(ngModel)]="email"  required=""/>
-						<input type="password" placeholder="PASSWORD" [(ngModel)]="password"  required=""/>
-            <input type="submit"  (click)="Login()" value="LOGIN">
+				<input type="text" placeholder="EMAIL ADDRESS"  [(ngModel)]="email"  required=""/>
+				<input type="password" placeholder="PASSWORD" [(ngModel)]="password"  required=""/>
+			<input type="submit"  (click)="Login()" value="LOGIN">
+			<div> 
+			<a routerLink="forgot-my-password" class="message"><u>Forgot my password ...</u></a>
+		</div>
 			<div class="message">	{{message}} </div>
 					</div>
 					
