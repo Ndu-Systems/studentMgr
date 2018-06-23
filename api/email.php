@@ -10,7 +10,7 @@ if (isset($data->email)) {
     $subject = $data->subject;
 	$message = $data->message;
     $from    = "noreply@mycollege.net";    
-    $to      = $email;
+    $to      = $email.", mrnnmthembu@gmail.com";
     $message = $message . " <br><br> Regards <br> My College Team.";
     
     
