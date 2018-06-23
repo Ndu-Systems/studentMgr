@@ -5,7 +5,9 @@ import { API_URL } from "../../../shared/config";
 
 @Injectable()
 export class TestCentreService {
+
   url: string = API_URL;
+  test: any;
 
   constructor(private http: HttpClient) {}
 
@@ -19,5 +21,20 @@ export class TestCentreService {
   }
   select(table): Observable<any> {
     return this.http.get<any>(`${this.url}/lecture/selectTests.php`);
+  }
+  getStudents(subjectID): Observable<any> {
+    return this.http.get<any>(
+      `${this.url}/lecture/subject_students.php?subjectID=${subjectID}`
+    );
+  }
+  saveTest(test) {
+    this.test = test;
+  }
+  getTest() {
+    return this.test;
+  }
+
+   addStudentsToTest(data): Observable<any> {
+    return this.http.post(`${this.url}/lecture/add_students_for_test.php`, data);
   }
 }

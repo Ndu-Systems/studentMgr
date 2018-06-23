@@ -1,3 +1,4 @@
+import { AddStudentToTestComponent } from './lecture/test-section/add-student-to-test/add-student-to-test.component';
 import { EditTestComponent } from './lecture/test-section/edit-test/edit-test.component';
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
 import { AdminAccountComponent } from './admin/admin-account/admin-account.component';
@@ -69,6 +70,7 @@ const routes: Routes = [
   { path: "lecture-dashboard", component: LectureDashboardComponent },
   { path: "lecture-account", component: LectureAccountComponent },
   { path: "lecture-change-password", component: LectureChangePasswordComponent },
+  { path: "add-student-to-test", component: AddStudentToTestComponent },
   { path: "test-centre", component: TestCentreComponent },
   { path: "add-test", component: AddTestComponent },
   { path: "admin-account", component: AdminAccountComponent },
@@ -121,7 +123,8 @@ export const routingComponents = [
   StudentSubjectMarksComponent,
   StudentAccountComponent,
   StudentChangePasswordComponent,
-  EditTestComponent
+  EditTestComponent,
+  AddStudentToTestComponent
 ];
 
 @NgModule({
