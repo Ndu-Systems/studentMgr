@@ -3,6 +3,7 @@ import { ForgotPasswordService } from './../forgot-password.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { EmailService } from '../../shared/services/email.service';
+import { WEB_HOST } from '../../shared/config';
 
 @Component({
   selector: 'app-forgot-password-email',
@@ -41,7 +42,7 @@ export class ForgotPasswordEmailComponent implements OnInit {
                 this.token = response[0].token;
                 this.name = response[0].name;
                 let email = {
-                  email: 'freedom.khanyile1@gmail.com',
+                  email: this.email,
                   subject: 'Direct Deposit - Request',
                   message: `Hi ${this.name} ! <br/>
                                  <h2>Woooh! Forgot Your Password?</h2> <br/>
@@ -49,7 +50,7 @@ export class ForgotPasswordEmailComponent implements OnInit {
                                  Please click link below to reset password<br/>
                                  <table>
                                  <tr>
-                                 <td><a href="http://localhost:4200/#/forgot-password:/"${this.token}>Reset Password</a> </td>                    
+                                 <td><a href=${WEB_HOST}/#/forgot-password?tokken=${this.token}>Reset Password</a> </td>                    
                                  <td> </td>
                                  </tr>                                                  
                                  </table><br/>

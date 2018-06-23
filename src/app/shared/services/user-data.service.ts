@@ -24,4 +24,5 @@ saveUser(user:any):Observable<any>{
   updatePassword(data): Observable<any>{
     return this.httpClient.post(`${this.url}/Account/UpdatePassword.php`,data); 
   }
+
 }

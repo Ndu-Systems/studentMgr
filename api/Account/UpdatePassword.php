@@ -15,10 +15,11 @@ if ($result->rowCount() == 1) {
 
 $result = $conn->prepare("
     UPDATE user SET  
-    password=?
+    password=?,
+    token =?
     WHERE email = ?
 "); 
-if($result->execute(array($password,$email))){
+if($result->execute(array($password,null,$email))){
     echo 1;
 }else{
 	echo json_encode("error while trying to update password please try again");
