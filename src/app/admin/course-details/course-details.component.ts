@@ -16,6 +16,8 @@ export class CourseDetailsComponent implements OnInit {
   Allsubjects: any[];
   courseID: number;
   courseObject:any;
+  error:any;
+  sub:any;
   constructor( private route: ActivatedRoute,
     private router: Router,private courseDetailsService:CourseDetailsService,private selectService: SelectService, private addService: AddService
   ) { }
