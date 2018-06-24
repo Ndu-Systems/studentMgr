@@ -1,0 +1,79 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-lecture-nav></app-lecture-nav>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+    <app-toggle-user-menu></app-toggle-user-menu>
+
+    <div class="row student-details">
+      <div class="col-sm-4">
+        <h3>Test Information</h3>
+        <table>
+          <tr>
+            <td>
+              <b>Test:</b>
+            </td>
+            <td>
+              {{ test.tittle}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Date:</b>
+            </td>
+            <td>
+              {{ test.date}}
+            </td>
+          </tr>
+
+        </table>
+
+
+
+        <button class="btn btn-info" (click)="SaveAll()">Save All</button>
+        <br>
+      </div>
+      <div class="col-sm-8">
+
+        <div *ngIf="allStudents">
+          <select type="text" [(ngModel)]="stu" class="form-control" style="width: 60%;float: left">
+            <option *ngFor="let stu of allStudents" [value]="stu.id">{{stu.name}} {{stu.surname}}</option>
+          </select>
+          <button type="button" (click)="AddStudent(stu)" class="btn btn-info">+</button>
+        </div>
+        <br>
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>NAME</th>
+                  <th>SURNAME</th>
+                  <th>STUDENT NUMBER</th>
+                  <th>EMAIL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let student of students">
+                  <td>{{student.name}}</td>
+                  <td>{{student.surname}}</td>
+                  <td>12345678</td>
+                  <td>{{student.email}}</td>
+                  <td>
+                    <button type="button" (click)="Remove(student)" class="btn btn-danger">X</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

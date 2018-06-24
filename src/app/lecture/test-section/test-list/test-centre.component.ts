@@ -37,7 +37,7 @@ export class TestCentreComponent implements OnInit {
   }
   More(test) {
   this.testCentreService.saveTest(test);
-  this.router.navigate(["/add-student-to-test"]);
+  this.router.navigate(["/test-students"]);
 
   }
   GetSubjects(){

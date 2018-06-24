@@ -46,6 +46,7 @@ import { StudentSubjectMarksComponent } from './student/student-subject-marks/st
 import { TestCentreComponent } from './lecture/test-section/test-list/test-centre.component';
 import { AddTestComponent } from './lecture/test-section/add-test/add-test.component';
 import { ForgotPasswordSuccessComponent } from './forgot-password/forgot-password-success/forgot-password-success.component';
+import { TestStudentsComponent } from './lecture/test-section/test-students/test-students.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -87,6 +88,7 @@ const routes: Routes = [
   { path: "edit-test/:id", component: EditTestComponent },
   { path: "forgot-password",component: ForgotPasswordComponent },
   { path: "forgot-my-password", component: ForgotPasswordEmailComponent },
+  { path: "test-students", component: TestStudentsComponent },
   { path: "**", component: LoginComponent }
 ];
 export const routingComponents = [
@@ -132,7 +134,8 @@ export const routingComponents = [
   AddStudentToTestComponent,
   ForgotPasswordComponent,
   ForgotPasswordEmailComponent,
-  ForgotPasswordSuccessComponent
+  ForgotPasswordSuccessComponent,
+  TestStudentsComponent
 ];
 
 @NgModule({

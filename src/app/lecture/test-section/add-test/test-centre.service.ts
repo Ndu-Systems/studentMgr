@@ -37,4 +37,8 @@ export class TestCentreService {
    addStudentsToTest(data): Observable<any> {
     return this.http.post(`${this.url}/lecture/add_students_for_test.php`, data);
   }
+
+  getStudentsForTest(id): Observable<any>{
+    return this.http.get<any>(`${this.url}/lecture/test_students.php?testID=${id}` );
+   }
 }
