@@ -1,8 +1,9 @@
-import { Router } from '@angular/router';
-import { LectureService } from './../lecture.service';
+import { Router } from "@angular/router";
+import { LectureService } from "./../lecture.service";
 import { Component, OnInit } from "@angular/core";
 import { CourseDetailsService } from "../../course-details/course-details.service";
 import { SelectService } from "../../../shared/select.service";
+import { LoadScreen, StopLoadingScreen } from "../../../shared/loading/load";
 
 @Component({
   selector: "app-add-subject-for-lecture",
@@ -24,8 +25,8 @@ export class AddSubjectForLectureComponent implements OnInit {
 
   ngOnInit() {
     this.lecture = this.lectureService.geLecture();
-    if(!this.lecture){
-      this.route.navigate(['/'])
+    if (!this.lecture) {
+      this.route.navigate(["/"]);
     }
     console.log("this.lecture", this.lecture);
     this.courseId = this.lecture.courseId;
@@ -73,10 +74,11 @@ export class AddSubjectForLectureComponent implements OnInit {
         courseId: this.courseId,
         subjects: this.courseSubjects
       };
-
+      LoadScreen();
       this.lectureService.add(data).subscribe(response => {
-        console.log(response);
-        this.route.navigate(['all-lectures']);
+        StopLoadingScreen();
+        alert("Lecture was added successfuly");
+        this.route.navigate(["all-lectures"]);
       });
     }
   }

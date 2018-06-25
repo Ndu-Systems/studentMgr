@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StudentService } from './student.service';
 import { SelectService } from '../../../shared/select.service';
+import { LoadScreen, StopLoadingScreen } from '../../../shared/loading/load';
 
 @Component({
   selector: 'app-student-list',
@@ -15,7 +16,9 @@ export class StudentListComponent implements OnInit {
     this.getDepartments();
   }
   getDepartments() {
+    LoadScreen();
     this.selectService.select("user WHERE role = 'student'").subscribe(response => {
+      StopLoadingScreen();
       this.students = response;
     });
   }

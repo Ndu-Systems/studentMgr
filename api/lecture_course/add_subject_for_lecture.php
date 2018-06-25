@@ -14,7 +14,6 @@ foreach($subjects as $subject) {
     $result = $conn->prepare("INSERT INTO `lecture_course_subject`(`lectureId`, `CourseId`,`Subject`,`Year`,`Status`) 
     VALUES (?,?,?,now(),'In Progress')");
 if($result->execute(array($studentId,$courseId,$subject->id))){			
-        echo 1;
 }else{
 	echo json_encode("error while trying to register client step 1 of 3");
 }

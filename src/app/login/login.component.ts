@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserDataService } from '../shared/services/user-data.service';
 import { LoginService } from './login.service';
+import { LoadScreen,StopLoadingScreen } from '../shared/loading/load';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
 
-  email = 'Simo.Ngqulunga@teaching.com';
+  email = 'John.Smith@btc.edu.za';
   password ='John123';
   message='';
   constructor(private loginServiceService:LoginService, private router:Router,private userDataService:UserDataService) { }
@@ -19,9 +20,11 @@ export class LoginComponent implements OnInit {
   }
 
   Login(){
+    LoadScreen();
   this.loginServiceService.loginUser(this.email, this.password)
   .subscribe((data)=>{
-    if(data.name){
+    StopLoadingScreen();
+    if(data){
       this.userDataService.saveUser(data);
       if(data.role=="admin"){
         this.router.navigate(['user-dashboard']);

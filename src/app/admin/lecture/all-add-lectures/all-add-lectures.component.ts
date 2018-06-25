@@ -2,6 +2,7 @@ import { LectureService } from './../lecture.service';
 import { Component, OnInit } from '@angular/core';
 import { SelectService } from '../../../shared/select.service';
 import { Router } from '@angular/router';
+import { LoadScreen, StopLoadingScreen } from '../../../shared/loading/load';
 
 @Component({
   selector: 'app-all-add-lectures',
@@ -16,7 +17,9 @@ export class AllAddLecturesComponent implements OnInit {
     this.getLectures();
   }
   getLectures() {
+    LoadScreen();
     this.selectService.select("user WHERE role = 'lecture'").subscribe(response => {
+      StopLoadingScreen();
       this.lectures = response;
       console.log("this.lectures",this.lectures)
     });

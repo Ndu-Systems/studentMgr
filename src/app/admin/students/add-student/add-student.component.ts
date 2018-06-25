@@ -4,6 +4,7 @@ import { StudentService } from '../student-list/student.service';
 import { Router } from '@angular/router';
 import { AddService } from '../../../shared/services/add.service';
 import { SelectService } from '../../../shared/select.service';
+import { LoadScreen, StopLoadingScreen } from '../../../shared/loading/load';
 
 @Component({
   selector: 'app-add-student',
@@ -41,8 +42,10 @@ export class AddStudentComponent implements OnInit {
       email: `${this.name}.${this.surname}@mail.com`,
       courseId: course
     }
+    LoadScreen();
     this.addService.add(data, 'student/add')
       .subscribe((response) => {
+        StopLoadingScreen();
         this.studentId = response;
         if (this.studentId>0) {          
           let data2 =

@@ -3,6 +3,7 @@ import { AddService } from '../../../shared/services/add.service';
 import { SelectService } from '../../../shared/select.service';
 import { Router } from '@angular/router';
 import { LectureService } from '../lecture.service';
+import { LoadScreen, StopLoadingScreen } from '../../../shared/loading/load';
 
 @Component({
   selector: 'app-add-lecture',
@@ -49,7 +50,9 @@ export class AddLectureComponent implements OnInit {
             courseId: data.courseId,
             lectureId : this.lectureId
           };
+          LoadScreen();
           this.addService.add(data2,'lecture_course/add').subscribe((response)=>{
+            StopLoadingScreen();
             let userData = data;
             userData["lectureId"] = data2.lectureId;
               this.lectureService.saveLecture(userData);

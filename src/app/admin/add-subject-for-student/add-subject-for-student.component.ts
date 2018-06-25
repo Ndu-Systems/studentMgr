@@ -4,6 +4,8 @@ import { Component, OnInit } from "@angular/core";
 import { CourseDetailsService } from "../course-details/course-details.service";
 import { StudentService } from "../students/student-list/student.service";
 import { SelectService } from "../../shared/select.service";
+import { Router } from "@angular/router";
+import { LoadScreen, StopLoadingScreen } from "../../shared/loading/load";
 
 @Component({
   selector: "app-add-subject-for-student",
@@ -20,7 +22,8 @@ export class AddSubjectForStudentComponent implements OnInit {
     private studentService: StudentService,
     private addSubjectForStudentService: AddSubjectForStudentService,
     private selectService: SelectService,
-    private courseDetailsService: CourseDetailsService
+    private courseDetailsService: CourseDetailsService,
+    private router:Router
   ) {}
 
   ngOnInit() {
@@ -71,9 +74,12 @@ export class AddSubjectForStudentComponent implements OnInit {
         courseId: this.courseId,
         subjects: this.courseSubjects
       };
-
+      LoadScreen();
       this.addSubjectForStudentService.add(data).subscribe(response => {
-        console.log(response);
+        StopLoadingScreen();
+        alert("Student Enrollment successful!")
+        this.router.navigate(['/student-list']);
+
       });
     }
   }
