@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AddService } from '../../../shared/services/add.service';
 
@@ -11,7 +12,7 @@ export class AddDepartmentComponent implements OnInit {
   status: string="active";
   error: string;
   name: any;
-  constructor(private addService:AddService) { }
+  constructor(private addService:AddService,private router:Router) { }
 
   ngOnInit() {
   }
@@ -23,7 +24,8 @@ let data = {
 }
 this.addService.add(data,"department/add")
 .subscribe((response)=>{
-alert(response)
+alert(response);
+this.router.navigate(['/all-departement']);
 });
     }else{
       this.error = "Enter department name";

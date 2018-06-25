@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AddService } from '../../../shared/services/add.service';
 import { SelectService } from '../../../shared/select.service';
@@ -16,7 +17,7 @@ export class AddSubjectComponent implements OnInit {
   error: string;
   courses: any;
   code: any;
-  constructor(private addService:AddService, private selectService:SelectService) { }
+  constructor(private addService:AddService, private selectService:SelectService,private router:Router) { }
 //, `tittle`, `createdate`, `credits`, `description`, `courseID`, `code`
   ngOnInit() {
     this.getCourses();  }
@@ -36,6 +37,8 @@ Save(){
       this.addService.add(data,"subject/add")
       .subscribe((response)=>{
       alert(response)
+      this.router.navigate(['/all-subjects']);
+
       });
 }
 getCourses(){

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 
 import { Component, OnInit } from "@angular/core";
 import { AddService } from "../../../shared/services/add.service";
@@ -17,7 +18,8 @@ export class AddCouseComponent implements OnInit {
   departements: any[];
   constructor(
     private addService: AddService,
-    private selectService: SelectService
+    private selectService: SelectService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -43,6 +45,8 @@ export class AddCouseComponent implements OnInit {
 
     this.addService.add(data, "course/add").subscribe(response => {
       alert(response);
+      this.router.navigate(['/all-courses']);
+
     });
   }
   getDepartments() {
