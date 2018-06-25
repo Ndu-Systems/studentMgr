@@ -11,7 +11,7 @@ import { LoadScreen,StopLoadingScreen } from '../shared/loading/load';
 })
 export class LoginComponent implements OnInit {
 
-  email = 'John.Smith@btc.edu.za';
+  email = 'Zinhle.Mbele@teaching.com';
   password ='John123';
   message='';
   constructor(private loginServiceService:LoginService, private router:Router,private userDataService:UserDataService) { }

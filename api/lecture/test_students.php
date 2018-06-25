@@ -15,6 +15,5 @@ $statement = $conn->prepare("
 ");
 $statement->execute(array($testID));
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-    echo $json = json_encode($results);
 }
 ?>

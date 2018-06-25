@@ -103,13 +103,14 @@ export class AddTestComponent implements OnInit {
       lectureID: parseInt(this.user.id)
     };
     this.testCentreService.AddTest(data).subscribe(r => {
+      debugger;
       if (r) {
         data["id"]=r;
         this.testCentreService.saveTest(data);
         alert(
           "Test was created successfully, now you can add/remove student to write this test"
         );
-      //  this.router.navigate(["/add-student-to-test"]);
+        this.router.navigate(["/add-student-to-test"]);
       }
     });
   }

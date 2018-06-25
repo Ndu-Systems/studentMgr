@@ -13,7 +13,6 @@ foreach($studentIDs as $student) {
     $result = $conn->prepare("INSERT INTO `student_test`(`studentID`, `testID`, `createdate`, `status`) 
     VALUES (?,?,now(),?)");
 if($result->execute(array(intval($student->id),intval($testID),'pending'))){			
-        echo  json_encode("success");
 }else{
 	echo json_encode("error while trying to register client step 1 of 3");
 }
