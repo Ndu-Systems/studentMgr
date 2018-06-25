@@ -43,7 +43,7 @@ export class ForgotPasswordEmailComponent implements OnInit {
                 this.name = response[0].name;
                 let email = {
                   email: this.email,
-                  subject: 'Direct Deposit - Request',
+                  subject: 'Forgot Password - Reset',
                   message: `Hi ${this.name} ! <br/>
                                  <h2>Woooh! Forgot Your Password?</h2> <br/>
                                  Happens to the Best of Us!<br/>
