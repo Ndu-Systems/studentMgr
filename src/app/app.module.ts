@@ -16,7 +16,6 @@ import { AddService } from "./shared/services/add.service";
 import { ToggleUserMenuComponent } from "./toggle-user-menu/toggle-user-menu.component";
 import { StudentListComponent } from "./admin/students/student-list/student-list.component";
 import { StudentCourseSubjectService } from "./admin/student-course-subject/student-course-subject.service";
-import { AddSubjectForStudentService } from "./admin/add-subject-for-student/add-subject-for-student.service";
 import { CourseDetailsService } from "./admin/course-details/course-details.service";
 import { StudentService } from "./admin/students/student-list/student.service";
 import { SelectService } from "./shared/select.service";
@@ -29,6 +28,7 @@ import { GetSubjectPipe } from './lecture/test-section/test-list/get-subject.pip
 import { TestCentreService } from "./lecture/test-section/add-test/test-centre.service";
 import { ForgotPasswordService } from "./forgot-password/forgot-password.service";
 import { TokenService } from "./shared/token.service";
+import { AddSubjectForStudentService } from "./admin/students/add-subject-for-student/add-subject-for-student.service";
 
 @NgModule({
   declarations: [

@@ -13,6 +13,7 @@ import { LoadScreen, StopLoadingScreen } from '../../../shared/loading/load';
 })
 export class AddStudentComponent implements OnInit {
 
+  message: string;
   cell: any;
   user_nmuber: string;
   password: string;
@@ -31,6 +32,35 @@ export class AddStudentComponent implements OnInit {
     this.getCourses();
   }
   AddStudent(course) {
+    if(!this.name){
+      this.message ="Enter student name";
+      return false;
+    }
+    if(!this.surname){
+      this.message ="Enter student surname";
+      return false;
+    }
+    if(!this.idnumber){
+      this.message ="Enter student id number";
+      return false;
+    }
+    if(!this.address){
+      this.message ="Enter student address";
+      return false;
+    }
+    if(!this.city){
+      this.message ="Enter student city";
+      return false;
+    }
+    if(!this.cell){
+      this.message ="Enter student cell";
+      return false;
+    }
+    if(!this.course){
+      this.message ="Select student course";
+      return false;
+    }
+   
     let data = {
       name: this.name,
       surname: this.surname,

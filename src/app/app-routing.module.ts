@@ -31,7 +31,6 @@ import { AllDepartementComponent } from "./admin/departement/all-departement/all
 import { AllCoursesComponent } from "./admin/courses/all-courses/all-courses.component";
 import { AllSubjectsComponent } from "./admin/subjects/all-subjects/all-subjects.component";
 import { StudentCourseSubjectComponent } from "./admin/student-course-subject/student-course-subject.component";
-import { AddSubjectForStudentComponent } from "./admin/add-subject-for-student/add-subject-for-student.component";
 import { CourseDetailsComponent } from "./admin/course-details/course-details.component";
 import { ToggleUserMenuComponent } from "./toggle-user-menu/toggle-user-menu.component";
 import { LectureDashboardComponent } from './lecture/lecture-dashboard/lecture-dashboard.component';
@@ -49,6 +48,7 @@ import { AddTestComponent } from './lecture/test-section/add-test/add-test.compo
 import { ForgotPasswordSuccessComponent } from './forgot-password/forgot-password-success/forgot-password-success.component';
 import { TestStudentsComponent } from './lecture/test-section/test-students/test-students.component';
 import { LoadingComponent } from './shared/loading/loading/loading.component';
+import { AddSubjectForStudentComponent } from './admin/students/add-subject-for-student/add-subject-for-student.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },

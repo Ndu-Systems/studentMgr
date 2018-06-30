@@ -1,11 +1,10 @@
 import { AddSubjectForStudentService } from "./add-subject-for-student.service";
 import { Component, OnInit } from "@angular/core";
-
-import { CourseDetailsService } from "../course-details/course-details.service";
-import { StudentService } from "../students/student-list/student.service";
-import { SelectService } from "../../shared/select.service";
 import { Router } from "@angular/router";
-import { LoadScreen, StopLoadingScreen } from "../../shared/loading/load";
+import { SelectService } from "../../../shared/select.service";
+import { CourseDetailsService } from "../../course-details/course-details.service";
+import { LoadScreen, StopLoadingScreen } from "../../../shared/loading/load";
+import { StudentService } from "../student-list/student.service";
 
 @Component({
   selector: "app-add-subject-for-student",
