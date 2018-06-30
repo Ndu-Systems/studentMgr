@@ -69,7 +69,7 @@ const routes: Routes = [
   { path: "all-subjects", component: AllSubjectsComponent },
   { path: "student-course-subject/:id", component: StudentCourseSubjectComponent },
   { path: "lecture-course-subject/:id", component: LectureCourseSubjectComponent },
-  { path: "add-subject-for-student", component: AddSubjectForStudentComponent },
+  { path: "add-subject-for-student/:id", component: AddSubjectForStudentComponent },
   { path: "add-subject-for-lecture", component: AddSubjectForLectureComponent },
   { path: "course/:id", component: CourseDetailsComponent },
   { path: "lecture-subjects/:id", component: LectureSubjectsComponent}, 

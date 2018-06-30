@@ -1,6 +1,7 @@
+import { Observable } from "rxjs/observable";
 import { AddSubjectForStudentService } from "./add-subject-for-student.service";
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { SelectService } from "../../../shared/select.service";
 import { CourseDetailsService } from "../../course-details/course-details.service";
 import { LoadScreen, StopLoadingScreen } from "../../../shared/loading/load";
@@ -12,38 +13,42 @@ import { StudentService } from "../student-list/student.service";
   styleUrls: ["./add-subject-for-student.component.css"]
 })
 export class AddSubjectForStudentComponent implements OnInit {
+  studentID: number;
   Allsubjects: any[];
-  student: any;
   courseId: number;
+
+  courseSubjects$: Observable<any[]>;
   courseSubjects: any[];
-  courseObject: any;
+  student$: Observable<any>;
+  courseObject$: Observable<any>;
   constructor(
     private studentService: StudentService,
     private addSubjectForStudentService: AddSubjectForStudentService,
     private selectService: SelectService,
     private courseDetailsService: CourseDetailsService,
-    private router:Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.student = this.studentService.getStudent();
-    console.log("this.student", this.student);
-    this.courseId = this.student.courseId;
-    this.getCourse();
-    this.getCourseSubjects();
-    this.getAllSubjects();
+    this.studentID = parseInt(this.route.snapshot.paramMap.get("id"));
+    this.student$ = this.studentService.getStudentCourse(this.studentID);
+    this.student$.subscribe(data => {
+      this.courseId = data[0].courseID;
+      this.getCourse();
+      this.getCourseSubjects();
+      this.getAllSubjects();
+    });
   }
   getCourse() {
-    this.selectService
-      .select(`course WHERE id = ${this.courseId}`)
-      .subscribe(response => {
-        this.courseObject = response[0];
-        console.log(this.courseObject);
-      });
+    this.courseObject$ = this.selectService.select(
+      `course WHERE id = ${this.courseId}`
+    );
   }
   getCourseSubjects() {
-    this.courseDetailsService.select(this.courseId).subscribe(response => {
-      this.courseSubjects = response;
+    this.courseSubjects$ = this.courseDetailsService.select(this.courseId);
+    this.courseSubjects$.subscribe(data => {
+      this.courseSubjects = data;
     });
   }
   getAllSubjects() {
@@ -69,16 +74,15 @@ export class AddSubjectForStudentComponent implements OnInit {
     var result = confirm("Are you sure you want to save these subjects?");
     if (result) {
       let data = {
-        studentId: this.student.studentId,
+        // studentId: this.student.studentId,
         courseId: this.courseId,
         subjects: this.courseSubjects
       };
       LoadScreen();
       this.addSubjectForStudentService.add(data).subscribe(response => {
         StopLoadingScreen();
-        alert("Student Enrollment successful!")
-        this.router.navigate(['/student-list']);
-
+        alert("Student Enrollment successful!");
+        this.router.navigate(["/student-list"]);
       });
     }
   }

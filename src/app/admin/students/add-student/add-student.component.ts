@@ -78,18 +78,7 @@ export class AddStudentComponent implements OnInit {
         StopLoadingScreen();
         this.studentId = response;
         if (this.studentId>0) {          
-          let data2 =
-          {
-            courseId: data.courseId,
-            studentId : this.studentId
-          };
-          this.addService.add(data2,'student_course/add').subscribe((response)=>{
-            let userData = data;
-            userData["studentId"] = data2.studentId;
-              this.studentService.saveStudent(userData);
-              this.router.navigate(['/add-subject-for-student']);
-
-          });
+          this.router.navigate(['/add-subject-for-student', this.studentId]);
         }
       });
   }

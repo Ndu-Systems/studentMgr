@@ -24,7 +24,9 @@ if ($result->rowCount() ==0) {
 $result = $conn->prepare("INSERT INTO user (name,email, surname, password,createdate,cell,address, role,city,idnumber)
                 VALUES (?,?,?,?, now(),?,?,?,?,?)"); 
 if($result->execute(array($name,$email, $surname,$password, $cell,$address,$role,$city,$idnumber))){		
-	echo $conn->lastInsertId();	  
+	echo $studentID =  $conn->lastInsertId();	 
+	$save_course = $conn->prepare("INSERT INTO student_course(studentID, courseID, createdate) VALUES (?,?,now())");
+	$save_course->execute(array($studentID,$courseId));
 }else{
 	echo json_encode("error while trying to register client step 1 of 3");
 }
