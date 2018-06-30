@@ -76,13 +76,13 @@ export class AddSubjectForStudentComponent implements OnInit {
       courseSubjects.splice(index, 1);
     }
   }
-  SaveAll() {
+  SaveAll(courseSubjects) {
     var result = confirm("Are you sure you want to save these subjects?");
     if (result) {
       let data = {
         studentId: this.studentID,
         courseId: this.courseId,
-        subjects: this.courseSubjects
+        subjects: courseSubjects
       };
       LoadScreen();
       this.addSubjectForStudentService.add(data).subscribe(response => {

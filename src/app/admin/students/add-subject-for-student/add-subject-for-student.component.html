@@ -10,7 +10,7 @@
 
     <app-toggle-user-menu></app-toggle-user-menu>
 
-    <div class="row student-details">
+    <div class="row student-details" *ngIf="courseSubjects$ | async as courseSubjects; else loadingSubjects">
       <div class="col-sm-4">
         <h3>Student</h3>
         <table *ngIf="student$ | async as student; else loadingStudent">
@@ -103,7 +103,7 @@
             No Course Found
           </h4>
         </ng-template>
-        <button class="btn btn-info" (click)="SaveAll()">Save All</button>
+        <button class="btn btn-info" (click)="SaveAll(courseSubjects)">Save All</button>
         <br>
       </div>
       <div class="col-sm-8">
@@ -113,7 +113,7 @@
         <br>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <div *ngIf="courseSubjects$ | async as courseSubjects; else loadingSubjects">
+            <div >
                 <div *ngIf="Allsubjects" style="margin: 2rem">
                     <select type="text" [(ngModel)]="sub" class="form-control" style="width: 60%;float: left">
                       <option *ngFor="let sub of Allsubjects" [value]="sub.id">{{sub.tittle}}</option>
