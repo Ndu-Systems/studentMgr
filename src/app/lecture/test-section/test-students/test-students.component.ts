@@ -20,6 +20,7 @@ export class TestStudentsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.allStudents =[];
     this.test = this.testCenterService.getTest();
     this.GetStudentsForTest();
     this.GetStudentsForSubject();

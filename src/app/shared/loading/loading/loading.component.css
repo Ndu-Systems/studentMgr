@@ -1,0 +1,10 @@
+.app-loading-screen{
+    width: 100%;
+
+    /* display: none; */
+}
+.app-loading{
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+}

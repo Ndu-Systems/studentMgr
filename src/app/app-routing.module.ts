@@ -47,6 +47,7 @@ import { TestCentreComponent } from './lecture/test-section/test-list/test-centr
 import { AddTestComponent } from './lecture/test-section/add-test/add-test.component';
 import { ForgotPasswordSuccessComponent } from './forgot-password/forgot-password-success/forgot-password-success.component';
 import { TestStudentsComponent } from './lecture/test-section/test-students/test-students.component';
+import { LoadingComponent } from './shared/loading/loading/loading.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -135,7 +136,8 @@ export const routingComponents = [
   ForgotPasswordComponent,
   ForgotPasswordEmailComponent,
   ForgotPasswordSuccessComponent,
-  TestStudentsComponent
+  TestStudentsComponent,
+  LoadingComponent
 ];
 
 @NgModule({

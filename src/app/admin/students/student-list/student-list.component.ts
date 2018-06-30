@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StudentService } from './student.service';
@@ -10,17 +11,11 @@ import { LoadScreen, StopLoadingScreen } from '../../../shared/loading/load';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  students:any[];
-  constructor(private selectService: SelectService, private router:Router, private studentService:StudentService) {}
-  ngOnInit() {
-    this.getDepartments();
+  students$:Observable< any[]>;
+  constructor(private selectService: SelectService, private router:Router, private studentService:StudentService) {
+    this.students$ =  this.selectService.select("user WHERE role = 'student'");
   }
-  getDepartments() {
-    LoadScreen();
-    this.selectService.select("user WHERE role = 'student'").subscribe(response => {
-      StopLoadingScreen();
-      this.students = response;
-    });
+  ngOnInit() {
   }
   Details(student) {
   this.studentService.saveStudent(student);
