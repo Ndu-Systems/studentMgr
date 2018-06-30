@@ -1,3 +1,4 @@
+import { SearchUserPipe } from './shared/pipes/search-user.pipe';
 import { AddStudentToTestComponent } from './lecture/test-section/add-student-to-test/add-student-to-test.component';
 import { ForgotPasswordEmailComponent } from './forgot-password/forgot-password-email/forgot-password-email.component';
  
@@ -137,7 +138,8 @@ export const routingComponents = [
   ForgotPasswordEmailComponent,
   ForgotPasswordSuccessComponent,
   TestStudentsComponent,
-  LoadingComponent
+  LoadingComponent,
+  SearchUserPipe
 ];
 
 @NgModule({

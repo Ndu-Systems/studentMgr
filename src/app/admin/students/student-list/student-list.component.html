@@ -21,6 +21,13 @@
         <table class="table table-condensed">
           <thead>
             <tr>
+              <td colspan="4">
+                  <div class="form-group">
+                      <li class="fa fa-search"></li><input type="text"  [(ngModel)]="search"  placeholder="Search....." class="form-control search-input" id="email">
+                    </div>
+              </td>
+            </tr>
+            <tr>
               <th>NAME</th>
               <th>SURNAME</th>
               <th>STUDENT NUMBER</th>
@@ -29,7 +36,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let student of students">
+            <tr *ngFor="let student of students | searchuser:search">
               <td>{{student.name}}</td>
               <td>{{student.surname}}</td>
               <td>{{student.studentNo}}</td>
