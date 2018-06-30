@@ -1,0 +1,108 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-nav-user></app-nav-user>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+      <app-toggle-user-menu></app-toggle-user-menu>
+
+    <div class="row student-details">
+        <div class="col-sm-6"  *ngIf="student$ | async as student; else loading">
+            <h2>{{student[0].name}} Details</h2>
+            <table>
+              <tr>
+                  <td>
+                  <b>Name:</b>
+                    </td>
+                <td>
+              {{  student[0].name}}
+                </td>
+              </tr>
+              <tr>
+                  <td>
+                  <b>Surname:</b>
+                    </td>
+                <td>
+                {{ student[0].surname}}
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <ng-template #loading>
+              <app-loading>
+          
+              </app-loading>
+            </ng-template>
+          <div class="col-sm-6"   *ngIf="courseObject$ | async as courseObject; else loading">
+            <h2>Course Information</h2>
+            <table >
+                <tr>
+                  <td><b>Course:</b></td>
+                  <td>{{courseObject[0].tittle}}</td>
+                </tr>
+                <tr>
+                   <td><b>Department:</b></td>
+                   <td>{{courseObject[0].department}}</td>
+                  </tr>
+                  <tr>
+                      <td><b>Credits:</b></td>
+                      <td>{{courseObject[0].credits}}</td>
+                     </tr>
+                     <tr>
+                        <td><b>Status:</b></td>
+                        <td>{{courseObject[0].status}}</td>
+                       </tr>
+            </table>
+            <div  *ngIf="(!courseObject)">
+                <h3>No Course allocated</h3>
+            </div>
+          </div>
+        </div>
+    <div class="row">     
+    <div class="col-md-12">
+        <h2>Course Subjects </h2>
+        <br>    
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <div class="row" *ngIf="subjects$ | async as subjects; else loading">
+                      <table class="table" *ngIf="subjects.length > 0; else noSubs">
+                          <thead>
+                            <tr>
+                              <th>TITLE</th>
+                              <th>CODE</th>
+                              <th>DESCRIPTION</th>
+                              <th>CREDITS</th>
+                              <th>STATUS</th>              
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let subject of subjects">
+                              <td>{{subject.tittle}}</td>
+                              <td>{{subject.code}}</td>
+                              <td>{{subject.description}}</td>
+                              <td>{{subject.credits}}</td>
+                              <td>{{subject.status}}</td>               
+                            </tr>
+                          </tbody>
+                        </table>
+                        <ng-template #noSubs>
+                            <h3>No Subjects allocated</h3>
+                          </ng-template>
+</div>
+<ng-template #loading>
+    <app-loading>
+
+    </app-loading>
+  </ng-template>
+             
+              
+            </div>    
+        </div> 
+      </div>
+    </div>
+</div>

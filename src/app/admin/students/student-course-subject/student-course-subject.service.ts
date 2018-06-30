@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { API_URL } from '../../shared/config';
+import { API_URL } from '../../../shared/config';
 @Injectable()
 export class StudentCourseSubjectService {
 

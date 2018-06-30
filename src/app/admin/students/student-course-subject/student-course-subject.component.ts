@@ -1,8 +1,10 @@
+import { SelectService } from './../../../shared/select.service';
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StudentCourseSubjectService } from './student-course-subject.service';
-import { StudentService } from '../students/student-list/student.service';
-import { SelectService } from '../../shared/select.service';
+import { StudentService } from '../student-list/student.service';
+
 
 @Component({
   selector: 'app-student-course-subject',
@@ -10,10 +12,10 @@ import { SelectService } from '../../shared/select.service';
   styleUrls: ['./student-course-subject.component.css']
 })
 export class StudentCourseSubjectComponent implements OnInit {
-  courseObject:any;
-  student:any;
+  courseObject$:Observable<any>;;
+  student$:Observable<any>;
   studentID: number;
-  subjects: any[];
+  subjects$: Observable< any[]>;
   subject: any
   constructor( 
     private studentService:StudentService,
@@ -23,23 +25,13 @@ export class StudentCourseSubjectComponent implements OnInit {
 
   ngOnInit() {
     this.studentID = parseInt(this.route.snapshot.paramMap.get("id"));
-      
-    this.student= this.studentService.getStudent();
+    this.student$ = this.selectService.select(`user WHERE id = ${this.studentID}`);
+    this.subjects$ = this.studentCourseSubjectService.selectSubject(this.studentID);
+
      this.getCourse(this.studentID);
-     this.getSubjects(this.studentID);
   }
   getCourse(studentId: number){   
-    this.studentCourseSubjectService.select(studentId).subscribe(response => {   
-        this.courseObject = response[0];   
-        if(!this.courseObject){
-          this.courseObject = false;
-        }
-    });
+    this.courseObject$ = this.studentCourseSubjectService.select(studentId);
   }
-  getSubjects(studentId: number){
-    
-    this.studentCourseSubjectService.selectSubject(studentId).subscribe(response => {       
-      this.subjects = response;      
-    });
-  }
+ 
 }
