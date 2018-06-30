@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { LectureService } from './../lecture.service';
 import { Component, OnInit } from '@angular/core';
 import { SelectService } from '../../../shared/select.service';
@@ -11,19 +12,14 @@ import { LoadScreen, StopLoadingScreen } from '../../../shared/loading/load';
 })
 export class AllAddLecturesComponent implements OnInit {
 
-  lectures:any[];
-  constructor(private selectService: SelectService, private router:Router, private lectureService:LectureService) {}
+  lectures$:Observable< any[]>;
+  constructor(private selectService: SelectService, private router:Router, private lectureService:LectureService) {
+    this.lectures$ =this.selectService.select("user WHERE role = 'lecture'");
+  }
   ngOnInit() {
-    this.getLectures();
+  
   }
-  getLectures() {
-    LoadScreen();
-    this.selectService.select("user WHERE role = 'lecture'").subscribe(response => {
-      StopLoadingScreen();
-      this.lectures = response;
-      console.log("this.lectures",this.lectures)
-    });
-  }
+  
   Details(lecture) {
   this.lectureService.saveLecture(lecture);
   this.router.navigate(['/lecture-course-subject', lecture.id]);

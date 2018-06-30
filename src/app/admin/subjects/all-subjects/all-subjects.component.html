@@ -18,7 +18,7 @@
            </a>
         </h2> <br> <br>
   
-          <div class="row">
+        <div class="row" *ngIf="subjects$ | async as subjects; else loading">
            
             <div class="col-sm-12">
               <table class="table table-condensed">
@@ -45,6 +45,8 @@
               </table>
           </div>
        </div>
+       <ng-template #loading><app-loading></app-loading></ng-template>
+
   </div>
 
   

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { CourseDetailsService } from "../../course-details/course-details.service";
@@ -9,15 +10,12 @@ import { SelectService } from "../../../shared/select.service";
   styleUrls: ["./all-courses.component.css"]
 })
 export class AllCoursesComponent implements OnInit {
-  constructor(private selectService: SelectService, private router:Router, private courseDetailsService:CourseDetailsService) {}
-  courses: any[];
-  ngOnInit() {
-    this.getDepartments();
+  courses$: Observable< any[]>;
+
+  constructor(private selectService: SelectService, private router:Router, private courseDetailsService:CourseDetailsService) {
+  this.courses$  = this.selectService.select("course");
   }
-  getDepartments() {
-    this.selectService.select("course").subscribe(response => {
-      this.courses = response;
-    });
+  ngOnInit() {
   }
   Details(course) {
     this.courseDetailsService.saveCourse(course);

@@ -20,6 +20,5 @@ export class StudentListComponent implements OnInit {
   Details(student) {
   this.studentService.saveStudent(student);
   this.router.navigate(['/student-course-subject', student.id]);
-
   }
 }
