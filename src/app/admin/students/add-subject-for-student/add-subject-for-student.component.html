@@ -108,17 +108,18 @@
       </div>
       <div class="col-sm-8">
 
-        <div *ngIf="Allsubjects">
-          <select type="text" [(ngModel)]="sub" class="form-control" style="width: 60%;float: left">
-            <option *ngFor="let sub of Allsubjects" [value]="sub.id">{{sub.tittle}}</option>
-          </select>
-          <button type="button" (click)="AddSubject(sub)" class="btn btn-info">+</button>
-        </div>
+      
         <br>
         <br>
         <div class="panel panel-default">
           <div class="panel-heading">
             <div *ngIf="courseSubjects$ | async as courseSubjects; else loadingSubjects">
+                <div *ngIf="Allsubjects" style="margin: 2rem">
+                    <select type="text" [(ngModel)]="sub" class="form-control" style="width: 60%;float: left">
+                      <option *ngFor="let sub of Allsubjects" [value]="sub.id">{{sub.tittle}}</option>
+                    </select>
+                    <button type="button" (click)="AddSubject(sub,courseSubjects)" class="btn btn-info">+</button>
+                  </div>
               <table class="table" *ngIf="courseSubjects.length;  else noCourseSubjectsFound">
                 <thead>
                   <tr>
@@ -138,7 +139,7 @@
                     <td>{{subject.credits}}</td>
                     <td>{{subject.status}}</td>
                     <td>
-                      <button type="button" (click)="Remove(subject)" class="btn btn-danger">X</button>
+                      <button type="button" (click)="Remove(subject,courseSubjects)" class="btn btn-danger">X</button>
                     </td>
                   </tr>
 

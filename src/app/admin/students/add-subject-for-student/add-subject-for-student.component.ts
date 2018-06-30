@@ -16,9 +16,10 @@ export class AddSubjectForStudentComponent implements OnInit {
   studentID: number;
   Allsubjects: any[];
   courseId: number;
-
-  courseSubjects$: Observable<any[]>;
   courseSubjects: any[];
+
+  Allsubjects$:Observable<any[]>;
+  courseSubjects$: Observable<any[]>;
   student$: Observable<any>;
   courseObject$: Observable<any>;
   constructor(
@@ -52,29 +53,34 @@ export class AddSubjectForStudentComponent implements OnInit {
     });
   }
   getAllSubjects() {
-    this.selectService.select("subject").subscribe(response => {
-      this.Allsubjects = response;
+    this.Allsubjects$ = this.selectService.select("subject");
+    this.Allsubjects$.subscribe(data => {
+      this.Allsubjects = data;
     });
   }
-  AddSubject(sub) {
+  AddSubject(sub,courseSubjects) {
+    debugger;
     let check = this.courseSubjects.filter(x => x.id == sub);
     if (check.length > 0) {
       return false;
     }
     let subject = this.Allsubjects.filter(x => x.id == sub);
-    this.courseSubjects.push(subject[0]);
+    courseSubjects.push(subject[0]);
   }
-  Remove(subject) {
-    var index = this.courseSubjects.indexOf(subject, 0);
+  Remove(subject,courseSubjects) {
+    if(courseSubjects.length==1){
+      return false;
+    }
+    var index = courseSubjects.indexOf(subject, 0);
     if (index > -1) {
-      this.courseSubjects.splice(index, 1);
+      courseSubjects.splice(index, 1);
     }
   }
   SaveAll() {
     var result = confirm("Are you sure you want to save these subjects?");
     if (result) {
       let data = {
-        // studentId: this.student.studentId,
+        studentId: this.studentID,
         courseId: this.courseId,
         subjects: this.courseSubjects
       };
