@@ -12,10 +12,8 @@ import { StudentService } from '../student-list/student.service';
   styleUrls: ['./student-course-subject.component.css']
 })
 export class StudentCourseSubjectComponent implements OnInit {
-  courseObject$:Observable<any>;;
   student$:Observable<any>;
   studentID: number;
-  subjects$: Observable< any[]>;
   subject: any
   constructor( 
     private studentService:StudentService,
@@ -25,13 +23,10 @@ export class StudentCourseSubjectComponent implements OnInit {
 
   ngOnInit() {
     this.studentID = parseInt(this.route.snapshot.paramMap.get("id"));
-    this.student$ = this.selectService.select(`user WHERE id = ${this.studentID}`);
-    this.subjects$ = this.studentCourseSubjectService.selectSubject(this.studentID);
-
-     this.getCourse(this.studentID);
+     this.getCourse(this.studentID); // all screen data
   }
   getCourse(studentId: number){   
-    this.courseObject$ = this.studentCourseSubjectService.select(studentId);
+    this.student$ = this.studentCourseSubjectService.select(studentId);
   }
  
 }

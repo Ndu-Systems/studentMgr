@@ -10,7 +10,7 @@
 
     <app-toggle-user-menu></app-toggle-user-menu>
 
-    <div class="row student-details" *ngIf="courseSubjects$ | async as courseSubjects; else loadingSubjects">
+    <div class="row student-details" *ngIf="courseSubjects$ | async as courseSubjects">
       <div class="col-sm-4">
         <h3>Student</h3>
         <table *ngIf="student$ | async as student; else loadingStudent">
@@ -95,6 +95,11 @@
         <ng-template #loadingCourse>
           <h4>
             Loading Course....
+          </h4>
+        </ng-template>
+        <ng-template #loading>
+          <h4>
+            Loading....
           </h4>
         </ng-template>
         <ng-template #noCourseFound>
