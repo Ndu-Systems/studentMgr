@@ -6,6 +6,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 #content{
     width: 100%;
     padding: 2%;
+    background: #bdc3c7;
 }
 .student-details{
     border-bottom: 3px solid goldenrod;
@@ -26,11 +27,11 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     left: 50%;
     bottom: 50%;
 }
-#content{
-    background: none;
+table{
+    border-radius: 10px;
 }
 #content table tr{
-    background: white;
+    background: #ecf0f1;
 }
 .search-input{
     width: 98%;

@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/observable';
+import { AdminDashService } from './admin-dash.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,32 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-  buyamount;
-  duration ;
-  sellamount;
-  mutaurity;
+counts$:Observable<any>;
 
-  constructor() { }
+  constructor(private adminDashService:AdminDashService) { 
+    this.counts$ = this.adminDashService.getCounts();
+  }
 
   ngOnInit() {
   }
-calculate(){
-  console.log(this.duration);
-  console.log(this.buyamount);
-this.sellamount =this.GetSellAmount(this.buyamount,this.duration);
-}
-GetSellAmount(buy, months): number {
-if(!buy){
-  return 0;
-}
-if(!this.duration){
-  return 0;
-}
 
-let sum = buy;
-for(let i =1; i<= months; i++){
-sum *=1.65;
-}
-return sum;
-}
 }

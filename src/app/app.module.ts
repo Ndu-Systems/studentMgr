@@ -29,6 +29,7 @@ import { ForgotPasswordService } from "./forgot-password/forgot-password.service
 import { TokenService } from "./shared/token.service";
 import { AddSubjectForStudentService } from "./admin/students/add-subject-for-student/add-subject-for-student.service";
 import { StudentCourseSubjectService } from "./admin/students/student-course-subject/student-course-subject.service";
+import { AdminDashService } from "./admin/user-dashboard/admin-dash.service";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { StudentCourseSubjectService } from "./admin/students/student-course-sub
     SutdentSubjectsService,
     TestCentreService,
     ForgotPasswordService,
-    TokenService
+    TokenService,
+    AdminDashService
   ],
   bootstrap: [AppComponent]
 })
