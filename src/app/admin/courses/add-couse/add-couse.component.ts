@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from "@angular/core";
 import { AddService } from "../../../shared/services/add.service";
 import { SelectService } from "../../../shared/select.service";
+import { LoadScreen, StopLoadingScreen } from '../../../shared/loading/load';
 
 @Component({
   selector: "app-add-couse",
@@ -42,8 +43,9 @@ export class AddCouseComponent implements OnInit {
       department: this.department,
       status: "active"
     };
-
+LoadScreen();
     this.addService.add(data, "course/add").subscribe(response => {
+      StopLoadingScreen();
       alert(response);
       this.router.navigate(['/all-courses']);
 

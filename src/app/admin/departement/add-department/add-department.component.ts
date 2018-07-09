@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AddService } from '../../../shared/services/add.service';
+import { StopLoadingScreen, LoadScreen } from '../../../shared/loading/load';
 
 @Component({
   selector: 'app-add-department',
@@ -22,8 +23,10 @@ let data = {
   name:this.name,
   status: this.status
 }
+LoadScreen();
 this.addService.add(data,"department/add")
 .subscribe((response)=>{
+  StopLoadingScreen();
 alert(response);
 this.router.navigate(['/all-departement']);
 });

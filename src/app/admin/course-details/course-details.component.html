@@ -29,6 +29,26 @@
         <br>    
             <div class="panel panel-default">
               <div class="panel-heading">
+                  <div class="addcourse-row">
+                      <h2 for="email"><b> Add Subject to Course</b>:</h2>
+
+                      <div class="btn-group">
+                          <select type="text" [(ngModel)]="sub"   class="form-control" >
+                              <option *ngFor="let sub of Allsubjects" [value]="sub.id">{{sub.tittle}}</option>
+                            </select>
+                            <button type="button" (click)="addSubjectToAList(sub)" class="btn btn-info">+</button>
+
+                        </div>
+                      <br>
+                      <div class="form-group">
+                      
+                     </div>         
+                     <div class="form-group"  style="width: 15%; float: left">
+                     </div>
+                     <div>
+                       <p class="error">{{error}}</p>       
+                    
+               </div>        </div>
                 <table class="table">
                   <thead>
                     <tr>
@@ -58,21 +78,7 @@
               </div>        
 
         </div>
-        <div class="row">
-          <br>
-          <div class="form-group">
-           <h2 for="email"><b> Add Subject to Course</b>:</h2>
-           <select type="text" [(ngModel)]="sub"   class="form-control" style="width: 100%;">
-               <option *ngFor="let sub of Allsubjects" [value]="sub.id">{{sub.tittle}}</option>
-             </select>
-         </div>         
-         <div class="form-group">
-           <button type="button" (click)="addSubjectToAList(sub)" class="btn btn-info">SAVE</button>
-         </div>
-         <div>
-           <p class="error">{{error}}</p>       
-        
-   </div>        </div>
+       
 
       </div>
     </div>

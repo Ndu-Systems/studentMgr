@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseDetailsService } from './course-details.service';
 import { SelectService } from '../../shared/select.service';
 import { AddService } from '../../shared/services/add.service';
+import { LoadScreen, StopLoadingScreen } from '../../shared/loading/load';
 
 
 @Component({
@@ -50,9 +51,10 @@ addSubjectToAList(sub){
     courseID: this.courseObject.id,
     subjectID: sub
   };
-
+LoadScreen();
   this.addService.add(data, "course_subject/add").subscribe(response => {  
-    this.getSubjects();    
+    this.getSubjects();
+    StopLoadingScreen();    
     alert(response);
   });
 }

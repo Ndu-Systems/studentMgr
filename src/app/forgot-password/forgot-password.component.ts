@@ -1,9 +1,10 @@
-import { Router } from '@angular/router';
-import { UserDataService } from './../shared/services/user-data.service';
+import { Router } from "@angular/router";
+import { UserDataService } from "./../shared/services/user-data.service";
 import { SelectService } from "./../shared/select.service";
 import { Component, OnInit } from "@angular/core";
 import { LocationStrategy } from "@angular/common";
 import { User } from "../shared/user";
+import { LoadScreen, StopLoadingScreen } from "../shared/loading/load";
 
 @Component({
   selector: "app-forgot-password",
@@ -16,14 +17,14 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(
     private location: LocationStrategy,
     private selectService: SelectService,
-    private userDataService:UserDataService,
-    private router:Router
+    private userDataService: UserDataService,
+    private router: Router
   ) {}
   tokken: string;
   user: User;
-  password:string;
-  passwordConfirm:string;
-  email:string;
+  password: string;
+  passwordConfirm: string;
+  email: string;
   ngOnInit() {
     let baseUrlMain: string = (<any>this.location)._platformLocation.location
       .href;
@@ -31,58 +32,55 @@ export class ForgotPasswordComponent implements OnInit {
     this.getUserBuToken();
   }
   getUserBuToken() {
-    if(!this.token){
-    
-
+    if (!this.token) {
     }
     this.selectService
       .select(`user WHERE token = '${this.token}'`)
       .subscribe(user => {
-        let check:any[]= user;
-if(check.length ==0){
-  alert("invalid link");
-      this.router.navigate(['/']);
-}
+        let check: any[] = user;
+        if (check.length == 0) {
+          alert("invalid link");
+          this.router.navigate(["/"]);
+        }
         this.user = user[0];
-    
-        console.log(this.user)
+
+        console.log(this.user);
       });
   }
-  Save(){
-    if(this.email !== this.user.email){
+  Save() {
+    if (this.email !== this.user.email) {
       this.message = "Please enter the valid email address";
       return false;
     }
-    if(!this.password){
+    if (!this.password) {
       this.message = "Please enter password";
       return false;
     }
-    if(this.password.length <8 ){
+    if (this.password.length < 8) {
       this.message = "You password must be atleast 8 characters";
       return false;
     }
-    if(this.password != this.passwordConfirm){
+    if (this.password != this.passwordConfirm) {
       this.message = "Passwords do not match";
       return false;
     }
-    if(this.password == this.user.password){
+    if (this.password == this.user.password) {
       this.message = "You cannot use the same password as your previous";
       return false;
     }
 
     let data = {
       password: this.password,
-      email:this.email
-    }
-this.userDataService.updatePassword(data)
-.subscribe(response=>{
- if(parseInt(response)===1){
-   this.user= null;
-   alert("Password was updated, click Ok to login")
-   this.router.navigate(['/']);
- }
-  
-})
-
+      email: this.email
+    };
+    LoadScreen();
+    this.userDataService.updatePassword(data).subscribe(response => {
+      StopLoadingScreen();
+      if (parseInt(response) === 1) {
+        this.user = null;
+        alert("Password was updated, click Ok to login");
+        this.router.navigate(["/"]);
+      }
+    });
   }
 }

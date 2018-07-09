@@ -40,3 +40,6 @@ table{
 .error{
     color: #e74c3c;
 }
+.navbar{
+    background: none;
+}

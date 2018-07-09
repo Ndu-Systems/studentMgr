@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { EmailService } from '../../shared/services/email.service';
 import { WEB_HOST } from '../../shared/config';
+import { LoadScreen, StopLoadingScreen } from '../../shared/loading/load';
 
 @Component({
   selector: 'app-forgot-password-email',
@@ -33,10 +34,12 @@ export class ForgotPasswordEmailComponent implements OnInit {
       this.isValid = false;
     }
 
-    if(this.isValid){      
+    if(this.isValid){   
+      LoadScreen();   
     this.forgotPasswordService.forgotPassword(this.email).subscribe(response =>{
       if(response){
         if(response == 1){
+          StopLoadingScreen();
           this.selectService.select("user where email = '"+this.email+"'").subscribe(response => {
             if(response){
                 this.token = response[0].token;
@@ -70,6 +73,7 @@ export class ForgotPasswordEmailComponent implements OnInit {
             }
           })
         }else{
+          StopLoadingScreen();
           this.message = "Invalid Email Address"
         }
       }

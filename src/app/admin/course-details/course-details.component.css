@@ -1,8 +1,9 @@
 .panel-default{
-    
-    height: 410px;
-    overflow-y: scroll;
+
     width: 100%;
     /* background-color: white; */
 
+}
+.addcourse-row, .btn-group{
+    width: 100%;
 }
