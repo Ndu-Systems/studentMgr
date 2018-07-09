@@ -60,11 +60,12 @@ export class AddSubjectForStudentComponent implements OnInit {
   }
   AddSubject(sub,courseSubjects) {
     debugger;
-    let check = this.courseSubjects.filter(x => x.id == sub);
+    let check = this.courseSubjects.filter(x => x.SubjectID == sub);
     if (check.length > 0) {
       return false;
     }
     let subject = this.Allsubjects.filter(x => x.id == sub);
+    subject[0].SubjectID = subject[0].id
     courseSubjects.push(subject[0]);
   }
   Remove(subject,courseSubjects) {
