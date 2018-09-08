@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class FinacailReportsComponent implements OnInit {
 
   data: any;
+  data2: any;
   students$: Observable<any[]>;
   constructor(private selectService: SelectService, private router: Router) {
     this.students$ = this.selectService.select("user WHERE role = 'student'");
@@ -18,19 +19,37 @@ export class FinacailReportsComponent implements OnInit {
       labels: ["January", "February", "March", "April", "May", "June", "July"],
       datasets: [
         {
-          label: "My First dataset",
-          backgroundColor: "#42A5F5",
-          borderColor: "#1E88E5",
+          label: "Income",
+          backgroundColor: "#00d2d3",
+          borderColor: "#00d2d3",
           data: [65, 59, 80, 81, 56, 55, 40]
         },
         {
-          label: "My Second dataset",
-          backgroundColor: "#9CCC65",
-          borderColor: "#7CB342",
+          label: "Expences",
+          backgroundColor: "#ff9f43",
+          borderColor: "#ff9f43",
           data: [28, 48, 40, 19, 86, 27, 90]
         }
       ]
     };
+
+    this.data2 = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+          {
+              label: 'Profit',
+              data: [65, 59, 80, 81, 56, 55, 40],
+              fill: false,
+              borderColor: '#4bc0c0'
+          },
+          {
+              label: 'Loss',
+              data: [28, 48, 40, 19, 86, 27, 90],
+              fill: false,
+              borderColor: '#565656'
+          }
+      ]
+  }
   }
 
   ngOnInit() {

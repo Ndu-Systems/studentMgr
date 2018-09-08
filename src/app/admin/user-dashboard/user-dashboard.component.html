@@ -15,11 +15,24 @@
     <div class="container" *ngIf="counts$|async as counts">
       <div class="row">
         <a class="col-md-4" routerLink="/student-list">
-          <div class="dash-box dash-box-color-1">
+          <div class="dash-box">
 
             <div class="dash-box-body">
-              <span class="dash-box-count">{{counts.data[0].value}}</span>
-              <span class="dash-box-title">{{counts.data[0].key}}</span>
+              <div class="row">
+                <div class="col-sm-12  col-lg-6">
+                    <i class="fa fa-child" ></i>
+<br>
+                      {{counts.data[0].key}}
+
+                </div>
+                <div class="col-sm-12  col-lg-6">
+                    <h1>
+                      {{counts.data[0].value}}
+
+                  </h1>
+
+                </div>
+              </div>
             </div>
 
             <div class="dash-box-action">
@@ -27,7 +40,7 @@
           </div>
         </a>
         <a class="col-md-4" routerLink="/student-list">
-          <div class="dash-box dash-box-color-2">
+          <div class="dash-box">
 
             <div class="dash-box-body">
               <span class="dash-box-count">{{counts.data[1].value}}</span>
@@ -40,7 +53,7 @@
           </div>
         </a>
         <a class="col-md-4" routerLink="/all-subjects">
-          <div class="dash-box dash-box-color-3">
+          <div class="dash-box">
 
             <div class="dash-box-body">
               <span class="dash-box-count">{{counts.data[2].value}}</span>
@@ -53,7 +66,7 @@
           </div>
         </a>
         <a class="col-md-4" routerLink="/all-lectures">
-          <div class="dash-box dash-box-color-2">
+          <div class="dash-box">
 
             <div class="dash-box-body">
               <span class="dash-box-count">{{counts.data[3].value}}</span>
@@ -65,7 +78,7 @@
           </div>
         </a>
         <a class="col-md-4" routerLink="/all-departement">
-          <div class="dash-box dash-box-color-3">
+          <div class="dash-box">
 
             <div class="dash-box-body">
               <span class="dash-box-count">{{counts.data[4].value}}</span>
@@ -79,7 +92,7 @@
         </a>
 
         <a class="col-md-4" routerLink="/all-courses">
-          <div class="dash-box dash-box-color-1">
+          <div class="dash-box">
 
             <div class="dash-box-body">
               <span class="dash-box-count">{{counts.data[5].value}}</span>

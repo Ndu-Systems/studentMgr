@@ -21,10 +21,33 @@
     <br>
     <div class="row" *ngIf="students$ | async as students; else loading">
 
-      <div class="col-sm-12">
-        <p-chart type="bar" [data]="data"></p-chart>
+        <div class="col-sm-12 col-lg-6">
+            <p-chart type="bar" [data]="data"></p-chart>
 
       </div>
+      <div class="col-sm-12 col-lg-6">
+          <table class="table table-condensed">
+            
+              <tbody>
+                <tr>
+                  <td>Income </td>
+                <td>
+                  R 50000
+                </td>
+                </tr>
+                <tr>
+                  <td>Expanditure </td>
+                <td>
+                  R 1550.80
+                </td>
+                </tr>
+                
+              </tbody>
+            </table>
+
+<p-chart type="line" [data]="data2" (onDataSelect)="selectData($event)"></p-chart>
+      </div>
+
     </div>
     <ng-template #loading>
       <app-loading>
