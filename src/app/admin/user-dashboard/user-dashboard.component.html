@@ -9,9 +9,9 @@
   <div id="content">
 
     <app-toggle-user-menu></app-toggle-user-menu>
-<h1>
-  Admin Dashboard
-</h1>
+    <h1>
+      Admin Dashboard
+    </h1>
     <div class="container" *ngIf="counts$|async as counts">
       <div class="row">
         <a class="col-md-4" routerLink="/student-list">
@@ -20,14 +20,14 @@
             <div class="dash-box-body">
               <div class="row">
                 <div class="col-sm-12  col-lg-6">
-                    <i class="fa fa-child" ></i>
-<br>
-                      {{counts.data[0].key}}
+                  <i class="fa fa-child"></i>
+                  <br>
+                  {{counts.data[0].key}}
 
                 </div>
                 <div class="col-sm-12  col-lg-6">
-                    <h1>
-                      {{counts.data[0].value}}
+                  <h1>
+                    {{counts.data[0].value}}
 
                   </h1>
 
@@ -43,67 +43,128 @@
           <div class="dash-box">
 
             <div class="dash-box-body">
-              <span class="dash-box-count">{{counts.data[1].value}}</span>
-              <span class="dash-box-title">{{counts.data[1].key}}</span>
+              <div class="row">
+                <div class="col-sm-12  col-lg-6">
+                  <i class="fa fa-child"></i>
+                  <br>
+                  {{counts.data[1].key}}
+
+                </div>
+                <div class="col-sm-12  col-lg-6">
+                  <h1>
+                    {{counts.data[1].value}}
+
+                  </h1>
+
+                </div>
+              </div>
             </div>
 
             <div class="dash-box-action">
-
             </div>
           </div>
         </a>
-        <a class="col-md-4" routerLink="/all-subjects">
+        <a class="col-md-4" routerLink="/student-list">
           <div class="dash-box">
 
             <div class="dash-box-body">
-              <span class="dash-box-count">{{counts.data[2].value}}</span>
-              <span class="dash-box-title">{{counts.data[2].key}}</span>
+              <div class="row">
+                <div class="col-sm-12  col-lg-6">
+                  <i class="fa fa-child"></i>
+                  <br>
+                  {{counts.data[2].key}}
+
+                </div>
+                <div class="col-sm-12  col-lg-6">
+                  <h1>
+                    {{counts.data[2].value}}
+
+                  </h1>
+
+                </div>
+              </div>
             </div>
 
             <div class="dash-box-action">
-
             </div>
           </div>
         </a>
-        <a class="col-md-4" routerLink="/all-lectures">
+        <a class="col-md-4" routerLink="/student-list">
           <div class="dash-box">
 
             <div class="dash-box-body">
-              <span class="dash-box-count">{{counts.data[3].value}}</span>
-              <span class="dash-box-title">{{counts.data[3].key}}</span>
+              <div class="row">
+                <div class="col-sm-12  col-lg-6">
+                  <i class="fa fa-child"></i>
+                  <br>
+                  {{counts.data[3].key}}
+
+                </div>
+                <div class="col-sm-12  col-lg-6">
+                  <h1>
+                    {{counts.data[3].value}}
+
+                  </h1>
+
+                </div>
+              </div>
             </div>
 
             <div class="dash-box-action">
             </div>
           </div>
         </a>
-        <a class="col-md-4" routerLink="/all-departement">
+        <a class="col-md-4" routerLink="/student-list">
           <div class="dash-box">
 
             <div class="dash-box-body">
-              <span class="dash-box-count">{{counts.data[4].value}}</span>
-              <span class="dash-box-title">{{counts.data[4].key}}</span>
+              <div class="row">
+                <div class="col-sm-12  col-lg-6">
+                  <i class="fa fa-child"></i>
+                  <br>
+                  {{counts.data[4].key}}
+
+                </div>
+                <div class="col-sm-12  col-lg-6">
+                  <h1>
+                    {{counts.data[4].value}}
+
+                  </h1>
+
+                </div>
+              </div>
             </div>
 
             <div class="dash-box-action">
-
             </div>
           </div>
         </a>
-
-        <a class="col-md-4" routerLink="/all-courses">
+        <a class="col-md-4" routerLink="/student-list">
           <div class="dash-box">
 
             <div class="dash-box-body">
-              <span class="dash-box-count">{{counts.data[5].value}}</span>
-              <span class="dash-box-title">{{counts.data[5].key}}</span>
+              <div class="row">
+                <div class="col-sm-12  col-lg-6">
+                  <i class="fa fa-child"></i>
+                  <br>
+                  {{counts.data[5].key}}
+
+                </div>
+                <div class="col-sm-12  col-lg-6">
+                  <h1>
+                    {{counts.data[5].value}}
+
+                  </h1>
+
+                </div>
+              </div>
             </div>
 
             <div class="dash-box-action">
             </div>
           </div>
         </a>
-
+     
 
       </div>
     </div>
