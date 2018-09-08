@@ -1,3 +1,4 @@
+import { FinacailReportsComponent } from './admin/accounting/finacail-reports/finacail-reports.component';
 import { SearchUserPipe } from './shared/pipes/search-user.pipe';
 import { AddStudentToTestComponent } from './lecture/test-section/add-student-to-test/add-student-to-test.component';
 import { ForgotPasswordEmailComponent } from './forgot-password/forgot-password-email/forgot-password-email.component';
@@ -49,6 +50,8 @@ import { TestStudentsComponent } from './lecture/test-section/test-students/test
 import { LoadingComponent } from './shared/loading/loading/loading.component';
 import { AddSubjectForStudentComponent } from './admin/students/add-subject-for-student/add-subject-for-student.component';
 import { StudentCourseSubjectComponent } from './admin/students/student-course-subject/student-course-subject.component';
+import { IncomeComponent } from './admin/accounting/income/income.component';
+import { ExpenditureComponent } from './admin/accounting/expenditures/expenditure/expenditure.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -65,6 +68,11 @@ const routes: Routes = [
   { path: "all-departement", component: AllDepartementComponent },
   { path: "all-lectures", component: AllAddLecturesComponent },
   { path: "all-courses", component: AllCoursesComponent },
+
+  { path: "accounting-reports", component: FinacailReportsComponent },
+  { path: "finacail-income", component:IncomeComponent  }, 
+  { path: "finacail-expenditure", component: ExpenditureComponent },
+
   { path: "add-lecture", component: AddLectureComponent },
   { path: "all-subjects", component: AllSubjectsComponent },
   { path: "student-course-subject/:id", component: StudentCourseSubjectComponent },
@@ -124,10 +132,6 @@ export const routingComponents = [
   LectureChangePasswordComponent,
   AdminAccountComponent,
   AdminChangePasswordComponent,
-  TestCentreComponent,
-  AddTestComponent,
-  StudentDashboardComponent,
-  StudentNavComponent,
   StudentSubjectsComponent,
   StudentSubjectMarksComponent,
   StudentAccountComponent,
@@ -139,7 +143,11 @@ export const routingComponents = [
   ForgotPasswordSuccessComponent,
   TestStudentsComponent,
   LoadingComponent,
-  SearchUserPipe
+  TestCentreComponent ,
+  AddTestComponent ,
+  StudentDashboardComponent, 
+  SearchUserPipe,
+  StudentNavComponent,FinacailReportsComponent,IncomeComponent, ExpenditureComponent
 ];
 
 @NgModule({

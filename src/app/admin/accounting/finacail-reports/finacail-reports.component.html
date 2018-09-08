@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-nav-user></app-nav-user>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+    <app-toggle-user-menu></app-toggle-user-menu>
+
+    <h2>Monthly Finacail Reports
+  
+      <a routerLink="/finacail-income">
+        <button type="button" class="btn btn-info">Income</button>
+      </a>
+      <a routerLink="/finacail-expenditure">
+        <button type="button" class="btn btn-info">Expanditure</button>
+      </a>
+    </h2>
+    <br>
+    <div class="row" *ngIf="students$ | async as students; else loading">
+
+      <div class="col-sm-12">
+        <p-chart type="bar" [data]="data"></p-chart>
+
+      </div>
+    </div>
+    <ng-template #loading>
+      <app-loading>
+
+      </app-loading>
+    </ng-template>
+
+  </div>
