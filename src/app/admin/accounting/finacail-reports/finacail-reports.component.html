@@ -23,27 +23,34 @@
 
         <div class="col-sm-12 col-lg-6">
             <p-chart type="bar" [data]="data"></p-chart>
-
+            <table class="table table-condensed">
+            
+                <tbody>
+                  <tr>
+                    <td>Income </td>
+                  <td>
+                    R 50000
+                  </td>
+                  </tr>
+                  <tr>
+                    <td>Expanditure </td>
+                  <td>
+                    R 23000.00
+                  </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>Profit </td>
+                  <td>
+                    R 27000
+                  </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
       </div>
       <div class="col-sm-12 col-lg-6">
-          <table class="table table-condensed">
-            
-              <tbody>
-                <tr>
-                  <td>Income </td>
-                <td>
-                  R 50000
-                </td>
-                </tr>
-                <tr>
-                  <td>Expanditure </td>
-                <td>
-                  R 1550.80
-                </td>
-                </tr>
-                
-              </tbody>
-            </table>
+      
 
 <p-chart type="line" [data]="data2" (onDataSelect)="selectData($event)"></p-chart>
       </div>
