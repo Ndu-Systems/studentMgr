@@ -25,7 +25,7 @@ export class FinacailReportsComponent implements OnInit {
           data: [65, 59, 80, 81, 56, 55, 40]
         },
         {
-          label: "Expences",
+          label: "Expenses",
           backgroundColor: "#ff9f43",
           borderColor: "#ff9f43",
           data: [28, 48, 40, 19, 86, 27, 90]
