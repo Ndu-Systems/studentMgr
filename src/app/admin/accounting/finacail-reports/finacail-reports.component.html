@@ -9,13 +9,13 @@
   <div id="content">
     <app-toggle-user-menu></app-toggle-user-menu>
 
-    <h2>Monthly Finacail Reports
+    <h2>Monthly Financial Reports
   
       <a routerLink="/finacail-income">
         <button type="button" class="btn btn-info">Income</button>
       </a>
       <a routerLink="/finacail-expenditure">
-        <button type="button" class="btn btn-info">Expanditure</button>
+        <button type="button" class="btn btn-info">Expenditure</button>
       </a>
     </h2>
     <br>
@@ -23,27 +23,34 @@
 
         <div class="col-sm-12 col-lg-6">
             <p-chart type="bar" [data]="data"></p-chart>
-
+            <table class="table table-condensed">
+            
+                <tbody>
+                  <tr>
+                    <td>Income </td>
+                  <td>
+                    R 50000.00
+                  </td>
+                  </tr>
+                  <tr>
+                    <td>Expanditure </td>
+                  <td>
+                    R 23000.00
+                  </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>Profit </td>
+                  <td>
+                    R 27000.00
+                  </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
       </div>
       <div class="col-sm-12 col-lg-6">
-          <table class="table table-condensed">
-            
-              <tbody>
-                <tr>
-                  <td>Income </td>
-                <td>
-                  R 50000
-                </td>
-                </tr>
-                <tr>
-                  <td>Expanditure </td>
-                <td>
-                  R 1550.80
-                </td>
-                </tr>
-                
-              </tbody>
-            </table>
+      
 
 <p-chart type="line" [data]="data2" (onDataSelect)="selectData($event)"></p-chart>
       </div>

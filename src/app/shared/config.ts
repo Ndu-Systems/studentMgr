@@ -1,4 +1,4 @@
-export const IS_LOCAL = true;
+export const IS_LOCAL = false;
 let api ="http://demo.ndu-systems.net/api"
 let web ="http://demo.ndu-systems.net"
 if(IS_LOCAL){
