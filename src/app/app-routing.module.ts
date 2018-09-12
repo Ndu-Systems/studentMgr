@@ -52,6 +52,7 @@ import { AddSubjectForStudentComponent } from './admin/students/add-subject-for-
 import { StudentCourseSubjectComponent } from './admin/students/student-course-subject/student-course-subject.component';
 import { IncomeComponent } from './admin/accounting/income/income.component';
 import { ExpenditureComponent } from './admin/accounting/expenditures/expenditure/expenditure.component';
+import { NewIncomeComponent } from './admin/accounting/income/new-income/new-income.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -72,6 +73,8 @@ const routes: Routes = [
   { path: "accounting-reports", component: FinacailReportsComponent },
   { path: "finacail-income", component:IncomeComponent  }, 
   { path: "finacail-expenditure", component: ExpenditureComponent },
+  { path: "new-income", component: NewIncomeComponent },
+
 
   { path: "add-lecture", component: AddLectureComponent },
   { path: "all-subjects", component: AllSubjectsComponent },
@@ -147,7 +150,7 @@ export const routingComponents = [
   AddTestComponent ,
   StudentDashboardComponent, 
   SearchUserPipe,
-  StudentNavComponent,FinacailReportsComponent,IncomeComponent, ExpenditureComponent
+  StudentNavComponent,FinacailReportsComponent,IncomeComponent, ExpenditureComponent,NewIncomeComponent
 ];
 
 @NgModule({

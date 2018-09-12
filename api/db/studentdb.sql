@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2018 at 12:20 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Sep 12, 2018 at 10:33 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,16 +31,29 @@ SET time_zone = "+00:00";
 CREATE TABLE `accounting` (
   `AccointingId` int(11) NOT NULL,
   `Description` varchar(225) NOT NULL,
-  `TypeId` int(11) NOT NULL,
+  `Type` varchar(25) NOT NULL,
   `Amount` decimal(10,0) NOT NULL,
   `UserId` int(11) NOT NULL,
-  `Month` int(11) NOT NULL,
+  `Month` varchar(30) NOT NULL,
   `CreateUserdId` int(11) NOT NULL,
   `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ModifyUserId` int(11) NOT NULL,
   `AccountStatus` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accounting`
+--
+
+INSERT INTO `accounting` (`AccointingId`, `Description`, `Type`, `Amount`, `UserId`, `Month`, `CreateUserdId`, `CreateDate`, `ModifyDate`, `ModifyUserId`, `AccountStatus`) VALUES
+(1, 'spansor', 'income', '250000', 1, '0', 1, '2018-09-12 22:03:41', '2018-09-12 22:03:41', 0, '1'),
+(2, 'spansor', 'income', '250000', 1, '0', 1, '2018-09-12 22:03:43', '2018-09-12 22:03:43', 0, '1'),
+(3, 'spansor', 'income', '250000', 1, '0', 1, '2018-09-12 22:03:43', '2018-09-12 22:03:43', 0, '1'),
+(4, 'spansor', 'income', '250000', 1, 'February', 1, '2018-09-12 22:04:32', '2018-09-12 22:04:32', 0, '1'),
+(5, 'spansor', 'income', '250000', 1, 'February', 1, '2018-09-12 22:04:34', '2018-09-12 22:04:34', 0, '1'),
+(6, 'Test', 'income', '2000', 1, 'March', 1, '2018-09-12 22:31:25', '2018-09-12 22:31:25', 0, '1'),
+(7, 'Test', 'income', '22', 1, 'February', 1, '2018-09-12 22:32:11', '2018-09-12 22:32:11', 0, '1');
 
 -- --------------------------------------------------------
 
@@ -303,6 +316,12 @@ INSERT INTO `user` (`id`, `name`, `surname`, `email`, `cell`, `address`, `passwo
 --
 
 --
+-- Indexes for table `accounting`
+--
+ALTER TABLE `accounting`
+  ADD PRIMARY KEY (`AccointingId`);
+
+--
 -- Indexes for table `course`
 --
 ALTER TABLE `course`
@@ -360,6 +379,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `accounting`
+--
+ALTER TABLE `accounting`
+  MODIFY `AccointingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `course`
