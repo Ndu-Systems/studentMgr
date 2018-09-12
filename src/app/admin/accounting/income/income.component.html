@@ -14,14 +14,13 @@
       </a>
     </h2>
     <br/>
-    <div class="row" *ngIf="expenses$ | async as expenses; else loading">
+    <div class="row" *ngIf="incomeList$ | async as incomeList; else loading">
 
       <div class="col-sm-12">
         <table class="table table-condensed">
           <thead>
             <tr>
-              <th>FULL NAME</th>
-              <th>STAFF NUMBER</th>
+         
               <th>DESCRIPTION</th>
               <th>AMOUNT</th>
               <th>PERIOD</th>
@@ -29,14 +28,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let expense of expenses">
-              <td>{{expense.name}} {{expense.surname}}</td>
-              <td>{{expense.surname}}{{expense.id}}</td>
-              <td>{{expense.Description}}</td>
-              <td>R{{expense.Amount}}</td>
-              <td>{{expense.Month}}</td>
+            <tr *ngFor="let income of incomeList">
+            
+              <td>{{income.Description}}</td>
+              <td>R{{income.Amount}}</td>
+              <td>{{income.Month}}</td>
               <td>
-                <button disabled type="button" (click)="Details(lecture)" class="btn btn-info">More</button>
+                <button disabled type="button" (click)="Details(income)" class="btn btn-info">More</button>
               </td>
 
             </tr>

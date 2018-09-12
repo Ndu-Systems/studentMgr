@@ -7,7 +7,8 @@ require "conn.php";
 
 if (isset($_GET['table']) ){  
 $table =$_GET['table'];
-$statement = $conn->prepare("SELECT * FROM $table ORDER BY id DESC");
+
+$statement = $conn->prepare("SELECT * FROM $table ");
 $statement->execute();
 $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 echo $json = json_encode($results);
