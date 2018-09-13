@@ -72,8 +72,8 @@ const routes: Routes = [
   { path: "all-courses", component: AllCoursesComponent },
 
   { path: "accounting-reports", component: FinacailReportsComponent },
-  { path: "finacail-income", component: IncomeComponent },
-  { path: "finacail-expenditure", component: ExpenditureComponent },
+  { path: "finacial-income", component: IncomeComponent },
+  { path: "finacial-expenditure", component: ExpenditureComponent },
   { path: "new-income", component: NewIncomeComponent },
   { path: "new-expenditure", component: NewExpenditureComponent },
 

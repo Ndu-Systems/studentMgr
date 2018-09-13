@@ -15,7 +15,7 @@ export class ExpenditureComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.expenses$ = this.selectService.select("accounting  WHERE Type = 'expense'");
+    this.expenses$ = this.selectService.select("accounting ac  INNER JOIN user us ON us.id = ac.UserId WHERE ac.TypeId = 2");
   }
 
 }

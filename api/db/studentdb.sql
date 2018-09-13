@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2018 at 10:33 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Sep 13, 2018 at 09:53 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,31 +29,54 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `accounting` (
-  `AccointingId` int(11) NOT NULL,
+  `AccountingId` int(11) NOT NULL,
   `Description` varchar(225) NOT NULL,
-  `Type` varchar(25) NOT NULL,
+  `TypeId` int(11) NOT NULL,
   `Amount` decimal(10,0) NOT NULL,
   `UserId` int(11) NOT NULL,
-  `Month` varchar(30) NOT NULL,
+  `Month` varchar(25) NOT NULL,
   `CreateUserdId` int(11) NOT NULL,
   `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ModifyUserId` int(11) NOT NULL,
-  `AccountStatus` varchar(25) NOT NULL
+  `StatusId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accounting`
 --
 
-INSERT INTO `accounting` (`AccointingId`, `Description`, `Type`, `Amount`, `UserId`, `Month`, `CreateUserdId`, `CreateDate`, `ModifyDate`, `ModifyUserId`, `AccountStatus`) VALUES
-(1, 'spansor', 'income', '250000', 1, '0', 1, '2018-09-12 22:03:41', '2018-09-12 22:03:41', 0, '1'),
-(2, 'spansor', 'income', '250000', 1, '0', 1, '2018-09-12 22:03:43', '2018-09-12 22:03:43', 0, '1'),
-(3, 'spansor', 'income', '250000', 1, '0', 1, '2018-09-12 22:03:43', '2018-09-12 22:03:43', 0, '1'),
-(4, 'spansor', 'income', '250000', 1, 'February', 1, '2018-09-12 22:04:32', '2018-09-12 22:04:32', 0, '1'),
-(5, 'spansor', 'income', '250000', 1, 'February', 1, '2018-09-12 22:04:34', '2018-09-12 22:04:34', 0, '1'),
-(6, 'Test', 'income', '2000', 1, 'March', 1, '2018-09-12 22:31:25', '2018-09-12 22:31:25', 0, '1'),
-(7, 'Test', 'income', '22', 1, 'February', 1, '2018-09-12 22:32:11', '2018-09-12 22:32:11', 0, '1');
+INSERT INTO `accounting` (`AccountingId`, `Description`, `TypeId`, `Amount`, `UserId`, `Month`, `CreateUserdId`, `CreateDate`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
+(1, 'September Salary ', 2, '2000', 4, 'September', 1, '2018-09-11 22:04:59', '2018-09-11 22:04:59', 1, 1),
+(2, 'Student Payment 1', 1, '5000', 2, 'September', 1, '2018-09-11 22:09:18', '2018-09-11 22:09:18', 1, 1),
+(3, 'Student Payment 2', 1, '5000', 3, 'September', 1, '2018-09-11 22:09:18', '2018-09-11 22:09:18', 1, 1),
+(4, 'Test From Freedom', 1, '2000', 1, 'September', 1, '2018-09-13 21:44:59', '2018-09-13 21:44:59', 1, 1),
+(5, 'Test 2', 1, '2000', 1, 'September', 1, '2018-09-13 21:46:21', '2018-09-13 21:46:21', 1, 1),
+(6, 'Testing From Freedom ', 2, '20000', 1, 'September', 1, '2018-09-13 21:52:28', '2018-09-13 21:52:28', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accounttypes`
+--
+
+CREATE TABLE `accounttypes` (
+  `TypeID` int(11) NOT NULL,
+  `Description` varchar(25) NOT NULL,
+  `CreatUserId` int(11) NOT NULL,
+  `CreateDate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `ModifyUserId` int(11) NOT NULL,
+  `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `StatusId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accounttypes`
+--
+
+INSERT INTO `accounttypes` (`TypeID`, `Description`, `CreatUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
+(1, 'Income', 1, '2018-09-08 13:23:59', 1, '2018-09-08 13:23:59', 1),
+(2, 'Expenditure', 1, '2018-09-08 13:23:59', 1, '2018-09-08 13:23:59', 1);
 
 -- --------------------------------------------------------
 
@@ -141,7 +164,10 @@ CREATE TABLE `lecture_course_subject` (
 
 INSERT INTO `lecture_course_subject` (`id`, `lectureId`, `CourseId`, `Subject`, `Year`, `Status`) VALUES
 (1, 4, 1, 1, '2018-06-07', 'In Progress'),
-(2, 5, 1, 2, '2018-06-07', 'In Progress');
+(2, 5, 1, 2, '2018-06-07', 'In Progress'),
+(3, 11, 1, NULL, '2018-09-12', 'In Progress'),
+(4, 11, 1, 3, '2018-09-12', 'In Progress'),
+(5, 13, 0, NULL, '2018-09-12', 'In Progress');
 
 -- --------------------------------------------------------
 
@@ -156,6 +182,26 @@ CREATE TABLE `module_lecture` (
   `lectureID` int(10) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `statuses`
+--
+
+CREATE TABLE `statuses` (
+  `StatusId` int(11) NOT NULL,
+  `Description` varchar(25) NOT NULL,
+  `IsActive` bit(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `statuses`
+--
+
+INSERT INTO `statuses` (`StatusId`, `Description`, `IsActive`) VALUES
+(1, 'active', b'1'),
+(2, 'disabled', b'1');
 
 -- --------------------------------------------------------
 
@@ -319,7 +365,13 @@ INSERT INTO `user` (`id`, `name`, `surname`, `email`, `cell`, `address`, `passwo
 -- Indexes for table `accounting`
 --
 ALTER TABLE `accounting`
-  ADD PRIMARY KEY (`AccointingId`);
+  ADD PRIMARY KEY (`AccountingId`);
+
+--
+-- Indexes for table `accounttypes`
+--
+ALTER TABLE `accounttypes`
+  ADD PRIMARY KEY (`TypeID`);
 
 --
 -- Indexes for table `course`
@@ -344,6 +396,12 @@ ALTER TABLE `department`
 --
 ALTER TABLE `lecture_course_subject`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `statuses`
+--
+ALTER TABLE `statuses`
+  ADD PRIMARY KEY (`StatusId`);
 
 --
 -- Indexes for table `student_course_subject`
@@ -384,7 +442,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `accounting`
 --
 ALTER TABLE `accounting`
-  MODIFY `AccointingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `AccountingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `accounttypes`
+--
+ALTER TABLE `accounttypes`
+  MODIFY `TypeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `course`
@@ -408,7 +472,13 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `lecture_course_subject`
 --
 ALTER TABLE `lecture_course_subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `statuses`
+--
+ALTER TABLE `statuses`
+  MODIFY `StatusId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_course_subject`
@@ -438,7 +508,7 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

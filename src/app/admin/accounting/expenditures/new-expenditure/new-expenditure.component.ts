@@ -12,7 +12,6 @@ import { Message } from 'primeng/components/common/message';
 export class NewExpenditureComponent implements OnInit {
 
   Description;
-  Type;
   Amount;
   UserId;
   Month;
@@ -23,7 +22,6 @@ Months= ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August
 msgs: Message[] = [];
 
   constructor(private accountingService:AccountingService,private router:Router) {
-    this.Type = "expense";
     this.UserId = 1;
     this.CreateUserdId = 1;
   }
@@ -52,7 +50,7 @@ msgs: Message[] = [];
     }
     this.data = {
       Description: this.Description,
-      Type: this.Type,
+      TypeId: 2, //To be changed to be more descriptive Salary, Stationary , Security
       Amount: this.Amount,
       UserId: this.UserId,
       Month: this.Month,
@@ -64,7 +62,7 @@ LoadScreen();
       StopLoadingScreen();
       this.showSuccess();
      setTimeout(()=>{
-      this.router.navigate(['/finacail-expenditure']);
+      this.router.navigate(['/finacial-expenditure']);
      },3000);
 
     });   
