@@ -1,0 +1,57 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-nav-user></app-nav-user>
+
+  </nav>
+  <!-- Page Content Holder -->
+  <div id="content">
+    <app-toggle-user-menu></app-toggle-user-menu>
+    <p-growl [(value)]="msgs"></p-growl>
+
+    <h2>Add Income
+
+      <a routerLink="/finacail-income">
+
+        <button type="button" class="btn btn-info">Back to Income</button>
+      </a>
+
+    </h2>
+    <hr />
+    <div class="col-sm-12 offset-3">
+      <br>
+      <br>
+      <div>
+        <div class="form-group">
+          <label for="email">
+            <b>Description</b>:</label>
+          <input type="text" [(ngModel)]="Description" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+          <label for="email">
+            <b>Amount</b>:</label>
+          <input type="text" [(ngModel)]="Amount" class="form-control" id="email">
+        </div>
+
+        <div class="form-group">
+          <label for="email">
+            <b>Select Month</b>:</label>
+          <select type="text" [(ngModel)]="Month" class="form-control">
+            <option *ngFor="let Month of Months" [value]="Month">{{Month}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="button" (click)="add()" class="btn btn-info">Add Income</button>
+        </div>
+       
+        <div class="form-group">
+          <p class="error">
+            {{message}}
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -31,6 +31,8 @@ import { AddSubjectForStudentService } from "./admin/students/add-subject-for-st
 import { StudentCourseSubjectService } from "./admin/students/student-course-subject/student-course-subject.service";
 import { AdminDashService } from "./admin/user-dashboard/admin-dash.service";
 import {ChartModule} from 'primeng/chart';
+import {GrowlModule} from 'primeng/growl';
+import { AccountingService } from "./admin/accounting/accounting.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import {ChartModule} from 'primeng/chart';
     GetSubjectPipe,
     LogoutComponent
 ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,ChartModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,ChartModule,GrowlModule],
   providers: [
     RegisterService,
     StudentCourseSubjectService,
@@ -62,7 +64,8 @@ import {ChartModule} from 'primeng/chart';
     TestCentreService,
     ForgotPasswordService,
     TokenService,
-    AdminDashService
+    AdminDashService,
+    AccountingService
   ],
   bootstrap: [AppComponent]
 })
