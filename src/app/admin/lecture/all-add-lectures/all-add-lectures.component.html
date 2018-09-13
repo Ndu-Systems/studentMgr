@@ -10,9 +10,9 @@
     <div id="content">
       <app-toggle-user-menu></app-toggle-user-menu>
   
-        <h2>All lectures  
+        <h2>All Staff  
             <a routerLink="/add-lecture">
-              <button type="button"  class="btn btn-info">Add lecture</button>
+              <button type="button"  class="btn btn-info">Add Staff Member</button>
            </a>
           </h2> <br>
           <div class="row" *ngIf="lectures$ | async as lectures; else loading">
@@ -23,8 +23,12 @@
                   <tr>
                     <th>NAME</th>
                     <th>SURNAME</th>
+                    <th>ID NUMBER</th>
+                    <th>CONTACT NUMBER</th>
+                    <th>EMAIL ADDRESS</th>
+                    <th>ADDRESS</th>
                     <th>STAFF NUMBER</th>
-                  
+                    <th>STAFF ROLE</th>
                     <th>ACTIONS</th>
                   </tr>
                 </thead>
@@ -32,13 +36,16 @@
                   <tr *ngFor="let lecture of lectures">
                     <td>{{lecture.name}}</td>
                     <td>{{lecture.surname}}</td>
+                    <td>{{lecture.idnumber}}</td>
+                    <td>{{lecture.cell}}</td>
+                    <td>{{lecture.email}}</td>
+                    <td>{{lecture.address}}</td>
                     <td>{{lecture.id}}</td>
+                    <td>{{lecture.role}}</td>
                     <td>
                         <button type="button" (click)="Details(lecture)" class="btn btn-info">More</button>
-                    </td>
-                  
-                  </tr>
-                  
+                    </td>                  
+                  </tr>                  
                 </tbody>
               </table>
           </div>
