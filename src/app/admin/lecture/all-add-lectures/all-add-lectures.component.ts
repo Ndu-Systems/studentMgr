@@ -14,7 +14,7 @@ export class AllAddLecturesComponent implements OnInit {
 
   lectures$:Observable< any[]>;
   constructor(private selectService: SelectService, private router:Router, private lectureService:LectureService) {
-    this.lectures$ =this.selectService.select("user WHERE role = 'lecture'");
+    this.lectures$ =this.selectService.select("user WHERE role != 'student'");
   }
   ngOnInit() {
   

@@ -32,12 +32,12 @@ $counts->key ="Subjects";
 $counts->value =$result->rowCount() ;
 $rows["data"][]= $counts;
 
-//lecture
-$result = $conn->prepare("SELECT * FROM user WHERE role = ?"); 
-$result->execute(array('lecture'));
+//staff
+$result = $conn->prepare("SELECT * FROM user WHERE role != ?"); 
+$result->execute(array('student'));
 
 $counts = new Counts();
-$counts->key ="Lectures";
+$counts->key ="Staff";
 $counts->value =$result->rowCount() ;
 $rows["data"][]= $counts;
 //department

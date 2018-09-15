@@ -24,17 +24,26 @@ export class AddLectureComponent implements OnInit {
   courses : any [];
   lectureId : number;
   course: any;
+  roles = [
+    {id: 1,name: "lecture"},
+    {id: 2,name: "helper"},
+    {id: 3,name: "fielder"}
+  ];
+  role: any
   constructor(private addService:AddService, private selectService:SelectService, private lectureService:LectureService, private router:Router) { }
 
   ngOnInit() {
     this.getCourses();
   }
-  AddStudent(course) {
+  AddStudent(course, role) {
+    if(course == undefined || course == 0)
+      course = 0;
+    
     let data = {
       name: this.name,
       surname: this.surname,
       address: this.address,
-      role: 'lecture',
+      role: role,
       city: this.city,
       idnumber: this.idnumber,
       cell: this.cell,
@@ -54,9 +63,15 @@ export class AddLectureComponent implements OnInit {
           this.addService.add(data2,'lecture_course/add').subscribe((response)=>{
             StopLoadingScreen();
             let userData = data;
-            userData["lectureId"] = data2.lectureId;
+            debugger
+            if(role === 'lecture'){
+              userData["lectureId"] = data2.lectureId;
               this.lectureService.saveLecture(userData);
               this.router.navigate(['/add-subject-for-lecture']);
+            }
+            else{
+              this.router.navigate(['/all-lectures']);
+            }           
 
           });
         }

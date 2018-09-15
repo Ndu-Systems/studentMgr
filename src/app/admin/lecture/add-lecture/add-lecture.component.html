@@ -8,11 +8,11 @@
     <div id="content">
       <app-toggle-user-menu></app-toggle-user-menu>
   
-        <h2>Add lecture
+        <h2>Add Staff Member &nbsp;
   
               <a routerLink="/all-lectures">
   
-              <button type="button" class="btn btn-info">View lectures</button>
+              <button type="button" class="btn btn-info">View All Staff</button>
             </a>
   
         </h2> <hr/>      
@@ -48,17 +48,22 @@
                   <label for="email"><b>CITY</b>:</label>
                   <input type="text"  [(ngModel)]="city"     class="form-control" id="email">
                 </div>
+                
                 <div class="form-group">
-                  <label for="email"><b>Select Course</b>:</label>
+                  <label for="email"><b>SELECT ROLE</b>:</label>
+                  <select type="text" [(ngModel)]="role"   class="form-control">
+                    <option *ngFor="let role of roles" [value]="role.name">{{role.name}}</option>
+                  </select>
+                </div>  
+                <div class="form-group">
+                  <label for="email"><b>SELECT COURSE</b>:</label>
                   <select type="text" [(ngModel)]="course"   class="form-control">
                     <option *ngFor="let course of courses" [value]="course.id">{{course.tittle}}</option>
                   </select>
                 </div>  
                 <div class="form-group">
-                  <button type="button" (click)="AddStudent(course)" class="btn btn-info">Add Lecture</button>
-                </div>
-  
-               
+                  <button type="button" (click)="AddStudent(course, role)" class="btn btn-info">Add Lecture</button>
+                </div>               
             </div> 
           </div>
        </div>

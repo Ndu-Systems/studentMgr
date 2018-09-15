@@ -11,7 +11,6 @@ import { LoadScreen, StopLoadingScreen } from "../../../../shared/loading/load";
 })
 export class NewIncomeComponent implements OnInit {
   Description;
-  Type;
   Amount;
   UserId;
   Month;
@@ -22,7 +21,6 @@ Months= ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August
 msgs: Message[] = [];
 
   constructor(private accountingService:AccountingService,private router:Router) {
-    this.Type = "income";
     this.UserId = 1;
     this.CreateUserdId = 1;
   }
@@ -51,7 +49,7 @@ msgs: Message[] = [];
     }
     this.data = {
       Description: this.Description,
-      Type: this.Type,
+      TypeId: 1, //To Be changed based off Student Tuition, Accomodation and Sponsorship
       Amount: this.Amount,
       UserId: this.UserId,
       Month: this.Month,
@@ -63,7 +61,7 @@ LoadScreen();
       StopLoadingScreen();
       this.showSuccess();
      setTimeout(()=>{
-      this.router.navigate(['/finacail-income']);
+      this.router.navigate(['/finacial-income']);
      },3000);
 
     });   

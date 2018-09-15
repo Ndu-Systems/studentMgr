@@ -14,7 +14,7 @@ export class IncomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.incomeList$ = this.selectService.select("accounting  WHERE Type = 'income'");
+    this.incomeList$ = this.selectService.select("accounting ac  INNER JOIN user us ON us.id = ac.UserId WHERE ac.TypeId = 1");
   }
   Details(income){
     alert(JSON.stringify(income))
