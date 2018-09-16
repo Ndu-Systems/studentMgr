@@ -18,15 +18,18 @@
     <div class="row" *ngIf="students$ | async as students; else loading">
 
       <div class="col-sm-12">
+      <div class="row">
+              <div class="input-group stylish-input-group">
+                  <input type="text" [(ngModel)]="searchText"  [ngModelOptions]="{standalone: true}" class="form-control"  placeholder="Search" >
+                  <span class="input-group-addon">
+                      <button type="submit">
+                          <span class="fa fa-search"></span>
+                      </button>  
+                  </span>
+              </div>                  
+      </div>
         <table class="table table-condensed">
-          <thead>
-            <tr>
-              <td colspan="4">
-                  <div class="form-group">
-                      <li class="fa fa-search"></li><input type="text"  [(ngModel)]="search"  placeholder="Search....." class="form-control search-input" id="email">
-                    </div>
-              </td>
-            </tr>
+          <thead>        
             <tr>
               <th>NAME</th>
               <th>SURNAME</th>
@@ -36,19 +39,19 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let student of students | searchuser:search">
+            <tr *ngFor="let student of students | filter: searchText| paginate: { itemsPerPage: 10, currentPage: p }">
               <td>{{student.name}}</td>
               <td>{{student.surname}}</td>
               <td>{{student.studentNo}}</td>
               <td>
                 <button type="button" (click)="Details(student)" class="btn btn-info">More</button>
-
               </td>
-
             </tr>
-
           </tbody>
         </table>
+        <div class="justify-content-center">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
       </div>
     </div>
     <ng-template #loading>

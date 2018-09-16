@@ -33,6 +33,8 @@ import { AdminDashService } from "./admin/user-dashboard/admin-dash.service";
 import {ChartModule} from 'primeng/chart';
 import {GrowlModule} from 'primeng/growl';
 import { AccountingService } from "./admin/accounting/accounting.service";
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,14 @@ import { AccountingService } from "./admin/accounting/accounting.service";
     GetSubjectPipe,
     LogoutComponent
 ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,ChartModule,GrowlModule],
+  imports: [BrowserModule, AppRoutingModule, 
+    FormsModule, 
+    HttpClientModule,
+    ChartModule,
+    GrowlModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule
+  ],
   providers: [
     RegisterService,
     StudentCourseSubjectService,
