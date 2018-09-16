@@ -1,3 +1,5 @@
+import { SelectService } from './../../../../shared/select.service';
+import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { Component, OnInit } from "@angular/core";
 import { AccountingService } from "../../accounting.service";
@@ -12,17 +14,19 @@ import { LoadScreen, StopLoadingScreen } from "../../../../shared/loading/load";
 export class NewIncomeComponent implements OnInit {
   Description;
   Amount;
-  UserId;
   Month;
-  CreateUserdId;
   message;
   data;
 Months= ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 msgs: Message[] = [];
-
-  constructor(private accountingService:AccountingService,private router:Router) {
-    this.UserId = 1;
-    this.CreateUserdId = 1;
+student: any;
+user:any;  
+TypeID:number = Number(localStorage.getItem("AccountTypeID"));
+accountingType$:Observable<any>;
+  constructor(private accountingService:AccountingService,private router:Router, private selectService: SelectService) {
+  this.student = JSON.parse(localStorage.getItem("Student"));
+  this.user = JSON.parse(localStorage.getItem("currentUser"));
+this.accountingType$ = this.selectService.select(`accounttypes WHERE TypeID = ${this.TypeID}`)
   }
 
   ngOnInit() {}
@@ -49,11 +53,11 @@ msgs: Message[] = [];
     }
     this.data = {
       Description: this.Description,
-      TypeId: 1, //To Be changed based off Student Tuition, Accomodation and Sponsorship
+      TypeId: this.TypeID, //To Be changed based off Student Tuition, Accomodation and Sponsorship
       Amount: this.Amount,
-      UserId: this.UserId,
+      UserId: this.student.id,
       Month: this.Month,
-      CreateUserdId: this.CreateUserdId
+      CreateUserdId: this.user.userid
     };
 LoadScreen();
     this.accountingService.add(this.data)

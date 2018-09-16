@@ -9,10 +9,18 @@
   <div id="content" *ngIf="student$ | async as student; else loading">
 
     <app-toggle-user-menu></app-toggle-user-menu>
-
+   
     <div class="row student-details">
       <div class="col-sm-6">
-        <h2>{{student[0].name}} Details</h2>
+        <h2>{{student[0].name}} Details
+
+          <a>
+            <button type="button"  (click)="createIncome(student[0],3)" class="btn btn-info">Pay Tuition</button>
+          </a>
+          <a>
+            <button type="button" (click)="createIncome(student[0],6)" class="btn btn-info">Pay Accomodation</button>
+          </a>
+        </h2>
         <table>
           <tr>
             <td>

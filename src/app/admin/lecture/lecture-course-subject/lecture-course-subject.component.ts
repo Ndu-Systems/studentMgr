@@ -46,5 +46,8 @@ export class LectureCourseSubjectComponent implements OnInit {
       this.subjects = response;      
     });
   }
-
+  createExpenditure(staff){
+    localStorage.setItem("staff", JSON.stringify(staff));
+    this.router.navigate(["new-expenditure"]);
+  }
 }

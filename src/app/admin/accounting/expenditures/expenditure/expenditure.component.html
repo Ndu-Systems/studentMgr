@@ -9,9 +9,7 @@
   <div id="content">
     <app-toggle-user-menu></app-toggle-user-menu>
     <h2>Monthly Expenditures
-      <a routerLink="/new-expenditure">
-        <button type="button" class="btn btn-info">Capture New Expendature</button>
-      </a>
+     
     </h2>
     <br/>
     <div class="row" *ngIf="expenses$ | async as expenses; else loading">

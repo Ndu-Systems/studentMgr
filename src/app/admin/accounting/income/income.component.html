@@ -9,11 +9,10 @@
   <div id="content">
     <app-toggle-user-menu></app-toggle-user-menu>
     <h2>Monthly Income
-      <a routerLink="/new-income">
-        <button type="button" class="btn btn-info">Capture New Income</button>
-      </a>
+      
     </h2>
     <br/>
+
     <div class="row" *ngIf="incomeList$ | async as incomeList; else loading">
 
       <div class="col-sm-12">

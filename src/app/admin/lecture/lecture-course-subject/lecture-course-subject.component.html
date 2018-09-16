@@ -12,7 +12,11 @@
   
       <div class="row student-details" *ngIf="lecture">
           <div class="col-sm-6">
-              <h2>{{lecture.name}}'s Details</h2>
+              <h2>{{lecture.name}}'s Details
+                  <a>
+                      <button type="button"  (click)="createExpenditure(lecture)" class="btn btn-info">Pay {{lecture.name}} </button>
+                    </a>
+              </h2>
               <table>
                 <tr>
                     <td>
