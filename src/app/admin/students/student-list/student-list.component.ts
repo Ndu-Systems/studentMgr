@@ -12,6 +12,7 @@ import { LoadScreen, StopLoadingScreen } from '../../../shared/loading/load';
 })
 export class StudentListComponent implements OnInit {
   students$:Observable< any[]>;
+  searchText : any;
   constructor(private selectService: SelectService, private router:Router, private studentService:StudentService) {
     this.students$ =  this.selectService.select("user WHERE role = 'student'");
   }

@@ -22,6 +22,14 @@
         <div class="row" *ngIf="courses$ | async as courses; else loading">
            
             <div class="col-sm-12">
+                <div class="input-group stylish-input-group">
+                    <input type="text" [(ngModel)]="searchText"  [ngModelOptions]="{standalone: true}" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="fa fa-search"></span>
+                        </button>  
+                    </span>
+                </div>   
               <table class="table table-condensed">
                 <thead>
                   <tr>
@@ -34,7 +42,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let course of courses">
+                  <tr *ngFor="let course of courses | filter: searchText| paginate: { itemsPerPage: 10, currentPage: p }">
                     <td>{{course.tittle}}</td>
                     <td>{{course.description}}</td>
                     <td>{{course.department}}</td>
@@ -49,6 +57,9 @@
                   
                 </tbody>
               </table>
+              <div class="justify-content-center">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
           </div>
        </div>
 

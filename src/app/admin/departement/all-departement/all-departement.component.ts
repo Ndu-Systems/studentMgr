@@ -9,6 +9,7 @@ import { SelectService } from "../../../shared/select.service";
 })
 export class AllDepartementComponent implements OnInit {
   departements$: Observable<any[]>;
+  searchText: any;
   constructor(private selectService: SelectService) {
     this.departements$ = this.selectService.select("department");
   }
