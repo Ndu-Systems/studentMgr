@@ -15,9 +15,18 @@
             <button type="button"  class="btn btn-info">Add test</button>
          </a>
         </h2> <br>
-        <div class="row">
-         
+        <div class="row">         
           <div class="col-sm-12">
+              <div class="row">
+                  <div class="input-group stylish-input-group">
+                      <input type="text" [(ngModel)]="searchText"  [ngModelOptions]="{standalone: true}" class="form-control"  placeholder="Search" >
+                      <span class="input-group-addon">
+                          <button type="submit">
+                              <span class="fa fa-search"></span>
+                          </button>  
+                      </span>
+                  </div>                  
+          </div>
             <table class="table table-condensed">
               <thead>
                 <tr>
@@ -36,7 +45,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let test of tests">
+                <tr *ngFor="let test of tests | filter: searchText| paginate: { itemsPerPage: 10, currentPage: p }">
                   <td>{{test.type}}</td>
                   <td>{{test.tittle}}</td>
 
@@ -61,6 +70,9 @@
                 
               </tbody>
             </table>
+            <div class="justify-content-center">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
         </div>
      </div>
 </div>
