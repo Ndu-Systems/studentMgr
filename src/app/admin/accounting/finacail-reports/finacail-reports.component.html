@@ -19,6 +19,14 @@
       </a>
     </h2>
     <br>
+    <div class="form-group">
+      <label for="email">
+        <b>Report for </b></label>
+      <select type="text" [(ngModel)]="Month" class="btn btn-info"  (change)="selectMonth()">
+        <option *ngFor="let Month of Months" [value]="Month">{{Month}}</option>
+      </select>
+    </div>
+    <br>
     <div class="row" *ngIf="students$ | async as students; else loading">
 
         <div class="col-sm-12 col-lg-6">
@@ -29,20 +37,20 @@
                   <tr>
                     <td>Income </td>
                   <td>
-                    R 50000.00
+                    {{income|currency:'R':true}}
                   </td>
                   </tr>
                   <tr>
                     <td>Expanditure </td>
                   <td>
-                    R 23000.00
+                    {{expenses|currency:'R':true}}
                   </td>
                   </tr>
                   
                   <tr>
                     <td>Profit </td>
                   <td>
-                    R 27000.00
+                    {{income-expenses|currency:'R':true}}
                   </td>
                   </tr>
                   
