@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2018 at 09:53 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Sep 17, 2018 at 07:33 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -52,7 +52,11 @@ INSERT INTO `accounting` (`AccountingId`, `Description`, `TypeId`, `Amount`, `Us
 (3, 'Student Payment 2', 1, '5000', 3, 'September', 1, '2018-09-11 22:09:18', '2018-09-11 22:09:18', 1, 1),
 (4, 'Test From Freedom', 1, '2000', 1, 'September', 1, '2018-09-13 21:44:59', '2018-09-13 21:44:59', 1, 1),
 (5, 'Test 2', 1, '2000', 1, 'September', 1, '2018-09-13 21:46:21', '2018-09-13 21:46:21', 1, 1),
-(6, 'Testing From Freedom ', 2, '20000', 1, 'September', 1, '2018-09-13 21:52:28', '2018-09-13 21:52:28', 1, 1);
+(6, 'Testing From Freedom ', 2, '20000', 1, 'September', 1, '2018-09-13 21:52:28', '2018-09-13 21:52:28', 1, 1),
+(7, 'Test New meth', 6, '1000000', 3, 'September', 1, '2018-09-16 17:22:11', '2018-09-16 17:22:11', 3, 1),
+(8, 'Hala back npwnwo', 3, '20828', 3, 'September', 1, '2018-09-16 17:59:12', '2018-09-16 17:59:12', 3, 1),
+(9, 'Payout', 4, '8000', 4, 'September', 1, '2018-09-16 18:43:19', '2018-09-16 18:43:19', 4, 1),
+(10, 'Bonus', 4, '5000', 4, 'September', 1, '2018-09-16 19:05:54', '2018-09-16 19:05:54', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -63,6 +67,7 @@ INSERT INTO `accounting` (`AccountingId`, `Description`, `TypeId`, `Amount`, `Us
 CREATE TABLE `accounttypes` (
   `TypeID` int(11) NOT NULL,
   `Description` varchar(25) NOT NULL,
+  `AccountTypeID` int(11) NOT NULL,
   `CreatUserId` int(11) NOT NULL,
   `CreateDate` datetime DEFAULT CURRENT_TIMESTAMP,
   `ModifyUserId` int(11) NOT NULL,
@@ -74,9 +79,13 @@ CREATE TABLE `accounttypes` (
 -- Dumping data for table `accounttypes`
 --
 
-INSERT INTO `accounttypes` (`TypeID`, `Description`, `CreatUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
-(1, 'Income', 1, '2018-09-08 13:23:59', 1, '2018-09-08 13:23:59', 1),
-(2, 'Expenditure', 1, '2018-09-08 13:23:59', 1, '2018-09-08 13:23:59', 1);
+INSERT INTO `accounttypes` (`TypeID`, `Description`, `AccountTypeID`, `CreatUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
+(1, 'Income', 1, 1, '2018-09-08 13:23:59', 1, '2018-09-08 13:23:59', 1),
+(2, 'Expenditure', 2, 1, '2018-09-08 13:23:59', 1, '2018-09-08 13:23:59', 1),
+(3, 'Tuition-Fees', 1, 1, '2018-09-16 16:37:38', 1, '2018-09-16 16:37:38', 1),
+(4, 'Salaries', 2, 1, '2018-09-16 16:37:38', 1, '2018-09-16 16:37:38', 1),
+(5, 'Kitchen', 2, 1, '2018-09-16 16:38:38', 1, '2018-09-16 16:38:38', 1),
+(6, 'Accommodation-Fees', 1, 1, '2018-09-16 16:54:07', 1, '2018-09-16 16:54:07', 1);
 
 -- --------------------------------------------------------
 
@@ -442,13 +451,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `accounting`
 --
 ALTER TABLE `accounting`
-  MODIFY `AccountingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `AccountingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `accounttypes`
 --
 ALTER TABLE `accounttypes`
-  MODIFY `TypeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `TypeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `course`
