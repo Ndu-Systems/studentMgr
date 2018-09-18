@@ -1,0 +1,120 @@
+label{
+    color: black;
+}
+#content{
+    width: 100%;
+
+}
+.fullBTN{
+    width: 100%;
+    padding: 5%;
+    color: white;
+    font-weight: bolder;
+    font-size: 33px;
+}
+.width100{
+    width: 100%;
+}
+.buy{
+background: #2ecc71;
+
+}
+.sell{
+    background: #e74c3c;
+
+}
+.form-group{
+    width: 100%;
+}
+div{
+    width: 100%;
+}
+.row{
+    padding-bottom: 3%;
+}
+
+.dash-box-body .row{
+    border-bottom: 2px solid #10ac84;
+    width: 100%;
+    color: white;
+}
+
+.dash-box {
+    cursor: pointer;
+    position: relative;
+   border-radius: 0;
+   background: #353b48;
+    text-align: center;
+    margin: 60px 0 50px;
+}
+.dash-box-icon {
+    position: absolute;
+    transform: translateY(-50%) translateX(-50%);
+    left: 50%;
+}
+.dash-box-action {
+    transform: translateY(-50%) translateX(-50%);
+    position: absolute;
+    left: 50%;
+}
+.dash-box-body {
+    padding: 50px 40px;
+    text-transform: uppercase;
+}
+.dash-box-body a  {
+    color: white !important;
+}
+.dash-box-icon:after {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background: rgba(247, 148, 137, 0.91);
+    content: '';
+    border-radius: 50%;
+    left: -10px;
+    top: -10px;
+    z-index: -1;
+}
+.dash-box-icon > i {
+    background: #ff5444;
+    border-radius: 50%;
+    line-height: 40px;
+    color: #FFF;
+    width: 40px;
+    height: 40px;
+	font-size:22px;
+}
+.dash-box-icon:before {
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    background: rgba(253, 162, 153, 0.34);
+    content: '';
+    border-radius: 50%;
+    left: -17px;
+    top: -17px;
+    z-index: -2;
+}
+.dash-box-action > button {
+    border: none;
+    background: #FFF;
+    border-radius: 19px;
+    padding: 7px 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: .5px;
+    color: #003e85;
+    box-shadow: 0 3px 5px #d4d4d4;
+}
+.dash-box-body > .dash-box-count {
+    display: block;
+    font-size: 30px;
+    color: #FFF;
+    font-weight: bolder;
+}
+.dash-box-body > .dash-box-title {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.81);
+    font-weight: bold;
+}

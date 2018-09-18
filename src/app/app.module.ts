@@ -35,6 +35,9 @@ import {GrowlModule} from 'primeng/growl';
 import { AccountingService } from "./admin/accounting/accounting.service";
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ConfigurationsService } from "./admin/configurations";
+
+
 
 @NgModule({
   declarations: [
@@ -74,7 +77,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ForgotPasswordService,
     TokenService,
     AdminDashService,
-    AccountingService
+    AccountingService,
+    ConfigurationsService
   ],
   bootstrap: [AppComponent]
 })

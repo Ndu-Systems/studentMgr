@@ -6,7 +6,7 @@ require "../conn.php";
 $data = json_decode(file_get_contents("php://input"));
 
 $rows = array();
-//students
+//students [0]
 $result = $conn->prepare("SELECT * FROM user WHERE role = ?"); 
 $result->execute(array('student'));
 
@@ -15,7 +15,7 @@ $counts->key ="Students";
 $counts->value =$result->rowCount() ;
 $rows["data"][]= $counts;
 
-//admins
+//admins [1]
 $result = $conn->prepare("SELECT * FROM user WHERE role = ?"); 
 $result->execute(array('admin'));
 
@@ -23,7 +23,7 @@ $counts = new Counts();
 $counts->key ="Admins";
 $counts->value =$result->rowCount() ;
 $rows["data"][]= $counts;
-//subject
+//subject [2]
 $result = $conn->prepare("SELECT * FROM subject"); 
 $result->execute(array());
 
@@ -32,7 +32,7 @@ $counts->key ="Subjects";
 $counts->value =$result->rowCount() ;
 $rows["data"][]= $counts;
 
-//staff
+//staff [3]
 $result = $conn->prepare("SELECT * FROM user WHERE role != ?"); 
 $result->execute(array('student'));
 
@@ -40,7 +40,7 @@ $counts = new Counts();
 $counts->key ="Staff";
 $counts->value =$result->rowCount() ;
 $rows["data"][]= $counts;
-//department
+//department [4]
 $result = $conn->prepare("SELECT * FROM department"); 
 $result->execute(array());
 
@@ -48,12 +48,21 @@ $counts = new Counts();
 $counts->key ="Departments";
 $counts->value =$result->rowCount() ;
 $rows["data"][]= $counts;
-//course
+//course [5]
 $result = $conn->prepare("SELECT * FROM course"); 
 $result->execute(array());
 
 $counts = new Counts();
 $counts->key ="Courses";
+$counts->value =$result->rowCount() ;
+$rows["data"][]= $counts;
+
+//account-types [6]
+$result = $conn->prepare("SELECT * FROM accounttypes WHERE TypeID NOT IN (?,?)"); 
+$result->execute(array(1,2));
+
+$counts = new Counts();
+$counts->key ="Accounts";
 $counts->value =$result->rowCount() ;
 $rows["data"][]= $counts;
 

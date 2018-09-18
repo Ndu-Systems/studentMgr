@@ -20,6 +20,12 @@ h1, h2 , h3 {
     border-radius: 0;
     border-color:#1e90ff;
 }
+.btn-warning{
+    background: #353b48;
+    border-radius: 0;
+    border-color:#fa8231;
+    color:#ffff
+}
 .form-group label {
     color: white;
     font-weight: 100;

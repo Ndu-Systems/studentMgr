@@ -54,6 +54,7 @@ import { StudentCourseSubjectComponent } from "./admin/students/student-course-s
 import { IncomeComponent } from "./admin/accounting/income/income.component";
 import { ExpenditureComponent } from "./admin/accounting/expenditures/expenditure/expenditure.component";
 import { NewIncomeComponent } from "./admin/accounting/income/new-income/new-income.component";
+import { ConfigurationsComponent, EditAccountTypeComponent, AddAccountTypeComponent, AllAccountTypesComponent } from "./admin/configurations";
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -118,6 +119,11 @@ const routes: Routes = [
   { path: "forgot-password", component: ForgotPasswordComponent },
   { path: "forgot-my-password", component: ForgotPasswordEmailComponent },
   { path: "test-students", component: TestStudentsComponent },
+  { path: "all-configurations", component: ConfigurationsComponent },
+  {path : "all-account-types", component: AllAccountTypesComponent},
+  {path : "add-account-type", component: AddAccountTypeComponent},
+  {path : "edit-account-type", component: EditAccountTypeComponent},
+
   { path: "**", component: LoginComponent }
 ];
 export const routingComponents = [
@@ -171,7 +177,11 @@ export const routingComponents = [
   IncomeComponent,
   ExpenditureComponent,
   NewIncomeComponent,
-  NewExpenditureComponent
+  NewExpenditureComponent,
+  ConfigurationsComponent,
+  EditAccountTypeComponent,
+  AddAccountTypeComponent,
+  AllAccountTypesComponent
 ];
 
 @NgModule({

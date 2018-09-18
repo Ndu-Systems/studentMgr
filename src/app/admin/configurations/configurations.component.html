@@ -1,0 +1,91 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-nav-user></app-nav-user>
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+    <app-toggle-user-menu></app-toggle-user-menu>
+    <h1>
+      Configurations
+    </h1>
+    <div class="container" *ngIf="counts$ | async as counts">
+      <div class="row">
+        <a class="col-md-4" routerLink="/student-list">
+          <div class="dash-box">
+
+            <div class="dash-box-body">
+              <div class="row">
+                <div class="col-sm-12  col-lg-6">
+                  <i class="fa fa-users"></i>
+                  <br>
+                  {{counts.data[0].key}}
+
+                </div>
+                <div class="col-sm-12  col-lg-6">
+                  <h1>
+                    {{counts.data[0].value}}
+                  </h1>
+                </div>
+              </div>
+            </div>
+            <div class="dash-box-action">
+            </div>
+          </div>
+        </a>        
+        <a class="col-md-4" routerLink="/all-lectures">
+          <div class="dash-box">
+
+            <div class="dash-box-body">
+              <div class="row">
+                <div class="col-sm-12  col-lg-6">
+                  <i class="fa fa-suitcase"></i>
+                  <br>
+                  {{counts.data[3].key}}
+
+                </div>
+                <div class="col-sm-12  col-lg-6">
+                  <h1>
+                    {{counts.data[3].value}}
+
+                  </h1>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="dash-box-action">
+            </div>
+          </div>
+        </a>
+        <a class="col-md-4" routerLink="/all-account-types">
+          <div class="dash-box">
+
+            <div class="dash-box-body">
+              <div class="row">
+                <div class="col-sm-12  col-lg-6">
+                  <i class="fas fa-dollar-sign"></i>
+                  <br>
+                  {{counts.data[6].key}}
+                </div>
+                <div class="col-sm-12  col-lg-6">
+                  <h1>
+                    {{counts.data[6].value}}
+
+                  </h1>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="dash-box-action">
+            </div>
+          </div>
+        </a>      
+      </div>
+    </div>
+
+  </div>
+</div>

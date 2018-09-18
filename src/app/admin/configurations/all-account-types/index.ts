@@ -1,0 +1,1 @@
+export * from './all-account-types.component'
