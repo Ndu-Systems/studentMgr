@@ -1,3 +1,50 @@
-<p>
-  edit-account-type works!
-</p>
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+      <app-nav-user></app-nav-user>
+
+  </nav>
+  <!-- Page Content Holder -->
+  <div id="content">
+    <app-toggle-user-menu></app-toggle-user-menu>
+    <p-growl [(value)]="msgs"></p-growl>
+
+      <h2>Edit Account Type &nbsp;
+
+            <a routerLink="/all-account-types">
+
+            <button type="button" class="btn btn-info">View All Account Types</button>
+          </a>
+
+      </h2> <hr/>      
+          <div class="col-sm-12 offset-3" *ngIf="account$ | async as account">
+            <br>
+           <br>
+            <div>
+              <div class="form-group">
+                <label for="email"><b>DESCRIPTION</b>:</label>
+                <input type="text"  [(ngModel)]="account[0].Description"     class="form-control" id="email">
+              </div>
+                
+              <div class="form-group">
+                <label for="email"><b>SELECT ACCOUNT TYPE</b>:</label>
+                <select type="text" [(ngModel)]="accounttype"   class="form-control">
+                  <option *ngFor="let accounttype of accounttypes" [value]="accounttype.id">{{accounttype.title}}</option>
+                </select>
+              </div>  
+              <div class="form-group">
+                <button type="button" (click)="edit(account[0],accounttype)" class="btn btn-info">Update Account</button>
+                <button type="button" (click)="archive(account[0])" class="btn btn-warning">Archive</button>
+
+              </div>  
+              <div class="form-group">
+                <p class="error">
+                  {{message}}
+                </p>
+              </div>             
+          </div> 
+        </div>
+     </div>
+</div>
+
+

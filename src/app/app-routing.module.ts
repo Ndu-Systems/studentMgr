@@ -122,7 +122,7 @@ const routes: Routes = [
   { path: "all-configurations", component: ConfigurationsComponent },
   {path : "all-account-types", component: AllAccountTypesComponent},
   {path : "add-account-type", component: AddAccountTypeComponent},
-  {path : "edit-account-type", component: EditAccountTypeComponent},
+  {path : "edit-account-type/:id", component: EditAccountTypeComponent},
 
   { path: "**", component: LoginComponent }
 ];

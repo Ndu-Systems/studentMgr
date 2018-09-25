@@ -11,4 +11,7 @@ export class ConfigurationsService {
     add(data): Observable<any> {
         return this.http.post<any>(`${this.url}/configuration/add-account-type.php`, data);
     }
+    edit(data):Observable<any>{
+        return this.http.post<any>(`${this.url}/configuration/edit.php`,data);
+        }
 }

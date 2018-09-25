@@ -13,5 +13,5 @@ export class AccountingService {
     add(data):Observable<any>{
     return this.http.post<any>(`${this.url}/accounting/add.php`,data);
     }
-
+    
 }
