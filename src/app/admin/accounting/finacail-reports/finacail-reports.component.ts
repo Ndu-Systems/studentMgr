@@ -1,4 +1,4 @@
-import { monthNamesOrder } from "./../../../shared/config";
+import { monthNamesOrder, INCOME_TYPE_CODE,EXPENSE_TYPE_CODE } from "./../../../shared/config";
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { SelectService } from "../../../shared/select.service";
@@ -23,6 +23,7 @@ export class FinacailReportsComponent implements OnInit {
   graphMonthsToDisplay: Array<any>;
   graphExpensesToDisplay: Array<any> =[];
   graphIncomeToDisplay: Array<any>=[];
+  graphRatesesToDisplay: Array<any>=[];
   Months = [
     "January",
     "February",
@@ -47,6 +48,13 @@ export class FinacailReportsComponent implements OnInit {
     this.getAccounting();
 
   }
+  getRates():Array<number>{
+    let rates:Array<number> =[];
+    for( var i in this.graphExpensesToDisplay ){
+      rates[i] = this.graphIncomeToDisplay[i] - this.graphExpensesToDisplay[i];
+    }
+return rates;
+  }
 loadGrhaph(){
   this.data = {
     labels: this.graphMonthsToDisplay,
@@ -67,20 +75,15 @@ loadGrhaph(){
   };
 
   this.data2 = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: this.graphMonthsToDisplay,
     datasets: [
       {
-        label: "Profit",
-        data: [65, 59, 80, 81, 56, 55, 40],
+        label: "Rate",
+        data: this.getRates(),
         fill: false,
-        borderColor: "#4bc0c0"
-      },
-      {
-        label: "Loss",
-        data: [28, 48, 40, 19, 86, 27, 90],
-        fill: false,
-        borderColor: "#565656"
+        borderColor: "#8e44ad"
       }
+      
     ]
   };
 }
@@ -101,10 +104,10 @@ loadGrhaph(){
         this.calculateGraphValues();
 
         this.incomeLS = this.accounting.filter(
-          x => x.AccountTypeID == 1 && x.Month == this.Month
+          x => x.AccountTypeID == INCOME_TYPE_CODE && x.Month == this.Month
         );
         this.expensesLS = this.accounting.filter(
-          x => x.AccountTypeID == 2 && x.Month == this.Month
+          x => x.AccountTypeID == EXPENSE_TYPE_CODE && x.Month == this.Month
         );
         this.income = this.incomeLS.reduce((sum, accountingOject) => {
           return sum + Number(accountingOject.Amount);
@@ -144,7 +147,7 @@ loadGrhaph(){
       let totalIncomeForAmonth = 0;
 
       amountsForAmonth.forEach(afam => {
-        if (afam.t == 1) {
+        if (afam.t == EXPENSE_TYPE_CODE) {
           totalExpensesForAmonth += Number(afam.v);
         } else {
           totalIncomeForAmonth += Number(afam.v);

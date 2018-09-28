@@ -18,6 +18,9 @@ export const emailbeta = "http://ndu-systems.net/api/email.php"
 export function GetImagePath(imageUrl){
 return `${API_URL}/Invest/${imageUrl}`;
 }
+export const INCOME_TYPE_CODE = 1;
+export const EXPENSE_TYPE_CODE = 2;
+
 export const monthNamesOrder = {
     "January": 1,
     "February": 2,
