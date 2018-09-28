@@ -17,6 +17,8 @@ export class FinacailReportsComponent implements OnInit {
   expenses: number = 0;
   incomeLS: Array<any>;
   expensesLS: Array<any>;
+  graphMonthsLS: Array<any>;
+  graphValuesLS: Array<any>;
   Months = [
     "January",
     "February",
@@ -31,7 +33,7 @@ export class FinacailReportsComponent implements OnInit {
     "November",
     "December"
   ];
-  accounting: any;
+  accounting: Array<any>;
   selectedMonthIndex: any;
 
   constructor(private selectService: SelectService, private router: Router) {
@@ -84,6 +86,16 @@ export class FinacailReportsComponent implements OnInit {
       )
       .subscribe(data => {
         this.accounting = data;
+        console.log(this.accounting);
+
+        this.graphMonthsLS = this.accounting.map(x=>{
+          return {m:x.Month,v:x.Amount,t:x.AccountTypeID}
+        });
+        
+        console.log(this.graphMonthsLS);
+        
+        this.graphValuesLS = this.accounting.map(x=>x.Amount);
+        
         this.incomeLS = this.accounting.filter(x => x.AccountTypeID == 1 && x.Month == this.Month);
         this.expensesLS = this.accounting.filter(x => x.AccountTypeID == 2 && x.Month == this.Month);
         this.income = this.incomeLS.reduce((sum, accountingOject) => {

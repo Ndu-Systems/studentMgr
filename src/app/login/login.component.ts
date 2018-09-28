@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   .subscribe((data)=>{
     StopLoadingScreen();
     if(data){
+      localStorage.setItem("currentUser",JSON.stringify(data));
       this.userDataService.saveUser(data);
       if(data.role=="admin"){
         this.router.navigate(['user-dashboard']);
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
       else if(data.role=="lecture"){
         this.router.navigate(['lecture-dashboard']);
       }
+
       else if(data.role == "student"){
         this.router.navigate(['student-dashboard'])
       }

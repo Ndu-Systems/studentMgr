@@ -57,7 +57,7 @@ this.accountingType$ = this.selectService.select(`accounttypes WHERE TypeID = ${
       Amount: this.Amount,
       UserId: this.student.id,
       Month: this.Month,
-      CreateUserdId: this.user.userid
+      CreateUserdId: this.user.id
     };
 LoadScreen();
     this.accountingService.add(this.data)
