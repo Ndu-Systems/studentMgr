@@ -1,3 +1,4 @@
+import { monthNamesOrder } from "./../../../shared/config";
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { SelectService } from "../../../shared/select.service";
@@ -18,7 +19,10 @@ export class FinacailReportsComponent implements OnInit {
   incomeLS: Array<any>;
   expensesLS: Array<any>;
   graphMonthsLS: Array<any>;
-  graphValuesLS: Array<any>;
+  // Final graph vals
+  graphMonthsToDisplay: Array<any>;
+  graphExpensesToDisplay: Array<any> =[];
+  graphIncomeToDisplay: Array<any>=[];
   Months = [
     "January",
     "February",
@@ -41,43 +45,45 @@ export class FinacailReportsComponent implements OnInit {
     this.Month = this.Months[date.getMonth()];
     this.students$ = this.selectService.select("user WHERE role = 'student'");
     this.getAccounting();
-    this.data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-        {
-          label: "Income",
-          backgroundColor: "#00d2d3",
-          borderColor: "#00d2d3",
-          data: [65, 59, 80, 81, 56, 55, 40]
-        },
-        {
-          label: "Expenses",
-          backgroundColor: "#ff9f43",
-          borderColor: "#ff9f43",
-          data: [28, 48, 40, 19, 86, 27, 90]
-        }
-      ]
-    };
 
-    this.data2 = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-        {
-          label: "Profit",
-          data: [65, 59, 80, 81, 56, 55, 40],
-          fill: false,
-          borderColor: "#4bc0c0"
-        },
-        {
-          label: "Loss",
-          data: [28, 48, 40, 19, 86, 27, 90],
-          fill: false,
-          borderColor: "#565656"
-        }
-      ]
-    };
   }
+loadGrhaph(){
+  this.data = {
+    labels: this.graphMonthsToDisplay,
+    datasets: [
+      {
+        label: "Income",
+        backgroundColor: "#00d2d3",
+        borderColor: "#00d2d3",
+        data:this.graphIncomeToDisplay
+      },
+      {
+        label: "Expenses",
+        backgroundColor: "#ff9f43",
+        borderColor: "#ff9f43",
+        data:this.graphExpensesToDisplay
+      }
+    ]
+  };
 
+  this.data2 = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [
+      {
+        label: "Profit",
+        data: [65, 59, 80, 81, 56, 55, 40],
+        fill: false,
+        borderColor: "#4bc0c0"
+      },
+      {
+        label: "Loss",
+        data: [28, 48, 40, 19, 86, 27, 90],
+        fill: false,
+        borderColor: "#565656"
+      }
+    ]
+  };
+}
   ngOnInit() {}
   getAccounting() {
     this.selectService
@@ -88,16 +94,18 @@ export class FinacailReportsComponent implements OnInit {
         this.accounting = data;
         console.log(this.accounting);
 
-        this.graphMonthsLS = this.accounting.map(x=>{
-          return {m:x.Month,v:x.Amount,t:x.AccountTypeID}
+        this.graphMonthsLS = this.accounting.map(x => {
+          return { m: x.Month, v: x.Amount, t: x.AccountTypeID };
         });
-        
-        console.log(this.graphMonthsLS);
-        
-        this.graphValuesLS = this.accounting.map(x=>x.Amount);
-        
-        this.incomeLS = this.accounting.filter(x => x.AccountTypeID == 1 && x.Month == this.Month);
-        this.expensesLS = this.accounting.filter(x => x.AccountTypeID == 2 && x.Month == this.Month);
+
+        this.calculateGraphValues();
+
+        this.incomeLS = this.accounting.filter(
+          x => x.AccountTypeID == 1 && x.Month == this.Month
+        );
+        this.expensesLS = this.accounting.filter(
+          x => x.AccountTypeID == 2 && x.Month == this.Month
+        );
         this.income = this.incomeLS.reduce((sum, accountingOject) => {
           return sum + Number(accountingOject.Amount);
         }, 0);
@@ -110,6 +118,45 @@ export class FinacailReportsComponent implements OnInit {
     this.selectedMonthIndex = this.Months.indexOf(
       this.Months.filter(x => x === this.Month)[0]
     );
-this.getAccounting();
+    this.getAccounting();
+  }
+  calculateGraphValues() {
+    console.log("calculateGraphValues", this.graphMonthsLS);
+    let months: Array<string> = [];
+    //select disctincs monts
+    this.graphMonthsLS.forEach(x => {
+      if (months.filter(m => m === x.m).length === 0) {
+        months.push(x.m);
+      }
+    });
+
+    // sort months
+    months.sort(function(a, b) {
+      return monthNamesOrder[a] - monthNamesOrder[b];
+    });
+    this.graphMonthsToDisplay = months;
+    //get total income & expenses for each month
+    this.graphMonthsToDisplay.forEach(x => {
+      let amountsForAmonth: Array<any> = this.graphMonthsLS.filter(
+        v => v.m === x
+      );
+      let totalExpensesForAmonth = 0;
+      let totalIncomeForAmonth = 0;
+
+      amountsForAmonth.forEach(afam => {
+        if (afam.t == 1) {
+          totalExpensesForAmonth += Number(afam.v);
+        } else {
+          totalIncomeForAmonth += Number(afam.v);
+        }
+      });
+      console.log(amountsForAmonth);
+      console.log(`totalExpensesForAmonth`, totalExpensesForAmonth);
+      console.log("totalIncomeForAmonth", totalIncomeForAmonth);
+
+      this.graphExpensesToDisplay.push(totalExpensesForAmonth)
+      this.graphIncomeToDisplay.push(totalIncomeForAmonth)
+    });
+    this.loadGrhaph();
   }
 }
