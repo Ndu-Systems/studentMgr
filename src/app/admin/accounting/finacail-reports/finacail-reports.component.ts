@@ -78,7 +78,7 @@ loadGrhaph(){
     labels: this.graphMonthsToDisplay,
     datasets: [
       {
-        label: "Rate",
+        label: "Financial growth",
         data: this.getRates(),
         fill: false,
         borderColor: "#8e44ad"

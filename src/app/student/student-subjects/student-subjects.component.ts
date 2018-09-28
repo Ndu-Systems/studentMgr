@@ -13,6 +13,8 @@ export class StudentSubjectsComponent implements OnInit {
   student : any;
   subjects : any[];
   message : any;
+  searchText;
+  p;
   constructor(
     private userDataService : UserDataService,
     private router:Router,

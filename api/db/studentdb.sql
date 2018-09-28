@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2018 at 07:33 PM
+-- Generation Time: Sep 28, 2018 at 10:11 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -53,10 +53,16 @@ INSERT INTO `accounting` (`AccountingId`, `Description`, `TypeId`, `Amount`, `Us
 (4, 'Test From Freedom', 1, '2000', 1, 'September', 1, '2018-09-13 21:44:59', '2018-09-13 21:44:59', 1, 1),
 (5, 'Test 2', 1, '2000', 1, 'September', 1, '2018-09-13 21:46:21', '2018-09-13 21:46:21', 1, 1),
 (6, 'Testing From Freedom ', 2, '20000', 1, 'September', 1, '2018-09-13 21:52:28', '2018-09-13 21:52:28', 1, 1),
-(7, 'Test New meth', 6, '1000000', 3, 'September', 1, '2018-09-16 17:22:11', '2018-09-16 17:22:11', 3, 1),
+(7, 'Test New meth', 6, '10000', 3, 'September', 1, '2018-09-16 17:22:11', '2018-09-16 17:22:11', 3, 1),
 (8, 'Hala back npwnwo', 3, '20828', 3, 'September', 1, '2018-09-16 17:59:12', '2018-09-16 17:59:12', 3, 1),
 (9, 'Payout', 4, '8000', 4, 'September', 1, '2018-09-16 18:43:19', '2018-09-16 18:43:19', 4, 1),
-(10, 'Bonus', 4, '5000', 4, 'September', 1, '2018-09-16 19:05:54', '2018-09-16 19:05:54', 4, 1);
+(10, 'Bonus', 4, '5000', 4, 'September', 1, '2018-09-16 19:05:54', '2018-09-16 19:05:54', 4, 1),
+(11, 'Salary', 4, '2500', 4, 'June', 1, '2018-09-26 22:00:59', '2018-09-26 22:00:59', 4, 1),
+(12, 'Salary', 4, '22000', 1, 'July', 1, '2018-09-26 22:04:32', '2018-09-26 22:04:32', 1, 1),
+(13, 'Salary', 4, '22000', 4, 'August', 1, '2018-09-26 22:05:20', '2018-09-26 22:05:20', 4, 1),
+(14, 'Pay', 3, '2055', 2, 'June', 1, '2018-09-26 22:27:30', '2018-09-26 22:27:30', 2, 1),
+(15, '302 Rent', 6, '2500', 3, 'July', 1, '2018-09-26 22:28:25', '2018-09-26 22:28:25', 3, 1),
+(16, '201 rent', 6, '2500', 3, 'August', 1, '2018-09-26 22:29:02', '2018-09-26 22:29:02', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -451,7 +457,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `accounting`
 --
 ALTER TABLE `accounting`
-  MODIFY `AccountingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `AccountingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `accounttypes`
@@ -517,7 +523,7 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

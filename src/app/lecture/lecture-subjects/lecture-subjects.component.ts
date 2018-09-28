@@ -14,6 +14,8 @@ export class LectureSubjectsComponent implements OnInit {
   lecture:any;
   lectureID: number;
   subjects: any[];
+  searchText;
+  p;
   constructor(
     private lectureService: LectureService
     ,private router: Router

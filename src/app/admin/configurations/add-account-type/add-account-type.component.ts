@@ -14,6 +14,7 @@ export class AddAccountTypeComponent implements OnInit {
   user;
   data;
   message;
+  accounttype;
   msgs: Message[] = [];
   accounttypes = [{ id: 1, title: "INCOME" }, { id: 2, title: "EXPENSE" }]
   constructor(private configurationService : ConfigurationsService, private router : Router) {

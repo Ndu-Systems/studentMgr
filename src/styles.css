@@ -59,8 +59,12 @@ h1, h2 , h3 {
 }
 .loading{
     position: absolute;
-    left: 50%;
     bottom: 50%;
+    width: 100%;
+    text-align: center;
+}
+.loading h1{
+    color: #fa8231;
 }
 table{
     border-radius: 10px;
