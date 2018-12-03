@@ -55,9 +55,9 @@ import { IncomeComponent } from "./admin/accounting/income/income.component";
 import { ExpenditureComponent } from "./admin/accounting/expenditures/expenditure/expenditure.component";
 import { NewIncomeComponent } from "./admin/accounting/income/new-income/new-income.component";
 import { ConfigurationsComponent, EditAccountTypeComponent, AddAccountTypeComponent, AllAccountTypesComponent } from "./admin/configurations";
-
+ 
 const routes: Routes = [
-  { path: "", component: LoginComponent },
+  { path: "", component: HomePageComponent },
   { path: "home", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
@@ -124,7 +124,7 @@ const routes: Routes = [
   {path : "add-account-type", component: AddAccountTypeComponent},
   {path : "edit-account-type/:id", component: EditAccountTypeComponent},
 
-  { path: "**", component: LoginComponent }
+  { path: "**", component: HomePageComponent }
 ];
 export const routingComponents = [
   HomePageComponent,
@@ -181,7 +181,8 @@ export const routingComponents = [
   ConfigurationsComponent,
   EditAccountTypeComponent,
   AddAccountTypeComponent,
-  AllAccountTypesComponent
+  AllAccountTypesComponent,
+  
 ];
 
 @NgModule({

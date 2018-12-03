@@ -1,46 +1,46 @@
-<app-nav-home></app-nav-home>
-<section class="banner-top">
-	<div class="banner">
-		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-			</ol>
-			<div class="carousel-inner" role="listbox">
-				<div class="carousel-item active">
-					<div class="carousel-caption">
-							<h1>Home away from home </h1>
-						<p>
-               Feel home while your studying
+<div class="body">
+	
+    <nav>
+        <figure>
+            <div id="logo"></div>
+            <figcaption>STUDENT<span>-IO</span></figcaption>
+        </figure>
+        <img src="assets/images/menu-donut.svg" alt="menu-tab-mobile">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#" class="button" routerLink="/login">Login</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="banner">
+            <h1>WE ARE STUDENT<span>-IO</span></h1>            
+            <p>
+                The system provides a 360-degree view over the students,
+                to manage their various needs and tracking their educational performance.
+                A single platform can offer an access to all these elements
+                and aid in tracking the data on the fly.
+                StudentMGR.IO is a web-based software which can be
+                accessed from anywhere and at any time.
             </p>
-            <a routerLink="/register">Sign Up <i class="fas fa-caret-right" aria-hidden="true"></i></a>
-            <a routerLink="/contact-us">Contact Us <i class="fas fa-caret-right" aria-hidden="true"></i></a>
+            <a href="#" class="cta">GET STARTED</a>
+        </div>       
+        <div class="img-banner">
+            <img src="assets/images/undraw_exams_g4ow.svg" alt="">
+        </div>
+    </main>
 
-					</div>
-				</div>
-				<div class="carousel-item item2">
-					<div class="carousel-caption">
-						<h3>Combined intelligence</h3>
-						<p>
-							That what the world needs
-						</p>
-            <a routerLink="/register">Sign Up <i class="fas fa-caret-right" aria-hidden="true"></i></a>
-            <a routerLink="/contact-us">Contact Us <i class="fas fa-caret-right" aria-hidden="true"></i></a>
-
-					</div>
-				</div>
-
-			</div>
-			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</div>
-	</section>
+    <!-- vanilla java script -->
+    <script>
+        (function () {
+            var menu = document.querySelector('ul'),
+                menuLink = document.querySelector('img');
+            menuLink.addEventListener('click', function (e) {
+                menu.classList.toggle('active');
+                e.preventDefault();
+            });
+        })();
+	</script>
+	
+</div>
