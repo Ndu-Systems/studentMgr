@@ -1,203 +1,259 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
-.body, html{
-    height: calc(100% - 2em);
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    font-family: 'Poppins'
+
+.body,
+html {
+  height: calc(100% - 2em);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Poppins'
 }
 
-.body{
-     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b92b27+0,1565c0+100 */
-        background: #1565c0; /* Old browsers */
-        background: -moz-linear-gradient(left, #b92b27 0%, #1565c0 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(left, #b92b27 0%,#1565c0 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to right, #b92b27 0%,#1565c0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b92b27', endColorstr='#1565c0',GradientType=1 ); /* IE6-9 */
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
+.body {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b92b27+0,1565c0+100 */
+  background: #1565c0;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #b92b27 0%, #1565c0 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #b92b27 0%, #1565c0 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #b92b27 0%, #1565c0 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b92b27', endColorstr='#1565c0', GradientType=1);
+  /* IE6-9 */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
 
-    nav{
-        
-        color: #ffffff;
-        display: grid;
-        grid-template-columns: auto 40px;
-        padding: 2em;
-    }
-
-    nav ul {
-        background: #ffffff;
-    }
-
-    img{
-        width: 40px;
-        cursor: pointer;
-    }
-
-    figure{
-        margin:0;
-    }
-
-    figcaption{
-        font-size: 1.5em;
-        font-weight: bold;
-    }
-    figcaption span{
-        color: #FF9933;
-    }
-
-    .active{
-        position: absolute;
-        display: block;
-        background: #fff;
-        width: 50%;
-        left: 0;
-        top:0;
-        height: 100%;
-    }
-
-    ul{
-        display: none;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    ul li a {
-        text-decoration: none;
-        text-transform: capitalize;
-        font-size: .8em;
-        display: block;
-        padding: 1.5em 3em;
-        color: #000000;
-    }
-
-    h1 {    
-        font-size: 50px;
-        font-weight: bold;
-        text-transform: capitalize;
-        margin:0;    
-        color: #000000;    
-    }
-    .name {       
-        font-size: 50px;
-        font-weight: bold;
-        text-transform: capitalize;
-        margin:0;        
-    }
-
-    h1 span {
-        color: #FF9933;
-    }
-
-    main{
-        background: #ffffff;
-        padding: 1em 1.4em;
-        background: #ffffff url(../../assets/images/mob-bg.svg) no-repeat bottom right;
-        height: 100%;
-    }
-
-    p {
-        font-size: 1.1em;
-        line-height: 1.5em;
-    }
-
-    .cta{
-        display: block;
-        color: #fff;
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1565c0+0,b92b27+100 */
-        background: #1565c0; /* Old browsers */
-        background: -moz-linear-gradient(left, #1565c0 0%, #b92b27 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(left, #1565c0 0%,#b92b27 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to right, #1565c0 0%,#b92b27 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1565c0', endColorstr='#b92b27',GradientType=1 ); /* IE6-9 */
-        text-decoration: none;
-        padding: 8px 50px;
-        font-size: 1.2em;
-        text-align: center;
-        font-weight: bold;
-        border-radius: 100px;
-        margin: 2em 0;
-    }
-  
-    .img-banner img{
-        display: none;
-    }
-    @media only screen and (min-width: 770px){
-        img{
-            display: none;
+/* Mobile Nav */
+.mobile-nav{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    animation: slideMenu 0.5s forwards 0s linear;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+@keyframes slideMenu{
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
         }
-        main{
-            padding: 4em;
-            height: 100%;
-            background: #ffffff url(../../assets/images/bg.svg) no-repeat bottom right;
-            background-size: 60%;
+    24%{
+        transform: translateX(-70px);
+        opacity: 0.3;
         }
+    50%{
+        transform: translateX(-40px);
+        opacity: 0.6;
+        }
+    79%{
+        transform: translateX(-20px);
+        opacity: 0.8;
+        }
+    100%{
+        transform: rotate(xx) translateX(0);
+        opacity: 1;
+        }
+}
+.mobile-nav ul {
+  display: block;
 
-        .cta{
-            width: 246px;             
-            /* font-size: 2.5em; */
-            
-        }
-                
-       nav ul {
-            display: block;
-            list-style: none;
-            background-color: transparent;
-            text-align: center;
-            padding: 0;
-            margin: 0;
-            color: #ffffff;
-            margin-left: 64rem;
-        } 
+}
 
-        nav {
-            background: transparent;
-            display: grid;
-            grid-template-columns: 20% auto;
-            padding: 0;
-        }
+/* end mobile nav */
+nav {
 
-        nav ul li {
-            float: left;          
-        }
-        
-        ul li a {
-            text-decoration: none;
-            text-transform: capitalize;
-            font-size: 14px;
-            display: block;
-            padding: 1.5em 3em;
-            color: #fff;
-        }
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: auto 40px;
+  padding: 2em;
+}
 
-        .banner p {
-            width: 40em;
-        }
+nav ul {
+  background: #ffffff;
+}
 
-        figure {
-            margin-left: 68px;
-            margin-top: 10px;
-        }
+img {
+  width: 40px;
+  cursor: pointer;
+}
 
-        ul li  .button {
-            background-color: #fff;
-            border: none;
-            color: #1565c0;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 100px;
-        }
+figure {
+  margin: 0;
+}
 
-        .img-banner img{
-            display: block;
-            width: 34rem;
-            margin-left: 22em;
-        }
-    }
+figcaption {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+figcaption span {
+  color: #FF9933;
+}
+
+.active {
+  position: absolute;
+  display: block;
+  background: #fff;
+  width: 50%;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+ul {
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li a {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: .8em;
+  display: block;
+  padding: 1.5em 3em;
+  color: #000000;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin: 0;
+  color: #000000;
+}
+
+.name {
+  font-size: 50px;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+h1 span {
+  color: #FF9933;
+}
+
+main {
+  background: #ffffff;
+  padding: 1em 1.4em;
+  background: #ffffff url(../../assets/images/mob-bg.svg) no-repeat bottom right;
+  height: 100%;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+
+.cta {
+  display: block;
+  color: #fff;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1565c0+0,b92b27+100 */
+  background: #1565c0;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #1565c0 0%, #b92b27 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #1565c0 0%, #b92b27 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #1565c0 0%, #b92b27 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1565c0', endColorstr='#b92b27', GradientType=1);
+  /* IE6-9 */
+  text-decoration: none;
+  padding: 8px 50px;
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 100px;
+  margin: 2em 0;
+}
+
+.img-banner img {
+  display: none;
+}
+
+@media only screen and (min-width: 770px) {
+  img ,.mobile-nav ul{
+    display: none;
+  }
+
+  main {
+    padding: 4em;
+    height: 100%;
+    background: #ffffff url(../../assets/images/bg.svg) no-repeat bottom right;
+    background-size: 60%;
+  }
+
+  .cta {
+    width: 246px;
+    /* font-size: 2.5em; */
+
+  }
+
+  nav ul {
+    display: block;
+    list-style: none;
+    background-color: transparent;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+    margin-left: 64rem;
+  }
+
+  nav {
+    background: transparent;
+    display: grid;
+    grid-template-columns: 20% auto;
+    padding: 0;
+  }
+
+  nav ul li {
+    float: left;
+  }
+
+  ul li a {
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 14px;
+    display: block;
+    padding: 1.5em 3em;
+    color: #fff;
+  }
+
+  .banner p {
+    width: 40em;
+  }
+
+  figure {
+    margin-left: 68px;
+    margin-top: 10px;
+  }
+
+  ul li .button {
+    background-color: #fff;
+    border: none;
+    color: #1565c0;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 100px;
+  }
+
+  .img-banner img {
+    display: block;
+    width: 34rem;
+    margin-left: 22em;
+  }
+}

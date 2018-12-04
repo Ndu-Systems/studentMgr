@@ -5,13 +5,22 @@
             <div id="logo"></div>
             <figcaption>STUDENT<span>-IO</span></figcaption>
         </figure>
-        <img src="assets/images/menu-donut.svg" alt="menu-tab-mobile">
+        <img src="assets/images/menu-donut.svg" (click)="toggleMobileMenu()" alt="menu-tab-mobile">
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#" class="button" routerLink="/login">Login</a></li>
         </ul>
+
+        <div class="mobile-nav" *ngIf="showMobileMenu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#" class="button" routerLink="/login">Login</a></li>
+            </ul>
+        </div>
     </nav>
     <main>
         <div class="banner">
